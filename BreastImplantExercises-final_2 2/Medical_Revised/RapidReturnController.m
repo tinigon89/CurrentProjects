@@ -256,7 +256,7 @@
 
 -(IBAction)showInstruction:(id)sender {
 	
-	[MTPopupWindow showWindowWithHTMLFile:@"RapidReturnExercises" insideView:self.view];
+	[MTPopupWindow showWindowWithHTMLFile:@"RapidReturnExercises" insideView:self.view viewController:self];
 	
 }
 

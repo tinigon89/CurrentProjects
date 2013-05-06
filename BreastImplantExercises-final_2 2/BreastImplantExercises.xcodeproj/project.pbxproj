@@ -610,15 +610,15 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Otto Placik";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Otto Placik";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nguyen Trung Hieu (87LW9G7H2Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nguyen Trung Hieu (87LW9G7H2Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
 				INFOPLIST_FILE = "Medical_Revised/BreastImplantExercises-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = BreastImplantExercises;
-				PROVISIONING_PROFILE = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				PROVISIONING_PROFILE = "FE31CCF6-D71F-4095-B4FA-4612F12B114C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE31CCF6-D71F-4095-B4FA-4612F12B114C";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -631,15 +631,15 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Otto Placik";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Otto Placik";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nguyen Trung Hieu (87LW9G7H2Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nguyen Trung Hieu (87LW9G7H2Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
 				INFOPLIST_FILE = "Medical_Revised/BreastImplantExercises-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = BreastImplantExercises;
-				PROVISIONING_PROFILE = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				PROVISIONING_PROFILE = "FE31CCF6-D71F-4095-B4FA-4612F12B114C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE31CCF6-D71F-4095-B4FA-4612F12B114C";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

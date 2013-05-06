@@ -112,7 +112,7 @@
 
 -(IBAction)showInstruction:(id)sender {
 	
-	[MTPopupWindow showWindowWithHTMLFile:@"BreastMassageInstructions" insideView:self.view];
+	[MTPopupWindow showWindowWithHTMLFile:@"BreastMassageInstructions" insideView:self.view viewController:self];
 	
 }
 -(IBAction)mainSwitchValueChanged:(id)sender{
