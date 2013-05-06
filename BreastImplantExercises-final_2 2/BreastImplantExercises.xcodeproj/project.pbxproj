@@ -1,0 +1,666 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C28BEDA31534990000543895 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA21534990000543895 /* UIKit.framework */; };
+		C28BEDA51534990000543895 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA41534990000543895 /* Foundation.framework */; };
+		C28BEDA71534990000543895 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA61534990000543895 /* CoreGraphics.framework */; };
+		C28BEDAD1534990000543895 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDAB1534990000543895 /* InfoPlist.strings */; };
+		C28BEDAF1534990000543895 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDAE1534990000543895 /* main.m */; };
+		C28BEDB31534990100543895 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDB21534990100543895 /* AppDelegate.m */; };
+		C28BEDD415349A2D00543895 /* DefaultExerciseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDBE15349A2D00543895 /* DefaultExerciseController.m */; };
+		C28BEDD515349A2D00543895 /* DefaultExerciseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDBF15349A2D00543895 /* DefaultExerciseController.xib */; };
+		C28BEDD615349A2D00543895 /* CustomExerciseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDC115349A2D00543895 /* CustomExerciseController.m */; };
+		C28BEDD715349A2D00543895 /* CustomExerciseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDC215349A2D00543895 /* CustomExerciseController.xib */; };
+		C28BEDD815349A2D00543895 /* MTPopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDC415349A2D00543895 /* MTPopupWindow.m */; };
+		C28BEDD915349A2D00543895 /* NewActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDC615349A2D00543895 /* NewActivityController.m */; };
+		C28BEDDA15349A2D00543895 /* NewActivityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDC715349A2D00543895 /* NewActivityController.xib */; };
+		C28BEDDB15349A2D00543895 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDC915349A2D00543895 /* RootViewController.m */; };
+		C28BEDDC15349A2D00543895 /* RapidReturnController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDCB15349A2D00543895 /* RapidReturnController.m */; };
+		C28BEDDD15349A2D00543895 /* RapidReturnController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDCC15349A2D00543895 /* RapidReturnController.xib */; };
+		C28BEDDF15349A2D00543895 /* BreastMassageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDCF15349A2D00543895 /* BreastMassageController.xib */; };
+		C28BEDE015349A2D00543895 /* NewBMExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDD115349A2D00543895 /* NewBMExercise.m */; };
+		C28BEDE115349A2D00543895 /* NewBMExercise.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDD215349A2D00543895 /* NewBMExercise.xib */; };
+		C28BEDE215349A2D00543895 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDD315349A2D00543895 /* RootViewController.xib */; };
+		C28BEDF115349AB900543895 /* text_x_generic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDEB15349AB900543895 /* text_x_generic@2x.png */; };
+		C28BEDF215349AB900543895 /* text_x_generic.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDEC15349AB900543895 /* text_x_generic.png */; };
+		C28BEDF315349AB900543895 /* RapidReturnExercises.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDED15349AB900543895 /* RapidReturnExercises.pdf */; };
+		C28BEDF415349AB900543895 /* Holder_2.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDEE15349AB900543895 /* Holder_2.png */; };
+		C28BEDF515349AB900543895 /* Holder.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDEF15349AB900543895 /* Holder.png */; };
+		C28BEDF615349AB900543895 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDF015349AB900543895 /* bg.png */; };
+		C28BEDFC15349ADA00543895 /* popupCloseBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDF815349ADA00543895 /* popupCloseBtn.png */; };
+		C28BEDFD15349ADA00543895 /* popupCloseBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDF915349ADA00543895 /* popupCloseBtn@2x.png */; };
+		C28BEDFE15349ADA00543895 /* popupWindowBack.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDFA15349ADA00543895 /* popupWindowBack.png */; };
+		C28BEDFF15349ADA00543895 /* popupWindowBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDFB15349ADA00543895 /* popupWindowBack@2x.png */; };
+		C28BEE0715349B7A00543895 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEE0615349B7A00543895 /* Exercise.m */; };
+		C28BEE0A15349D4500543895 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEE0915349D4500543895 /* libsqlite3.0.dylib */; };
+		C28BEE0C15349D5000543895 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEE0B15349D5000543895 /* QuartzCore.framework */; };
+		CE85C21F16AFFB570023C094 /* MKLocalNotificationsScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = CE85C21E16AFFB570023C094 /* MKLocalNotificationsScheduler.m */; };
+		CE85C23516B021F20023C094 /* BreastMassageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDCE15349A2D00543895 /* BreastMassageController.m */; };
+		DD7761AC15421EB6009740B4 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7761AB15421EB6009740B4 /* button.png */; };
+		DD7DFDBE154368EF0001FBEB /* Terms of User.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DD7DFDBD154368EF0001FBEB /* Terms of User.pdf */; };
+		DD98F53B1540A037008126B3 /* BreastMassageInstructions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DD98F53A1540A036008126B3 /* BreastMassageInstructions.pdf */; };
+		DDA657B1157AC270004E3F3E /* Alarm Chicken.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657A7157AC270004E3F3E /* Alarm Chicken.wav */; };
+		DDA657B2157AC270004E3F3E /* Because of You.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657A8157AC270004E3F3E /* Because of You.wav */; };
+		DDA657B3157AC270004E3F3E /* Gamma brainwaves.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657A9157AC270004E3F3E /* Gamma brainwaves.wav */; };
+		DDA657B4157AC270004E3F3E /* Love.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AA157AC270004E3F3E /* Love.wav */; };
+		DDA657B5157AC270004E3F3E /* Morning Glow.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AB157AC270004E3F3E /* Morning Glow.wav */; };
+		DDA657B6157AC270004E3F3E /* Morning Piano Nature.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AC157AC270004E3F3E /* Morning Piano Nature.wav */; };
+		DDA657B7157AC270004E3F3E /* Study Mix.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AD157AC270004E3F3E /* Study Mix.wav */; };
+		DDA657B8157AC270004E3F3E /* The Beauty of Nature.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AE157AC270004E3F3E /* The Beauty of Nature.wav */; };
+		DDA657B9157AC270004E3F3E /* Twilight Piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AF157AC270004E3F3E /* Twilight Piano.wav */; };
+		DDA657BA157AC270004E3F3E /* Wake Up Techno.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657B0157AC270004E3F3E /* Wake Up Techno.wav */; };
+		DDBBB5CA154352F100328ABB /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBBB5C8154352F100328ABB /* icon@2x.png */; };
+		DDBBB5CB154352F100328ABB /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBBB5C9154352F100328ABB /* icon.png */; };
+		DDBBB5CF15435A1500328ABB /* Disclaimer.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBBB5CE15435A1500328ABB /* Disclaimer.png */; };
+		DDBBB5D115435F8D00328ABB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBBB5D015435F8D00328ABB /* Default.png */; };
+		F10CDF66153DFA080026279C /* SampleDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = F10CDF65153DFA080026279C /* SampleDatabase.sqlite */; };
+		F17F4CA2153F39940008594F /* NewBMExerciseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17F4CA0153F39940008594F /* NewBMExerciseController.m */; };
+		F17F4CA3153F39940008594F /* NewBMExerciseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17F4CA1153F39940008594F /* NewBMExerciseController.xib */; };
+		F182B0901556402800C73F6D /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F182B08F1556402800C73F6D /* AppManager.m */; };
+		F18B9A451562C95C00466FB8 /* AlarmSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18B9A431562C95C00466FB8 /* AlarmSoundViewController.m */; };
+		F18B9A461562C95C00466FB8 /* AlarmSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18B9A441562C95C00466FB8 /* AlarmSoundViewController.xib */; };
+		F18B9A5D1562D20F00466FB8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18B9A5C1562D20F00466FB8 /* AudioToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C28BED9E1534990000543895 /* BreastImplantExercises.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreastImplantExercises.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C28BEDA21534990000543895 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C28BEDA41534990000543895 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C28BEDA61534990000543895 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C28BEDAA1534990000543895 /* BreastImplantExercises-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BreastImplantExercises-Info.plist"; sourceTree = "<group>"; };
+		C28BEDAC1534990000543895 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C28BEDAE1534990000543895 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C28BEDB01534990000543895 /* BreastImplantExercises-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BreastImplantExercises-Prefix.pch"; sourceTree = "<group>"; };
+		C28BEDB11534990100543895 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C28BEDB21534990100543895 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C28BEDBB153499E800543895 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C28BEDBD15349A2D00543895 /* DefaultExerciseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultExerciseController.h; sourceTree = "<group>"; };
+		C28BEDBE15349A2D00543895 /* DefaultExerciseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultExerciseController.m; sourceTree = "<group>"; };
+		C28BEDBF15349A2D00543895 /* DefaultExerciseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultExerciseController.xib; sourceTree = "<group>"; };
+		C28BEDC015349A2D00543895 /* CustomExerciseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomExerciseController.h; sourceTree = "<group>"; };
+		C28BEDC115349A2D00543895 /* CustomExerciseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomExerciseController.m; sourceTree = "<group>"; };
+		C28BEDC215349A2D00543895 /* CustomExerciseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomExerciseController.xib; sourceTree = "<group>"; };
+		C28BEDC315349A2D00543895 /* MTPopupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPopupWindow.h; sourceTree = "<group>"; };
+		C28BEDC415349A2D00543895 /* MTPopupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPopupWindow.m; sourceTree = "<group>"; };
+		C28BEDC515349A2D00543895 /* NewActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewActivityController.h; sourceTree = "<group>"; };
+		C28BEDC615349A2D00543895 /* NewActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewActivityController.m; sourceTree = "<group>"; };
+		C28BEDC715349A2D00543895 /* NewActivityController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewActivityController.xib; sourceTree = "<group>"; };
+		C28BEDC815349A2D00543895 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		C28BEDC915349A2D00543895 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		C28BEDCA15349A2D00543895 /* RapidReturnController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RapidReturnController.h; sourceTree = "<group>"; };
+		C28BEDCB15349A2D00543895 /* RapidReturnController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RapidReturnController.m; sourceTree = "<group>"; };
+		C28BEDCC15349A2D00543895 /* RapidReturnController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RapidReturnController.xib; sourceTree = "<group>"; };
+		C28BEDCD15349A2D00543895 /* BreastMassageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreastMassageController.h; sourceTree = "<group>"; };
+		C28BEDCE15349A2D00543895 /* BreastMassageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreastMassageController.m; sourceTree = "<group>"; };
+		C28BEDCF15349A2D00543895 /* BreastMassageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BreastMassageController.xib; sourceTree = "<group>"; };
+		C28BEDD015349A2D00543895 /* NewBMExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBMExercise.h; sourceTree = "<group>"; };
+		C28BEDD115349A2D00543895 /* NewBMExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBMExercise.m; sourceTree = "<group>"; };
+		C28BEDD215349A2D00543895 /* NewBMExercise.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBMExercise.xib; sourceTree = "<group>"; };
+		C28BEDD315349A2D00543895 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		C28BEDEB15349AB900543895 /* text_x_generic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text_x_generic@2x.png"; sourceTree = "<group>"; };
+		C28BEDEC15349AB900543895 /* text_x_generic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_x_generic.png; sourceTree = "<group>"; };
+		C28BEDED15349AB900543895 /* RapidReturnExercises.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = RapidReturnExercises.pdf; sourceTree = "<group>"; };
+		C28BEDEE15349AB900543895 /* Holder_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Holder_2.png; sourceTree = "<group>"; };
+		C28BEDEF15349AB900543895 /* Holder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Holder.png; sourceTree = "<group>"; };
+		C28BEDF015349AB900543895 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		C28BEDF815349ADA00543895 /* popupCloseBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupCloseBtn.png; sourceTree = "<group>"; };
+		C28BEDF915349ADA00543895 /* popupCloseBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popupCloseBtn@2x.png"; sourceTree = "<group>"; };
+		C28BEDFA15349ADA00543895 /* popupWindowBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupWindowBack.png; sourceTree = "<group>"; };
+		C28BEDFB15349ADA00543895 /* popupWindowBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popupWindowBack@2x.png"; sourceTree = "<group>"; };
+		C28BEE0515349B7A00543895 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
+		C28BEE0615349B7A00543895 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
+		C28BEE0915349D4500543895 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		C28BEE0B15349D5000543895 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CE85C21D16AFFB570023C094 /* MKLocalNotificationsScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKLocalNotificationsScheduler.h; sourceTree = "<group>"; };
+		CE85C21E16AFFB570023C094 /* MKLocalNotificationsScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKLocalNotificationsScheduler.m; sourceTree = "<group>"; };
+		DD680CBA1565C1520027DE87 /* BreastImplantExercises.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BreastImplantExercises.entitlements; sourceTree = "<group>"; };
+		DD7761AB15421EB6009740B4 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		DD7DFDBD154368EF0001FBEB /* Terms of User.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Terms of User.pdf"; sourceTree = "<group>"; };
+		DD98F53A1540A036008126B3 /* BreastMassageInstructions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BreastMassageInstructions.pdf; sourceTree = "<group>"; };
+		DDA657A7157AC270004E3F3E /* Alarm Chicken.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Alarm Chicken.wav"; sourceTree = "<group>"; };
+		DDA657A8157AC270004E3F3E /* Because of You.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Because of You.wav"; sourceTree = "<group>"; };
+		DDA657A9157AC270004E3F3E /* Gamma brainwaves.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Gamma brainwaves.wav"; sourceTree = "<group>"; };
+		DDA657AA157AC270004E3F3E /* Love.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Love.wav; sourceTree = "<group>"; };
+		DDA657AB157AC270004E3F3E /* Morning Glow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Morning Glow.wav"; sourceTree = "<group>"; };
+		DDA657AC157AC270004E3F3E /* Morning Piano Nature.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Morning Piano Nature.wav"; sourceTree = "<group>"; };
+		DDA657AD157AC270004E3F3E /* Study Mix.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Study Mix.wav"; sourceTree = "<group>"; };
+		DDA657AE157AC270004E3F3E /* The Beauty of Nature.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "The Beauty of Nature.wav"; sourceTree = "<group>"; };
+		DDA657AF157AC270004E3F3E /* Twilight Piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Twilight Piano.wav"; sourceTree = "<group>"; };
+		DDA657B0157AC270004E3F3E /* Wake Up Techno.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Wake Up Techno.wav"; sourceTree = "<group>"; };
+		DDBBB5C8154352F100328ABB /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		DDBBB5C9154352F100328ABB /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		DDBBB5CE15435A1500328ABB /* Disclaimer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Disclaimer.png; sourceTree = "<group>"; };
+		DDBBB5D015435F8D00328ABB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F10CDF65153DFA080026279C /* SampleDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleDatabase.sqlite; sourceTree = "<group>"; };
+		F17F4C9F153F39940008594F /* NewBMExerciseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBMExerciseController.h; sourceTree = "<group>"; };
+		F17F4CA0153F39940008594F /* NewBMExerciseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBMExerciseController.m; sourceTree = "<group>"; };
+		F17F4CA1153F39940008594F /* NewBMExerciseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBMExerciseController.xib; sourceTree = "<group>"; };
+		F182B08E1556402800C73F6D /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
+		F182B08F1556402800C73F6D /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
+		F18B9A421562C95C00466FB8 /* AlarmSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmSoundViewController.h; sourceTree = "<group>"; };
+		F18B9A431562C95C00466FB8 /* AlarmSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmSoundViewController.m; sourceTree = "<group>"; };
+		F18B9A441562C95C00466FB8 /* AlarmSoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmSoundViewController.xib; sourceTree = "<group>"; };
+		F18B9A5A1562CFF800466FB8 /* AlarmControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmControllerDelegate.h; sourceTree = "<group>"; };
+		F18B9A5C1562D20F00466FB8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C28BED9B1534990000543895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F18B9A5D1562D20F00466FB8 /* AudioToolbox.framework in Frameworks */,
+				C28BEE0C15349D5000543895 /* QuartzCore.framework in Frameworks */,
+				C28BEE0A15349D4500543895 /* libsqlite3.0.dylib in Frameworks */,
+				C28BEDA31534990000543895 /* UIKit.framework in Frameworks */,
+				C28BEDA51534990000543895 /* Foundation.framework in Frameworks */,
+				C28BEDA71534990000543895 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C28BED931534990000543895 = {
+			isa = PBXGroup;
+			children = (
+				DD680CBA1565C1520027DE87 /* BreastImplantExercises.entitlements */,
+				DDBBB5D015435F8D00328ABB /* Default.png */,
+				C28BEDA81534990000543895 /* Medical_Revised */,
+				C28BEDA11534990000543895 /* Frameworks */,
+				C28BED9F1534990000543895 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C28BED9F1534990000543895 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C28BED9E1534990000543895 /* BreastImplantExercises.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C28BEDA11534990000543895 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F18B9A5C1562D20F00466FB8 /* AudioToolbox.framework */,
+				C28BEE0B15349D5000543895 /* QuartzCore.framework */,
+				C28BEE0915349D4500543895 /* libsqlite3.0.dylib */,
+				C28BEDA21534990000543895 /* UIKit.framework */,
+				C28BEDA41534990000543895 /* Foundation.framework */,
+				C28BEDA61534990000543895 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C28BEDA81534990000543895 /* Medical_Revised */ = {
+			isa = PBXGroup;
+			children = (
+				DDA657A6157AC270004E3F3E /* Sound */,
+				C28BEDB9153499BE00543895 /* AppDelegate */,
+				C28BEE0815349B7F00543895 /* Exercise */,
+				C28BEDA91534990000543895 /* Supporting Files */,
+				C28BEDBA153499CC00543895 /* ViewControllers */,
+			);
+			path = Medical_Revised;
+			sourceTree = "<group>";
+		};
+		C28BEDA91534990000543895 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDF715349ABF00543895 /* AppResources */,
+				DD7761AB15421EB6009740B4 /* button.png */,
+				DD7DFDBD154368EF0001FBEB /* Terms of User.pdf */,
+				DDBBB5CE15435A1500328ABB /* Disclaimer.png */,
+				DDBBB5C8154352F100328ABB /* icon@2x.png */,
+				DDBBB5C9154352F100328ABB /* icon.png */,
+				DD98F53A1540A036008126B3 /* BreastMassageInstructions.pdf */,
+				F10CDF65153DFA080026279C /* SampleDatabase.sqlite */,
+				C28BEDBB153499E800543895 /* Constants.h */,
+				C28BEDAA1534990000543895 /* BreastImplantExercises-Info.plist */,
+				C28BEDAB1534990000543895 /* InfoPlist.strings */,
+				C28BEDAE1534990000543895 /* main.m */,
+				C28BEDB01534990000543895 /* BreastImplantExercises-Prefix.pch */,
+				F182B08E1556402800C73F6D /* AppManager.h */,
+				F182B08F1556402800C73F6D /* AppManager.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C28BEDB9153499BE00543895 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDB11534990100543895 /* AppDelegate.h */,
+				C28BEDB21534990100543895 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C28BEDBA153499CC00543895 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE85C21B16AFFB1F0023C094 /* defaultnotification */,
+				F18B9A401562C91D00466FB8 /* Choose Alarm Sound */,
+				C28BEDE315349A3D00543895 /* DefaultExerciseController */,
+				C28BEDE415349A4B00543895 /* CustomExerciseController */,
+				C28BEDE515349A5A00543895 /* Custom Popup */,
+				C28BEDE615349A6500543895 /* New Activity */,
+				C28BEDE715349A6E00543895 /* RootViewController */,
+				C28BEDE815349A7A00543895 /* Rapid Return */,
+				C28BEDE915349A8600543895 /* BreastMassageController */,
+				C28BEDEA15349A9400543895 /* NewBMController */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C28BEDE315349A3D00543895 /* DefaultExerciseController */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDBD15349A2D00543895 /* DefaultExerciseController.h */,
+				C28BEDBE15349A2D00543895 /* DefaultExerciseController.m */,
+				C28BEDBF15349A2D00543895 /* DefaultExerciseController.xib */,
+			);
+			name = DefaultExerciseController;
+			sourceTree = "<group>";
+		};
+		C28BEDE415349A4B00543895 /* CustomExerciseController */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDC015349A2D00543895 /* CustomExerciseController.h */,
+				C28BEDC115349A2D00543895 /* CustomExerciseController.m */,
+				C28BEDC215349A2D00543895 /* CustomExerciseController.xib */,
+			);
+			name = CustomExerciseController;
+			sourceTree = "<group>";
+		};
+		C28BEDE515349A5A00543895 /* Custom Popup */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDC315349A2D00543895 /* MTPopupWindow.h */,
+				C28BEDC415349A2D00543895 /* MTPopupWindow.m */,
+				C28BEE0015349ADE00543895 /* Graphics */,
+			);
+			name = "Custom Popup";
+			sourceTree = "<group>";
+		};
+		C28BEDE615349A6500543895 /* New Activity */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDC515349A2D00543895 /* NewActivityController.h */,
+				C28BEDC615349A2D00543895 /* NewActivityController.m */,
+				C28BEDC715349A2D00543895 /* NewActivityController.xib */,
+			);
+			name = "New Activity";
+			sourceTree = "<group>";
+		};
+		C28BEDE715349A6E00543895 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDC815349A2D00543895 /* RootViewController.h */,
+				C28BEDC915349A2D00543895 /* RootViewController.m */,
+				C28BEDD315349A2D00543895 /* RootViewController.xib */,
+			);
+			name = RootViewController;
+			sourceTree = "<group>";
+		};
+		C28BEDE815349A7A00543895 /* Rapid Return */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDCA15349A2D00543895 /* RapidReturnController.h */,
+				C28BEDCB15349A2D00543895 /* RapidReturnController.m */,
+				C28BEDCC15349A2D00543895 /* RapidReturnController.xib */,
+			);
+			name = "Rapid Return";
+			sourceTree = "<group>";
+		};
+		C28BEDE915349A8600543895 /* BreastMassageController */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDCD15349A2D00543895 /* BreastMassageController.h */,
+				C28BEDCE15349A2D00543895 /* BreastMassageController.m */,
+				C28BEDCF15349A2D00543895 /* BreastMassageController.xib */,
+			);
+			name = BreastMassageController;
+			sourceTree = "<group>";
+		};
+		C28BEDEA15349A9400543895 /* NewBMController */ = {
+			isa = PBXGroup;
+			children = (
+				F17F4C9F153F39940008594F /* NewBMExerciseController.h */,
+				F17F4CA0153F39940008594F /* NewBMExerciseController.m */,
+				F17F4CA1153F39940008594F /* NewBMExerciseController.xib */,
+				C28BEDD015349A2D00543895 /* NewBMExercise.h */,
+				C28BEDD115349A2D00543895 /* NewBMExercise.m */,
+				C28BEDD215349A2D00543895 /* NewBMExercise.xib */,
+			);
+			name = NewBMController;
+			sourceTree = "<group>";
+		};
+		C28BEDF715349ABF00543895 /* AppResources */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDEB15349AB900543895 /* text_x_generic@2x.png */,
+				C28BEDEC15349AB900543895 /* text_x_generic.png */,
+				C28BEDED15349AB900543895 /* RapidReturnExercises.pdf */,
+				C28BEDEE15349AB900543895 /* Holder_2.png */,
+				C28BEDEF15349AB900543895 /* Holder.png */,
+				C28BEDF015349AB900543895 /* bg.png */,
+			);
+			name = AppResources;
+			sourceTree = "<group>";
+		};
+		C28BEE0015349ADE00543895 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEDF815349ADA00543895 /* popupCloseBtn.png */,
+				C28BEDF915349ADA00543895 /* popupCloseBtn@2x.png */,
+				C28BEDFA15349ADA00543895 /* popupWindowBack.png */,
+				C28BEDFB15349ADA00543895 /* popupWindowBack@2x.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		C28BEE0815349B7F00543895 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				C28BEE0515349B7A00543895 /* Exercise.h */,
+				C28BEE0615349B7A00543895 /* Exercise.m */,
+			);
+			name = Exercise;
+			sourceTree = "<group>";
+		};
+		CE85C21B16AFFB1F0023C094 /* defaultnotification */ = {
+			isa = PBXGroup;
+			children = (
+				CE85C21D16AFFB570023C094 /* MKLocalNotificationsScheduler.h */,
+				CE85C21E16AFFB570023C094 /* MKLocalNotificationsScheduler.m */,
+			);
+			name = defaultnotification;
+			sourceTree = "<group>";
+		};
+		DDA657A6157AC270004E3F3E /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				DDA657A7157AC270004E3F3E /* Alarm Chicken.wav */,
+				DDA657A8157AC270004E3F3E /* Because of You.wav */,
+				DDA657A9157AC270004E3F3E /* Gamma brainwaves.wav */,
+				DDA657AA157AC270004E3F3E /* Love.wav */,
+				DDA657AB157AC270004E3F3E /* Morning Glow.wav */,
+				DDA657AC157AC270004E3F3E /* Morning Piano Nature.wav */,
+				DDA657AD157AC270004E3F3E /* Study Mix.wav */,
+				DDA657AE157AC270004E3F3E /* The Beauty of Nature.wav */,
+				DDA657AF157AC270004E3F3E /* Twilight Piano.wav */,
+				DDA657B0157AC270004E3F3E /* Wake Up Techno.wav */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		F18B9A401562C91D00466FB8 /* Choose Alarm Sound */ = {
+			isa = PBXGroup;
+			children = (
+				F18B9A5B1562D07100466FB8 /* AlarmControllerDelegate */,
+				F18B9A421562C95C00466FB8 /* AlarmSoundViewController.h */,
+				F18B9A431562C95C00466FB8 /* AlarmSoundViewController.m */,
+				F18B9A441562C95C00466FB8 /* AlarmSoundViewController.xib */,
+			);
+			name = "Choose Alarm Sound";
+			sourceTree = "<group>";
+		};
+		F18B9A5B1562D07100466FB8 /* AlarmControllerDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				F18B9A5A1562CFF800466FB8 /* AlarmControllerDelegate.h */,
+			);
+			name = AlarmControllerDelegate;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C28BED9D1534990000543895 /* BreastImplantExercises */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C28BEDB61534990100543895 /* Build configuration list for PBXNativeTarget "BreastImplantExercises" */;
+			buildPhases = (
+				C28BED9A1534990000543895 /* Sources */,
+				C28BED9B1534990000543895 /* Frameworks */,
+				C28BED9C1534990000543895 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BreastImplantExercises;
+			productName = Medical_Revised;
+			productReference = C28BED9E1534990000543895 /* BreastImplantExercises.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C28BED951534990000543895 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = C28BED981534990000543895 /* Build configuration list for PBXProject "BreastImplantExercises" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C28BED931534990000543895;
+			productRefGroup = C28BED9F1534990000543895 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C28BED9D1534990000543895 /* BreastImplantExercises */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C28BED9C1534990000543895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28BEDAD1534990000543895 /* InfoPlist.strings in Resources */,
+				C28BEDD515349A2D00543895 /* DefaultExerciseController.xib in Resources */,
+				C28BEDD715349A2D00543895 /* CustomExerciseController.xib in Resources */,
+				C28BEDDA15349A2D00543895 /* NewActivityController.xib in Resources */,
+				C28BEDDD15349A2D00543895 /* RapidReturnController.xib in Resources */,
+				C28BEDDF15349A2D00543895 /* BreastMassageController.xib in Resources */,
+				C28BEDE115349A2D00543895 /* NewBMExercise.xib in Resources */,
+				C28BEDE215349A2D00543895 /* RootViewController.xib in Resources */,
+				C28BEDF115349AB900543895 /* text_x_generic@2x.png in Resources */,
+				C28BEDF215349AB900543895 /* text_x_generic.png in Resources */,
+				C28BEDF315349AB900543895 /* RapidReturnExercises.pdf in Resources */,
+				C28BEDF415349AB900543895 /* Holder_2.png in Resources */,
+				C28BEDF515349AB900543895 /* Holder.png in Resources */,
+				C28BEDF615349AB900543895 /* bg.png in Resources */,
+				C28BEDFC15349ADA00543895 /* popupCloseBtn.png in Resources */,
+				C28BEDFD15349ADA00543895 /* popupCloseBtn@2x.png in Resources */,
+				C28BEDFE15349ADA00543895 /* popupWindowBack.png in Resources */,
+				C28BEDFF15349ADA00543895 /* popupWindowBack@2x.png in Resources */,
+				F10CDF66153DFA080026279C /* SampleDatabase.sqlite in Resources */,
+				F17F4CA3153F39940008594F /* NewBMExerciseController.xib in Resources */,
+				DD98F53B1540A037008126B3 /* BreastMassageInstructions.pdf in Resources */,
+				DD7761AC15421EB6009740B4 /* button.png in Resources */,
+				DDBBB5CA154352F100328ABB /* icon@2x.png in Resources */,
+				DDBBB5CB154352F100328ABB /* icon.png in Resources */,
+				DDBBB5CF15435A1500328ABB /* Disclaimer.png in Resources */,
+				DDBBB5D115435F8D00328ABB /* Default.png in Resources */,
+				DD7DFDBE154368EF0001FBEB /* Terms of User.pdf in Resources */,
+				F18B9A461562C95C00466FB8 /* AlarmSoundViewController.xib in Resources */,
+				DDA657B1157AC270004E3F3E /* Alarm Chicken.wav in Resources */,
+				DDA657B2157AC270004E3F3E /* Because of You.wav in Resources */,
+				DDA657B3157AC270004E3F3E /* Gamma brainwaves.wav in Resources */,
+				DDA657B4157AC270004E3F3E /* Love.wav in Resources */,
+				DDA657B5157AC270004E3F3E /* Morning Glow.wav in Resources */,
+				DDA657B6157AC270004E3F3E /* Morning Piano Nature.wav in Resources */,
+				DDA657B7157AC270004E3F3E /* Study Mix.wav in Resources */,
+				DDA657B8157AC270004E3F3E /* The Beauty of Nature.wav in Resources */,
+				DDA657B9157AC270004E3F3E /* Twilight Piano.wav in Resources */,
+				DDA657BA157AC270004E3F3E /* Wake Up Techno.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C28BED9A1534990000543895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28BEDAF1534990000543895 /* main.m in Sources */,
+				C28BEDB31534990100543895 /* AppDelegate.m in Sources */,
+				C28BEDD415349A2D00543895 /* DefaultExerciseController.m in Sources */,
+				C28BEDD615349A2D00543895 /* CustomExerciseController.m in Sources */,
+				C28BEDD815349A2D00543895 /* MTPopupWindow.m in Sources */,
+				C28BEDD915349A2D00543895 /* NewActivityController.m in Sources */,
+				C28BEDDB15349A2D00543895 /* RootViewController.m in Sources */,
+				C28BEDDC15349A2D00543895 /* RapidReturnController.m in Sources */,
+				C28BEDE015349A2D00543895 /* NewBMExercise.m in Sources */,
+				C28BEE0715349B7A00543895 /* Exercise.m in Sources */,
+				F17F4CA2153F39940008594F /* NewBMExerciseController.m in Sources */,
+				F182B0901556402800C73F6D /* AppManager.m in Sources */,
+				F18B9A451562C95C00466FB8 /* AlarmSoundViewController.m in Sources */,
+				CE85C21F16AFFB570023C094 /* MKLocalNotificationsScheduler.m in Sources */,
+				CE85C23516B021F20023C094 /* BreastMassageController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C28BEDAB1534990000543895 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C28BEDAC1534990000543895 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C28BEDB41534990100543895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Otto Placik";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Otto Placik";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C28BEDB51534990100543895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Otto Placik";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Otto Placik";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FB18BF60-8362-4653-93FB-CCFFAECFF796";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C28BEDB71534990100543895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Otto Placik";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Otto Placik";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
+				INFOPLIST_FILE = "Medical_Revised/BreastImplantExercises-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = BreastImplantExercises;
+				PROVISIONING_PROFILE = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C28BEDB81534990100543895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Otto Placik";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Otto Placik";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
+				INFOPLIST_FILE = "Medical_Revised/BreastImplantExercises-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = BreastImplantExercises;
+				PROVISIONING_PROFILE = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C28BED981534990000543895 /* Build configuration list for PBXProject "BreastImplantExercises" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C28BEDB41534990100543895 /* Debug */,
+				C28BEDB51534990100543895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C28BEDB61534990100543895 /* Build configuration list for PBXNativeTarget "BreastImplantExercises" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C28BEDB71534990100543895 /* Debug */,
+				C28BEDB81534990100543895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C28BED951534990000543895 /* Project object */;
+}
