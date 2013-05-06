@@ -25,7 +25,6 @@
 @synthesize btnSelectAlarm;
 @synthesize index;
 @synthesize doneButtonItem;
-@synthesize alarmString;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -57,8 +56,10 @@
     //[doneButtonItem setEnabled:NO];
     [self.navigationItem setRightBarButtonItem:doneBtn];
     [self.navigationItem setLeftBarButtonItem:cancelBtn];
-    alarmString = @"Alarm Chicken";
-    [self.btnSelectAlarm setTitle:alarmString forState:UIControlStateNormal];
+//    alarmString = @"Alarm Chicken";
+//    [self.btnSelectAlarm setTitle:alarmString forState:UIControlStateNormal];
+    userDefault = [NSUserDefaults standardUserDefaults];
+    dictionaryKey = [[NSString alloc] initWithFormat:@"BMExercise %@ - %i",exercise.name,exercise.exerciseId];
     
 }
 
@@ -67,18 +68,42 @@
 }
 -(void)done:(id)sender{
     //if(mainSwitch.isOn){
-        [self activateExercise];
+        //[self activateExercise];
+    [self saveSettings];
+    if (mainSwitch.isOn) {
+        [self scheduleAlarms:NO];
+        [self scheduleAlarms:YES];
+    }
         [self.navigationController popViewControllerAnimated:YES];
     //}
 }
--(IBAction)mainSwitchValueChanged:(id)sender{
-    /*if(mainSwitch.isOn){
-        [self.doneButtonItem setEnabled:YES];
+
+- (void)saveSettings
+{
+    NSMutableDictionary *oldSetting = [userDefault objectForKey:dictionaryKey];
+    
+    NSMutableDictionary *settingDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:leftSound,KLeftSound,rightSound,KRightSound,leftFreq,KLeftFrequency,rightFreq,KRightFrequency,leftStartDay,KLeftStartDays,leftEndDay,KLeftEndDays,rightStartDay,KRightStartDays,rightEndDay,KRightEndDays,[NSNumber numberWithBool:isLeft],KIsLeft, nil];
+    if ([oldSetting objectForKey:KLeftLocalNotification]) {
+        [settingDic setObject:[oldSetting objectForKey:KLeftLocalNotification] forKey:KLeftLocalNotification];
+    }
+    if ([oldSetting objectForKey:KRightLocalNotification]) {
+        [settingDic setObject:[oldSetting objectForKey:KRightLocalNotification] forKey:KRightLocalNotification];
+    }
+    [userDefault setObject:settingDic forKey:dictionaryKey];
+    [userDefault synchronize];
+    
+}
+
+-(IBAction)mainSwitchValueChanged:(id)sender
+{
+    if (segmentedControl.selectedSegmentIndex == 0) {
+        isLeft = YES;
     }
     else{
-        [self.doneButtonItem setEnabled:NO];
-    }*/
-       
+        isLeft = NO;
+    }
+    
+    [self reloadSettings];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -102,67 +127,121 @@
 }
 
 -(void)loadSettings{
-    // to load settings for this specific exercise
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *array = [defaults objectForKey:KBreastMassageArray];
-    NSDictionary *dict = [array objectAtIndex:index];
-    //
-    NSString *buttonTitle = [NSString stringWithFormat:@"%@", [dict objectForKey:KFrequency]];
-	[frequncyBtn setTitle:buttonTitle forState:UIControlStateNormal];
-    //
-    
-    NSString *daysString = [NSString stringWithFormat:@"%i",[[dict objectForKey:KDays] intValue]];
-    [endBtn setTitle:daysString forState:UIControlStateNormal];
-    
-    NSString *startDaysString = [NSString stringWithFormat:@"%i",[[dict objectForKey:KStartDays] intValue]];
-    [startBtn setTitle:startDaysString forState:UIControlStateNormal];
-    
-    [mainSwitch setOn:[[dict objectForKey:KIsOn]boolValue]];
-    
-    if([[dict objectForKey:KIsLeft] boolValue]){
+//    // to load settings for this specific exercise
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSArray *array = [defaults objectForKey:KBreastMassageArray];
+//    NSDictionary *dict = [array objectAtIndex:index];
+//    //
+//    NSString *buttonTitle = [NSString stringWithFormat:@"%@", [dict objectForKey:KFrequency]];
+//	[frequncyBtn setTitle:buttonTitle forState:UIControlStateNormal];
+//    //
+//    
+//    NSString *daysString = [NSString stringWithFormat:@"%i",[[dict objectForKey:KDays] intValue]];
+//    [endBtn setTitle:daysString forState:UIControlStateNormal];
+//    
+//    NSString *startDaysString = [NSString stringWithFormat:@"%i",[[dict objectForKey:KStartDays] intValue]];
+//    [startBtn setTitle:startDaysString forState:UIControlStateNormal];
+//    
+//    [mainSwitch setOn:[[dict objectForKey:KIsOn]boolValue]];
+//    
+//    if([[dict objectForKey:KIsLeft] boolValue]){
+//        [segmentedControl setSelectedSegmentIndex:0];
+//    }
+//    else{
+//        [segmentedControl setSelectedSegmentIndex:1];
+//    }  
+    NSMutableDictionary *settingDic = [userDefault objectForKey:dictionaryKey];
+    if (!settingDic) {
+        NSDate *date = [NSDate date];
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+        NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
+        [components setHour: 10];
+        [components setMinute: 0];
+        [components setSecond: 0];
+        
+        NSDate *startDate = [gregorian dateFromComponents: components];
+        [components setHour: 22];
+        [components setMinute: 0];
+        [components setSecond: 0];
+        NSDate *endDate = [gregorian dateFromComponents: components];
+        [gregorian release];
+        settingDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"3 Beeps",KLeftSound,@"3 Beeps",KRightSound,@"5",KLeftFrequency,@"5",KRightFrequency,startDate,KLeftStartDays,endDate,KLeftEndDays,startDate,KRightStartDays,endDate,KRightEndDays,[NSNumber numberWithBool:YES],KIsLeft, nil];
+        [userDefault setObject:settingDic forKey:dictionaryKey];
+        [userDefault synchronize];
+    }
+    isLeft = [[settingDic objectForKey:KIsLeft] boolValue];
+    leftSound = [settingDic objectForKey:KLeftSound];
+    rightSound = [settingDic objectForKey:KRightSound];
+    leftFreq = [settingDic objectForKey:KLeftFrequency];
+    rightFreq = [settingDic objectForKey:KRightFrequency];
+    leftStartDay = [settingDic objectForKey:KLeftStartDays];
+    leftEndDay = [settingDic objectForKey:KLeftEndDays];
+    rightStartDay = [settingDic objectForKey:KRightStartDays];
+    rightEndDay = [settingDic objectForKey:KRightEndDays];
+    [self reloadSettings];
+}
+
+- (void)reloadSettings
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"y-MM-dd HH:mm"];
+    if (isLeft) {
         [segmentedControl setSelectedSegmentIndex:0];
+        [btnSelectAlarm setTitle:leftSound forState:UIControlStateNormal];
+        
+        [frequncyBtn setTitle:[self.intervalArray objectAtIndex:[leftFreq intValue]] forState:UIControlStateNormal];
+        NSString *startDay = [formatter stringFromDate:leftStartDay];
+        [startBtn setTitle:startDay forState:UIControlStateNormal];
+        NSString *endDay = [formatter stringFromDate:leftEndDay];
+        [endBtn setTitle:endDay forState:UIControlStateNormal];
     }
-    else{
+    else
+    {
         [segmentedControl setSelectedSegmentIndex:1];
+        [btnSelectAlarm setTitle:rightSound forState:UIControlStateNormal];
+        [frequncyBtn setTitle:[self.intervalArray objectAtIndex:[rightFreq intValue]] forState:UIControlStateNormal];
+        NSString *startDay = [formatter stringFromDate:rightStartDay];
+        [startBtn setTitle:startDay forState:UIControlStateNormal];
+        NSString *endDay = [formatter stringFromDate:rightEndDay];
+        [endBtn setTitle:endDay forState:UIControlStateNormal];
     }
-    
-    
 }
--(void)activateExercise{
-    UISwitch *switchObj = self.mainSwitch;
-    if (switchObj.isOn) {
-        
-        [self scheduleAlarms];
-    }    
-    else{
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSMutableArray *array = [[userDefaults objectForKey:KBreastMassageArray] mutableCopy];
-        NSMutableDictionary  *dict = [[array objectAtIndex:self.index] mutableCopy];
-        
-        [dict setObject:[NSNumber numberWithBool:NO] forKey:KIsOn];
-        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:KIsBreastMassageOn];
-        // Checking for any notification and then cancelling it.
-        
-        if([dict objectForKey:KLocalNotification]){
-            UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[dict objectForKey:KLocalNotification]];
-            NSLog(@"firedate : %@",[prevNotification.fireDate description]);
-            [[UIApplication sharedApplication] cancelLocalNotification:prevNotification]; 
-            [dict removeObjectForKey:KLocalNotification];
-        }
-        
-        if([segmentedControl selectedSegmentIndex] == 0){
-            
-            [dict setValue:[NSNumber numberWithBool:YES] forKey:KIsLeft];
-        }
-        else{
-            [dict setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
-        }
-        [array replaceObjectAtIndex:index withObject:dict];
-        [userDefaults setObject:array forKey:KBreastMassageArray];
-        [userDefaults synchronize];
-    }    
-    
-}
+
+//-(void)activateExercise{
+//    UISwitch *switchObj = self.mainSwitch;
+//    if (switchObj.isOn) {
+//        
+//        [self scheduleAlarms];
+//    }    
+//    else{
+//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//        NSMutableArray *array = [[userDefaults objectForKey:KBreastMassageArray] mutableCopy];
+//        NSMutableDictionary  *dict = [[array objectAtIndex:self.index] mutableCopy];
+//        
+//        [dict setObject:[NSNumber numberWithBool:NO] forKey:KIsOn];
+//        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:KIsBreastMassageOn];
+//        // Checking for any notification and then cancelling it.
+//        
+//        if([dict objectForKey:KLocalNotification]){
+//            UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[dict objectForKey:KLocalNotification]];
+//            NSLog(@"firedate : %@",[prevNotification.fireDate description]);
+//            [[UIApplication sharedApplication] cancelLocalNotification:prevNotification]; 
+//            [dict removeObjectForKey:KLocalNotification];
+//        }
+//        
+//        if([segmentedControl selectedSegmentIndex] == 0){
+//            
+//            [dict setValue:[NSNumber numberWithBool:YES] forKey:KIsLeft];
+//        }
+//        else{
+//            [dict setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
+//        }
+//        [array replaceObjectAtIndex:index withObject:dict];
+//        [userDefaults setObject:array forKey:KBreastMassageArray];
+//        [userDefaults synchronize];
+//    }    
+//    
+//}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return 30;
@@ -222,42 +301,34 @@
 	NSString *buttonTitle = [NSString stringWithFormat:@"%@", [self.intervalArray objectAtIndex:indexPath.row]];
 	[frequncyBtn setTitle:buttonTitle forState:UIControlStateNormal];
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    // updating defaults
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *array = [[userDefaults objectForKey:KBreastMassageArray] mutableCopy];
-    NSMutableDictionary  *dict = [[array objectAtIndex:self.index] mutableCopy];
-    [dict setObject:[self.intervalArray objectAtIndex:indexPath.row ] forKey:KFrequency];
-    [array replaceObjectAtIndex:index withObject:dict];
-    [userDefaults setObject:array forKey:KBreastMassageArray];
-    [userDefaults synchronize];
+    if (isLeft) {
+        leftFreq = [[NSString alloc] initWithFormat:@"%i", indexPath.row];
+    }
+    else
+    {
+        rightFreq = [[NSString alloc] initWithFormat:@"%i", indexPath.row];
+    }
+//    // updating defaults
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    NSMutableArray *array = [[userDefaults objectForKey:KBreastMassageArray] mutableCopy];
+//    NSMutableDictionary  *dict = [[array objectAtIndex:self.index] mutableCopy];
+//    [dict setObject:[self.intervalArray objectAtIndex:indexPath.row ] forKey:KFrequency];
+//    [array replaceObjectAtIndex:index withObject:dict];
+//    [userDefaults setObject:array forKey:KBreastMassageArray];
+//    [userDefaults synchronize];
 	
 }
 -(IBAction)buttonPressed:(id)sender{
     
-	if ([sender isEqual:startBtn]) {
-		
+    if ([sender isEqual:startBtn]) {
+		isEndDay = NO;
 		buttonActive = 1;
-		CGRect frame = self.textNavBar.frame;
-		[UIView beginAnimations:nil context:NULL];
-		[UIView setAnimationDelegate:self];
-		[UIView setAnimationDuration:0.5];
-		[UIView setAnimationBeginsFromCurrentState:YES];
-		frame.origin.y = 393;
-		self.textNavBar.frame = frame;
-		[UIView commitAnimations];
+        [self showPickerView];
 		
 	}if ([sender isEqual:endBtn]) {
-        
+        isEndDay = YES;
 		buttonActive = 2;
-		CGRect frame = self.textNavBar.frame;
-		[UIView beginAnimations:nil context:NULL];
-		[UIView setAnimationDelegate:self];
-		[UIView setAnimationDuration:0.5];
-		[UIView setAnimationBeginsFromCurrentState:YES];
-		frame.origin.y = 393;
-		self.textNavBar.frame = frame;
-		[UIView commitAnimations];
+        [self showPickerView];
 		
 	}if ([sender isEqual:frequncyBtn]) {
 		
@@ -272,6 +343,61 @@
 	}
 	
 }
+
+- (void)showPickerView
+{
+    picker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 44.0, 0.0, 0.0)];
+    picker.datePickerMode = UIDatePickerModeDateAndTime;
+    [picker setMinimumDate:[NSDate date]];
+    [picker setDate:[NSDate date]];
+    
+    UIToolbar *pickerDateToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    pickerDateToolbar.barStyle = UIBarStyleBlackOpaque;
+    [pickerDateToolbar sizeToFit];
+    
+    NSMutableArray *barItems = [[NSMutableArray alloc] init];
+    
+    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    [barItems addObject:flexSpace];
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(buttonDoneClick)];
+    [barItems addObject:doneBtn];
+    
+    [pickerDateToolbar setItems:barItems animated:YES];
+    actionsheet = [[UIActionSheet alloc] init];
+    [actionsheet addSubview:pickerDateToolbar];
+    [actionsheet addSubview:picker];
+    [actionsheet showInView:self.view];
+    [actionsheet setBounds:CGRectMake(0,0,320, 464)];
+}
+
+- (void)buttonDoneClick
+{
+    if (isLeft)
+    {
+        if (isEndDay) {
+            leftEndDay = [picker.date copy];
+        }
+        else
+        {
+            leftStartDay = [picker.date copy];
+        }
+    }
+    else
+    {
+        if (isEndDay) {
+            rightEndDay = [picker.date copy];
+        }
+        else
+        {
+            rightStartDay = [picker.date copy];
+        }
+    }
+    [actionsheet dismissWithClickedButtonIndex:100 animated:YES];
+    [self reloadSettings];
+}
+
+
 
 
 
@@ -369,18 +495,18 @@
 - (void)dealloc {
     [exercise release];
     [doneButtonItem release];
-    [alarmString release];
     [btnSelectAlarm release];
     [super dealloc];
 }
 
--(void)scheduleAlarms{
+-(void)scheduleAlarms:(BOOL)rightSide
+{
     
-    // frequency 
+    // frequency
     // Days
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *array = [[userDefaults objectForKey:KBreastMassageArray] mutableCopy];
-    NSMutableDictionary  *dict = [[array objectAtIndex:self.index] mutableCopy];
+    NSMutableDictionary *settingDic = [[userDefault objectForKey:dictionaryKey] mutableCopy];
+    
     UILocalNotification *notification = [[[UILocalNotification alloc] init] autorelease];
     
     //NSLog(@"Notification will be shown on: %@",[notification.fireDate description]);
@@ -389,26 +515,31 @@
     
     
     //notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:20];
-    notification.repeatInterval = NSMinuteCalendarUnit; 
+    notification.repeatInterval = NSMinuteCalendarUnit;
     //
+    NSString *alarmString = [settingDic objectForKey:KLeftSound];
+    if (rightSide) {
+        alarmString = [settingDic objectForKey:KRightSound];
+    }
     notification.soundName = [NSString stringWithFormat:@"%@.wav",alarmString];
     notification.timeZone = [NSTimeZone systemTimeZone];
-    NSLog(@"%@",self.exercise.name);
+    NSLog(@"Exercise: %@",self.exercise.name);
     
     //notification.alertBody = [NSString stringWithFormat:@"Exercise"];
     NSString *direction = @"Right";
     if([segmentedControl selectedSegmentIndex] == 0){
         direction = @"Left";
     }
+    
     NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-    [userInfo setObject:@"Breast Massage" forKey:KAlertType];
+    [userInfo setObject:@"Rapid Return" forKey:KAlertType];
     [userInfo setObject:exercise.name forKey:KAlertName];
     notification.userInfo = userInfo;
     
     [userInfo release];
     
-    notification.alertAction = [NSString stringWithFormat:@"View"];
     
+    notification.alertAction = [NSString stringWithFormat:@"View"];
     notification.alertBody = [NSString stringWithFormat:@"Perform %@ (%@)",self.exercise.name,direction];
     notification.hasAction = YES;
     notification.repeatCalendar = [NSCalendar currentCalendar];
@@ -416,72 +547,80 @@
     //@"4 Hours", @"5 Hours", @"6 Hours", @"7 Hours", @"8 Hours", @"9 Hours", @"10 Hours",
     //@"11 Hours", @"12 Hours"
     
-    
-    NSString *frequencyString = [dict objectForKey:KFrequency];
+    NSString *frequencyString = [self.intervalArray objectAtIndex:[[settingDic objectForKey:KLeftFrequency] intValue]];
+    if (rightSide) {
+        frequencyString = [self.intervalArray objectAtIndex:[[settingDic objectForKey:KRightFrequency] intValue]];
+    }
+    NSLog(@"frequency String: %@",frequencyString);
+    //NSLog(@"frequency String: %@",[intervalArray objectAtIndex:1]);
     
     if([frequencyString isEqualToString:[intervalArray objectAtIndex:0]]){
+        // 30 mins
+        return;
+    }
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:1]]){
         // 30 mins
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*30];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:1]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:2]]){
         // 1 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*1];
         //fireDate = [NSDate date];
         repeatInterval = NSHourCalendarUnit;
         
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:2]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:3]]){
         // 2 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*2];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:3]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:4]]){
         // 3 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*3];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:4]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:5]]){
         // 4 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*4];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:5]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:6]]){
         // 5 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*5];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:6]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:7]]){
         // 6 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*6];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:7]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:8]]){
         // 7 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*7];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:8]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:9]]){
         // 8 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:9]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:10]]){
         // 9 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*9];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:10]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:11]]){
         // 10 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*10];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:11]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:12]]){
         // 11 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*11];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:12]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:13]]){
         // 12 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*12];
         repeatInterval = NSHourCalendarUnit;
@@ -492,30 +631,22 @@
     
     notification.fireDate = fireDate;
     notification.repeatInterval = repeatInterval;
-    
-    if([dict objectForKey:KLocalNotification]){
-        UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[dict objectForKey:KLocalNotification]];
-        [[UIApplication sharedApplication] cancelLocalNotification:prevNotification]; 
-        [dict removeObjectForKey:KLocalNotification];
+    NSString *key = KLeftLocalNotification;
+    if (rightSide) {
+        key = KRightLocalNotification;
+    }
+    if([settingDic objectForKey:key]){
+        UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:key]];
+        [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
+        [settingDic removeObjectForKey:key];
     }
     
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     NSData *notifData = [NSKeyedArchiver archivedDataWithRootObject:notification];
-    [dict setObject:notifData forKey:KLocalNotification];
-    [dict setObject:[NSNumber numberWithBool:YES] forKey:KIsOn];
-    
-    if([segmentedControl selectedSegmentIndex] == 0){
-        [dict setValue:[NSNumber numberWithBool:YES] forKey:KIsLeft];
-    }
-    else{
-        [dict setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
-    }
-    [userDefaults setObject:[NSNumber numberWithBool:YES] forKey:KIsBreastMassageOn];
-    [array replaceObjectAtIndex:index withObject:dict];
-    [userDefaults setObject:array forKey:KBreastMassageArray];
+    [settingDic setObject:notifData forKey:key];
+    [userDefaults setObject:settingDic forKey:dictionaryKey];
     [userDefaults synchronize];
-    
     
     
 }
@@ -523,7 +654,7 @@
 - (IBAction)selectAlarmButtonPressed:(UIButton *)sender 
 {
     AlarmSoundViewController *controller = [[[AlarmSoundViewController alloc] initWithNibName:@"AlarmSoundViewController" bundle:nil] autorelease];
-    controller.selectedString = self.alarmString;
+    controller.selectedString = self.btnSelectAlarm.titleLabel.text;
     controller.delegate = self;
     
     [self presentModalViewController:controller animated:YES];
@@ -538,8 +669,16 @@
 -(void)didFinishSelectingAlarmWithSelectedAlarm:(NSString *)selectedAlarmString
 {
     [self dismissModalViewControllerAnimated:YES];
-    self.alarmString = selectedAlarmString;
-    [self.btnSelectAlarm setTitle:alarmString forState:UIControlStateNormal];
+    //self.alarmString = selectedAlarmString;
+    if (isLeft) {
+        leftSound = selectedAlarmString;
+        [self.btnSelectAlarm setTitle:leftSound forState:UIControlStateNormal];
+    }
+    else
+    {
+        rightSound = selectedAlarmString;
+        [self.btnSelectAlarm setTitle:rightSound forState:UIControlStateNormal];
+    }
 }
 
 

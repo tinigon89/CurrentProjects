@@ -30,7 +30,8 @@
 #define KLeftEndDays @"LeftEndDays" // specially for BMExercise
 #define KRightStartDays @"RightStartDays" // specially for BMExercise
 #define KRightEndDays @"RightEndDays" // specially for BMExercise
-#define KLocalNotification @"Notification"  //Saves UILocalNotifation archived in NSData
+#define KLeftLocalNotification @"LeftNotification"
+#define KRightLocalNotification @"RightNotification"//Saves UILocalNotifation archived in NSData
 
 #define KIsRapidReturnOn @"RapidReturnOn"
 #define KIsBreastMassageOn @"BreastMassageOn"

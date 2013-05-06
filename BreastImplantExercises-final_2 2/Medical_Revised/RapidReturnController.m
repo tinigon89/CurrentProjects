@@ -30,10 +30,8 @@
 	//[self embedYouTube:@"" frame:CGRectMake(151, 87, 156, 100)];
     //[self embedYouTube:@"http://www.youtube.com/watch?v=lJs9tr75b70" frame:CGRectMake(151, 87, 156, 100)];
     
-    CGRect frame = videoView.frame;
-    frame.origin.y = frame.origin.y + 21;
     
-    [self embedYouTube:@"http://www.youtube.com/embed/lJs9tr75b70?rel=0" frame:frame];
+    [self embedYouTube:@"http://www.youtube.com/embed/lJs9tr75b70?rel=0" frame:self.videoWebView.frame];
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.102 green:0.225 blue:0.404 alpha:1];
 	UILabel *label = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
@@ -271,6 +269,7 @@
 //	[self.view addSubview:videoView1];
 //	[videoView1 release];
     [self.videoWebView loadHTMLString:html baseURL:nil];
+    [self.videoWebView.scrollView setScrollEnabled:NO];
 }
 
 

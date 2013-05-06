@@ -58,8 +58,8 @@
     CGRect frame = videoView.frame;
     frame.origin.y = frame.origin.y + 21;
     self.tableView.backgroundColor = [UIColor clearColor];
-    
-    [self embedYouTube:@"http://youtube.com/watch?v=GwNdV66ZGxY" frame:frame];
+
+    [self embedYouTube:@"http://www.youtube.com/embed/GwNdV66ZGxY?rel=0" frame:frame];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -301,23 +301,12 @@
 }
 
 - (void)embedYouTube:(NSString *)urlString frame:(CGRect)frame {
-	NSString *embedHTML = @"\
-    <html><head>\
-	<style type=\"text/css\">\
-	body {\
-	background-color: transparent;\
-	align: center;\
-	color: white;\
-	}\
-	</style>\
-	</head><body style=\"margin:0\">\
-    <embed id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \
-	width=\"%0.0f\" height=\"%0.0f\"></embed>\
-    </body></html>";
-	NSString *html = [NSString stringWithFormat:embedHTML, urlString, frame.size.width, frame.size.height];
+	NSString *embedHTML = @"<iframe width=\"%0.f\" height=\"%0.f\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe>";
+	NSString *html = [NSString stringWithFormat:embedHTML, frame.size.width, frame.size.height,urlString];
 	UIWebView *videoView1 = [[UIWebView alloc] initWithFrame:frame];
 	[videoView1 loadHTMLString:html baseURL:nil];
 	[self.view addSubview:videoView1];
+    [videoView1.scrollView setScrollEnabled:NO];
 	[videoView1 release];
 }
 #pragma mark -

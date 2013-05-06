@@ -80,9 +80,9 @@ UITableViewDataSource , AlarmControllerDelegate,UIActionSheetDelegate>{
 -(IBAction)buttonPressed:(id)sender;
 -(IBAction)doneEditing:(id)sender;
 -(IBAction)mainSwitchValueChanged:(id)sender;
--(void)activateExercise;
+//-(void)activateExercise;
 -(void)loadSettings;
--(void)scheduleAlarms;
+-(void)scheduleAlarms:(BOOL)rightSide;
 
 
 @end

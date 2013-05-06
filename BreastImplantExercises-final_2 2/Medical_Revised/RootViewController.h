@@ -14,6 +14,7 @@
 	//UITableView *_tableView;
 	IBOutlet UIButton *button1;
 	IBOutlet UIButton *button2;
+    BOOL isShowDisclaim;
     
 }
 @property (retain, nonatomic) IBOutlet UIView *eulaVIew;

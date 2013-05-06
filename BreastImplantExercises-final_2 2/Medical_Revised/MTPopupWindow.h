@@ -13,8 +13,9 @@
 {
     UIView* bgView;
     UIView* bigPanelView;
+    UIViewController *delegate;
 }
 
-+(void)showWindowWithHTMLFile:(NSString*)fileName insideView:(UIView*)view;
++(void)showWindowWithHTMLFile:(NSString*)fileName insideView:(UIView*)view viewController:(UIViewController *)del;
 
 @end

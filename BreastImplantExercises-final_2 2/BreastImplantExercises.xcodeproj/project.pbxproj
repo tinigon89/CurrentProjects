@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85617AAF1737E15500DF3A95 /* 3 Beeps.wav in Resources */ = {isa = PBXBuildFile; fileRef = 85617AAE1737E15500DF3A95 /* 3 Beeps.wav */; };
 		C28BEDA31534990000543895 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA21534990000543895 /* UIKit.framework */; };
 		C28BEDA51534990000543895 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA41534990000543895 /* Foundation.framework */; };
 		C28BEDA71534990000543895 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA61534990000543895 /* CoreGraphics.framework */; };
@@ -69,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85617AAE1737E15500DF3A95 /* 3 Beeps.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "3 Beeps.wav"; sourceTree = "<group>"; };
 		C28BED9E1534990000543895 /* BreastImplantExercises.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreastImplantExercises.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28BEDA21534990000543895 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28BEDA41534990000543895 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -387,6 +389,7 @@
 		DDA657A6157AC270004E3F3E /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				85617AAE1737E15500DF3A95 /* 3 Beeps.wav */,
 				DDA657A7157AC270004E3F3E /* Alarm Chicken.wav */,
 				DDA657A8157AC270004E3F3E /* Because of You.wav */,
 				DDA657A9157AC270004E3F3E /* Gamma brainwaves.wav */,
@@ -508,6 +511,7 @@
 				DDA657B8157AC270004E3F3E /* The Beauty of Nature.wav in Resources */,
 				DDA657B9157AC270004E3F3E /* Twilight Piano.wav in Resources */,
 				DDA657BA157AC270004E3F3E /* Wake Up Techno.wav in Resources */,
+				85617AAF1737E15500DF3A95 /* 3 Beeps.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,10 +615,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
 				INFOPLIST_FILE = "Medical_Revised/BreastImplantExercises-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = BreastImplantExercises;
 				PROVISIONING_PROFILE = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -631,10 +636,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
 				INFOPLIST_FILE = "Medical_Revised/BreastImplantExercises-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = BreastImplantExercises;
 				PROVISIONING_PROFILE = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3DF54D65-85AA-49C9-A270-E814DBBB7C8F";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -104,7 +104,13 @@
     self.navigationItem.rightBarButtonItem= disc;
     
 	[super viewDidLoad];
-    
+    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+    if (localNotif == nil) return;
+    NSArray *array = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *local in array)
+    {
+            [[UIApplication sharedApplication] cancelLocalNotification:local];
+    }
 	
 }
 
@@ -157,13 +163,16 @@
 
     [self.view addSubview:self.DisclaimerView];
     */
+    if (!isShowDisclaim) {
+        isShowDisclaim = YES;
+        [MTPopupWindow showWindowWithHTMLFile:@"Terms of User" insideView:self.view viewController:self];
+    }
     
-    [MTPopupWindow showWindowWithHTMLFile:@"Terms of User" insideView:self.view];
-    
+}
 
-
-
-    
+- (void)didClosePopupWindow
+{
+    isShowDisclaim = NO;
 }
 
 -(void)closePopupWindow{

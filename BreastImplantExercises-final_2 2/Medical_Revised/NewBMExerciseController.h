@@ -34,17 +34,27 @@
     Exercise *exercise;
     int index;
     
-    NSString *alarmString;
-    
     UIBarButtonItem *doneButtonItem;// to enable and disable done button on main switch
+    NSString *dictionaryKey;
+	NSString *leftSound;
+    NSString *rightSound;
+    NSString *leftFreq;
+    NSString *rightFreq;
+    BOOL isLeft;
+    NSDate *leftStartDay;
+    NSDate *leftEndDay;
+    NSDate *rightStartDay;
+    NSDate *rightEndDay;
     
-    
+    UIDatePicker *picker;
+    UIActionSheet *actionsheet;
+    BOOL isEndDay;
+    NSUserDefaults *userDefault;
     
     
 	
 	
 }
-@property(nonatomic , retain)  NSString *alarmString;
 @property (retain, nonatomic) IBOutlet UIButton *btnSelectAlarm;
 @property (nonatomic, readwrite) int index;
 @property (nonatomic, retain) NSMutableArray *intervalArray;
@@ -73,8 +83,8 @@
 
 - (IBAction)selectAlarmButtonPressed:(UIButton *)sender;
 
--(void)activateExercise;
+//-(void)activateExercise;
 -(void)loadSettings;
--(void)scheduleAlarms;
+-(void)scheduleAlarms:(BOOL)rightSide;
 
 @end

@@ -22,23 +22,23 @@
  * @param NSString* fileName provide a file name to load a file from the app resources, or a URL to load a web page
  * @param UIView* view provide a UIViewController's view here (or other view)
  */
-+(void)showWindowWithHTMLFile:(NSString*)fileName insideView:(UIView*)view
++(void)showWindowWithHTMLFile:(NSString*)fileName insideView:(UIView*)view viewController:(UIViewController *)del
 {
-    [[MTPopupWindow alloc] initWithSuperview:view andFile:fileName];
+    [[MTPopupWindow alloc] initWithSuperview:view andFile:fileName delegate:del];
 }
 
 /**
  * Initializes the class instance, gets a view where the window will pop up in
  * and a file name/ URL
  */
-- (id)initWithSuperview:(UIView*)sview andFile:(NSString*)fName
+- (id)initWithSuperview:(UIView*)sview andFile:(NSString*)fName delegate:(UIViewController *)del
 {
     self = [super init];
     if (self) {
         // Initialization code here.
         bgView = [[[UIView alloc] initWithFrame: sview.bounds] autorelease];
         [sview addSubview: bgView];
-        
+        delegate = del;
         // proceed with animation after the bgView was added
         [self performSelector:@selector(doTransitionWithContentFile:) withObject:fName afterDelay:0.1];
     }
@@ -122,6 +122,9 @@
 -(void)closePopupWindow
 {
     //remove the shade
+    if (delegate && [delegate respondsToSelector:@selector(didClosePopupWindow)]) {
+        [delegate performSelector:@selector(didClosePopupWindow)];
+    }
     [[bigPanelView viewWithTag: kShadeViewTag] removeFromSuperview];    
     [self performSelector:@selector(closePopupWindowAnimate) withObject:nil afterDelay:0.1];
     

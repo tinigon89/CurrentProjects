@@ -12,7 +12,7 @@
 #import "Constants.h"
 #import "MKLocalNotificationsScheduler.h"
 
-//static NSString *DatabaseFileName = @"ExercisesDatabase.sqlite";
+//static NSString *DatabaseFileName£ = @"ExercisesDatabase.sqlite";
 static NSString *DatabaseFileName = @"SampleDatabase.sqlite";
 
 @implementation AppDelegate
@@ -308,7 +308,7 @@ static NSString *DatabaseFileName = @"SampleDatabase.sqlite";
     sqlite3_stmt *compiledStatement;
     //NSLog(@"dbpath %@",databasePath);
     if (sqlite3_open([databasePath UTF8String], &database)== SQLITE_OK) {
-		const char *sqlStatement = "SELECT name,description,video_url,id FROM BMExercise";
+		const char *sqlStatement = "SELECT name,description,url,id FROM BMExercise";
 		
 		if (sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL)== SQLITE_OK) {
 			while (sqlite3_step(compiledStatement)== SQLITE_ROW) {
