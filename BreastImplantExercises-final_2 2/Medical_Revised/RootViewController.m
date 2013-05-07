@@ -104,14 +104,7 @@
     self.navigationItem.rightBarButtonItem= disc;
     
 	[super viewDidLoad];
-//    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-//    if (localNotif == nil) return;
-//    NSArray *array = [[UIApplication sharedApplication] scheduledLocalNotifications];
-//    for (UILocalNotification *local in array)
-//    {
-//            [[UIApplication sharedApplication] cancelLocalNotification:local];
-//    }
-//	
+	
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -127,6 +120,13 @@
         NSURLRequest *request = [[NSURLRequest alloc] initWithURL: url];
         [self.webView loadRequest: request];
         self.webView.scalesPageToFit = YES;
+        UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+        if (localNotif == nil) return;
+        NSArray *array = [[UIApplication sharedApplication] scheduledLocalNotifications];
+        for (UILocalNotification *local in array)
+        {
+            [[UIApplication sharedApplication] cancelLocalNotification:local];
+        }
     }
     else
     {
