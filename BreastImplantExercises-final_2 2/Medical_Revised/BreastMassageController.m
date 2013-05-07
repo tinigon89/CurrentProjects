@@ -120,139 +120,160 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     if (switchObj.isOn) {
-        
-        NSMutableArray *array = [[userDefaults objectForKey:KBreastMassageArray] mutableCopy];
-        
-        for (int i = 0; i < [array count]; i++) {
-            [self scheduleNotificationForIndexOfExercise:i];
+        for (Exercise *exercise in exerciseArray)
+        {
+            [self scheduleNotificationForExercise:exercise rightSide:NO];
+            [self scheduleNotificationForExercise:exercise rightSide:YES];
         }
-        
     }
     else{
-        
-        userDefaults = [NSUserDefaults standardUserDefaults];
-        
-        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:KIsBreastMassageOn];
-        NSMutableArray *array = [[userDefaults objectForKey:KBreastMassageArray] mutableCopy];
-        
-        for (int i = 0; i < [array count]; i++){
-            NSMutableDictionary *dict = [[array objectAtIndex:i] mutableCopy];
-            [dict setObject:[NSNumber numberWithBool:NO] forKey:KIsOn];
-            if([dict objectForKey:KLocalNotification]){
-                UILocalNotification *notif = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[dict objectForKey:KLocalNotification]];
-                [[UIApplication sharedApplication] cancelLocalNotification:notif];
-                [dict removeObjectForKey:KLocalNotification];
-                
+        for (Exercise *exercise in exerciseArray) {
+            NSString * dictionaryKey = [[NSString alloc] initWithFormat:@"Rapid %@ - %i",exercise.name,exercise.exerciseId];
+            NSMutableDictionary *settingDic = [userDefaults objectForKey:dictionaryKey];
+            if([settingDic objectForKey:KLeftLocalNotification]){
+                UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:KLeftLocalNotification]];
+                [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
+                [settingDic removeObjectForKey:KLeftLocalNotification];
             }
-            [array replaceObjectAtIndex:i withObject:dict];
+            if([settingDic objectForKey:KRightLocalNotification]){
+                UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:KRightLocalNotification]];
+                [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
+                [settingDic removeObjectForKey:KRightLocalNotification];
+            }
+            [userDefaults setObject:settingDic forKey:dictionaryKey];
+            [userDefaults synchronize];
         }
-        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:KIsBreastMassageOn];
-        [userDefaults setObject:array forKey:KBreastMassageArray];
-        [userDefaults synchronize];
+        
     }
     
 }
 
-- (void)scheduleNotificationForIndexOfExercise:(int)indexOfExercise{
+- (void)scheduleNotificationForExercise:(Exercise *)exercise rightSide:(BOOL)rightSide
+{
     
+    NSString * dictionaryKey = [[NSString alloc] initWithFormat:@"Rapid %@ - %i",exercise.name,exercise.exerciseId];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *array = [[userDefaults objectForKey:KBreastMassageArray] mutableCopy];
-    NSMutableDictionary  *dict = [[array objectAtIndex:indexOfExercise] mutableCopy];
+    NSMutableDictionary *settingDic = [[userDefaults objectForKey:dictionaryKey] mutableCopy];
+    
+    if (!settingDic) {
+        return;
+    }
     UILocalNotification *notification = [[[UILocalNotification alloc] init] autorelease];
     
+    //NSLog(@"Notification will be shown on: %@",[notification.fireDate description]);
     NSDate *fireDate;
     NSCalendarUnit repeatInterval;
-    notification.repeatInterval = NSMinuteCalendarUnit; 
-    Exercise *exercise = [exerciseArray objectAtIndex:indexOfExercise];
+    
+    
+    //notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:20];
+    notification.repeatInterval = NSMinuteCalendarUnit;
     //
-    notification.soundName = @"Alarm Chicken.wav";
+    NSString *alarmString = [settingDic objectForKey:KLeftSound];
+    if (rightSide) {
+        alarmString = [settingDic objectForKey:KRightSound];
+    }
+    
+    notification.soundName = [NSString stringWithFormat:@"%@.wav",alarmString];
     notification.timeZone = [NSTimeZone systemTimeZone];
+    NSLog(@"Exercise: %@",exercise.name);
     
     //notification.alertBody = [NSString stringWithFormat:@"Exercise"];
     NSString *direction = @"Right";
-    if([dict objectForKey:KIsLeft]){
+    if(rightSide){
         direction = @"Left";
     }
     
     NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-    [userInfo setObject:@"Breast Massage" forKey:KAlertType];
+    [userInfo setObject:@"Rapid Return" forKey:KAlertType];
     [userInfo setObject:exercise.name forKey:KAlertName];
     notification.userInfo = userInfo;
     
     [userInfo release];
-    notification.alertAction = [NSString stringWithFormat:@"View"];
     
+    
+    notification.alertAction = [NSString stringWithFormat:@"View"];
     notification.alertBody = [NSString stringWithFormat:@"Perform %@ (%@)",exercise.name,direction];
     notification.hasAction = YES;
     notification.repeatCalendar = [NSCalendar currentCalendar];
-    
-    
-    NSArray *intervalArray = [AppManager sharedInstance].intervalsArray;
-    NSString *frequencyString = [dict objectForKey:KFrequency];
+    //30 Minutes", @"1 Hour", @"2 Hours", @"3 Hours",
+    //@"4 Hours", @"5 Hours", @"6 Hours", @"7 Hours", @"8 Hours", @"9 Hours", @"10 Hours",
+    //@"11 Hours", @"12 Hours"
+    NSArray *intervalArray = [[AppManager sharedInstance] intervalsArray];
+    //NSArray *intervalsNumArray = [[AppManager sharedInstance] intervalsNumArray];
+    NSString *frequencyString = [intervalArray objectAtIndex:[[settingDic objectForKey:KLeftFrequency] intValue]];
+    if (rightSide) {
+        frequencyString = [intervalArray objectAtIndex:[[settingDic objectForKey:KRightFrequency] intValue]];
+    }
+    NSLog(@"frequency String: %@",frequencyString);
+    //NSLog(@"frequency String: %@",[intervalArray objectAtIndex:1]);
     
     if([frequencyString isEqualToString:[intervalArray objectAtIndex:0]]){
+        // 30 mins
+        return;
+    }
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:1]]){
         // 30 mins
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*30];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:1]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:2]]){
         // 1 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*1];
         //fireDate = [NSDate date];
         repeatInterval = NSHourCalendarUnit;
         
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:2]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:3]]){
         // 2 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*2];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:3]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:4]]){
         // 3 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*3];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:4]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:5]]){
         // 4 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*4];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:5]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:6]]){
         // 5 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*5];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:6]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:7]]){
         // 6 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*6];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:7]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:8]]){
         // 7 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*7];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:8]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:9]]){
         // 8 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:9]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:10]]){
         // 9 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*9];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:10]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:11]]){
         // 10 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*10];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:11]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:12]]){
         // 11 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*11];
         repeatInterval = NSHourCalendarUnit;
     }
-    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:12]]){
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:13]]){
         // 12 hour
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*12];
         repeatInterval = NSHourCalendarUnit;
@@ -263,24 +284,22 @@
     
     notification.fireDate = fireDate;
     notification.repeatInterval = repeatInterval;
-    
-    if([dict objectForKey:KLocalNotification]){
-        UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[dict objectForKey:KLocalNotification]];
-        [[UIApplication sharedApplication] cancelLocalNotification:prevNotification]; 
-        [dict removeObjectForKey:KLocalNotification];
+    NSString *key = KLeftLocalNotification;
+    if (rightSide) {
+        key = KRightLocalNotification;
+    }
+    if([settingDic objectForKey:key]){
+        UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:key]];
+        [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
+        [settingDic removeObjectForKey:key];
     }
     
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     NSData *notifData = [NSKeyedArchiver archivedDataWithRootObject:notification];
-    [dict setObject:notifData forKey:KLocalNotification];
-    [dict setObject:[NSNumber numberWithBool:YES] forKey:KIsOn];
-    
-    [userDefaults setObject:[NSNumber numberWithBool:YES] forKey:KIsBreastMassageOn];
-    [array replaceObjectAtIndex:indexOfExercise withObject:dict];
-    [userDefaults setObject:array forKey:KBreastMassageArray];
+    [settingDic setObject:notifData forKey:key];
+    [userDefaults setObject:settingDic forKey:dictionaryKey];
     [userDefaults synchronize];
-    
 }
 
 - (void)viewDidUnload

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
+#import "Exercise.h"
 @interface RapidReturnController : UIViewController {
 
 	IBOutlet UIView *phaseView;
@@ -33,6 +33,6 @@
 - (void)embedYouTube:(NSString *)urlString frame:(CGRect)frame;
 - (IBAction)mainSwitchValueChanged:(id)sender;
 
-- (void)scheduleNotificationForIndexOfExercise:(int)indexOfExercise;
+- (void)scheduleNotificationForExercise:(Exercise *)exercise rightSide:(BOOL)rightSide;
 
 @end

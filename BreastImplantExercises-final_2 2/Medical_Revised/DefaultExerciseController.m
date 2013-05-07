@@ -528,7 +528,7 @@
     
     //notification.alertBody = [NSString stringWithFormat:@"Exercise"];
     NSString *direction = @"Right";
-    if([segmentedControl selectedSegmentIndex] == 0){
+    if(rightSide){
         direction = @"Left";
     }
      
@@ -648,8 +648,7 @@
     [settingDic setObject:notifData forKey:key];
     [userDefaults setObject:settingDic forKey:dictionaryKey];
     [userDefaults synchronize];
-    
-    
+
 }
 
 - (IBAction)selectAlarmButtonPressed:(UIButton *)sender {

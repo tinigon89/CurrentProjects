@@ -28,6 +28,6 @@
 - (IBAction)showInstruction:(id)sender;
 - (void)embedYouTube:(NSString *)urlString frame:(CGRect)frame;
 - (IBAction)mainSwitchValueChanged:(id)sender;
-- (void)scheduleNotificationForIndexOfExercise:(int)indexOfExercise;
+- (void)scheduleNotificationForExercise:(Exercise *)exercise rightSide:(BOOL)rightSide;
 
 @end
