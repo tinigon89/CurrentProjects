@@ -522,7 +522,10 @@
     if (rightSide) {
         alarmString = [settingDic objectForKey:KRightSound];
     }
-    notification.soundName = [NSString stringWithFormat:@"%@.wav",alarmString];
+    if (![alarmString isEqualToString:@"Vibrate"]) {
+        notification.soundName = [NSString stringWithFormat:@"%@.wav",alarmString];
+    }
+    
     notification.timeZone = [NSTimeZone systemTimeZone];
     NSLog(@"Exercise: %@",self.exercise.name);
     
@@ -626,6 +629,11 @@
         fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*12];
         repeatInterval = NSHourCalendarUnit;
     }
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:14]]){
+        // 12 hour
+        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24];
+        repeatInterval = NSHourCalendarUnit;
+    }
     
     //fireDate = [NSDate dateWithTimeIntervalSinceNow:50];
     //repeatInterval = NSMinuteCalendarUnit;
@@ -636,12 +644,16 @@
     if (rightSide) {
         key = KRightLocalNotification;
     }
+    
     if([settingDic objectForKey:key]){
         UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:key]];
         [[UIApplication sharedApplication] cancelLocalNotification:prevNotification]; 
         [settingDic removeObjectForKey:key];
+        if ([UIApplication sharedApplication].applicationIconBadgeNumber > 0) {
+            [UIApplication sharedApplication].applicationIconBadgeNumber --;
+        }
     }
-    
+    [UIApplication sharedApplication].applicationIconBadgeNumber++;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     NSData *notifData = [NSKeyedArchiver archivedDataWithRootObject:notification];

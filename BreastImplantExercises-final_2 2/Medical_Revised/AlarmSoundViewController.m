@@ -51,6 +51,7 @@
                    @"Morning Piano Nature",
                    @"Gamma brainwaves",
                    @"Morning Glow",
+                   @"Vibrate",
                    @"Love",
                    @"Because of You",
                    @"Alarm Chicken",
@@ -211,7 +212,10 @@
     
     [player play];*/
     //});
-
+    if ([selectedString isEqualToString:@"Vibrate"]) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        return;
+    }
     //Playing Sound Using System soundID
     AudioServicesDisposeSystemSoundID(_alarmSoundId);
     NSURL *alarmSoundURL = [NSURL fileURLWithPath:path];

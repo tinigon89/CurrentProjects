@@ -122,58 +122,58 @@ static NSString *DatabaseFileName = @"SampleDatabase.sqlite";
 
 -(void)setDefaultSettingsExercise{
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (![defaults objectForKey:KRapidReturnArray]) {
-        NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
-        NSMutableDictionary *shoulderRoll = [[[NSMutableDictionary alloc] init] autorelease];
-        NSMutableDictionary *armCircles = [[[NSMutableDictionary alloc] init] autorelease];
-        NSMutableDictionary *armStretch = [[[NSMutableDictionary alloc] init] autorelease];
-        
-        [shoulderRoll setValue:[NSNumber numberWithInt:3] forKey:KDays];
-        [shoulderRoll setValue:@"1 Hour" forKey:KFrequency];
-        [shoulderRoll setValue:[NSNumber numberWithBool:NO] forKey:KIsOn];
-        [shoulderRoll setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
-        
-        [armCircles setValue:[NSNumber numberWithInt:3] forKey:KDays];
-        [armCircles setValue:@"1 Hour" forKey:KFrequency];
-        [armCircles setValue:[NSNumber numberWithBool:NO] forKey:KIsOn];
-        [armCircles setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
-        
-        [armStretch setValue:[NSNumber numberWithInt:3] forKey:KDays];
-        [armStretch setValue:@"1 Hour" forKey:KFrequency];
-        [armStretch setValue:[NSNumber numberWithBool:NO] forKey:KIsOn];
-        [armStretch setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
-        
-        [array addObject:shoulderRoll];
-        [array addObject:armCircles];
-        [array addObject:armStretch];
-        
-        [defaults setValue:array forKey:KRapidReturnArray];
-        [defaults synchronize];
-        
-    }
-    
-    if(![defaults objectForKey:KBreastMassageArray]){
-        
-        // Now for Breast Massage Defaults
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        
-        for (int i = 0; i < 6; i++) {
-            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-            [dict setValue:@"8 Hours" forKey:KFrequency];
-            [dict setValue:[NSNumber numberWithBool: NO] forKey:KIsOn];
-            [dict setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
-            [dict setValue:[NSNumber numberWithInt:3] forKey:KStartDays];
-            [dict setValue:[NSNumber numberWithInt:90] forKey:KDays];
-            
-            [array addObject:dict];
-            [dict release];
-            
-        }
-        [defaults setValue:array forKey:KBreastMassageArray];
-        [defaults synchronize];
-        [array release];
-    }
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    if (![defaults objectForKey:KRapidReturnArray]) {
+//        NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
+//        NSMutableDictionary *shoulderRoll = [[[NSMutableDictionary alloc] init] autorelease];
+//        NSMutableDictionary *armCircles = [[[NSMutableDictionary alloc] init] autorelease];
+//        NSMutableDictionary *armStretch = [[[NSMutableDictionary alloc] init] autorelease];
+//        
+//        [shoulderRoll setValue:[NSNumber numberWithInt:3] forKey:KDays];
+//        [shoulderRoll setValue:@"1 Hour" forKey:KFrequency];
+//        [shoulderRoll setValue:[NSNumber numberWithBool:NO] forKey:KIsOn];
+//        [shoulderRoll setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
+//        
+//        [armCircles setValue:[NSNumber numberWithInt:3] forKey:KDays];
+//        [armCircles setValue:@"1 Hour" forKey:KFrequency];
+//        [armCircles setValue:[NSNumber numberWithBool:NO] forKey:KIsOn];
+//        [armCircles setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
+//        
+//        [armStretch setValue:[NSNumber numberWithInt:3] forKey:KDays];
+//        [armStretch setValue:@"1 Hour" forKey:KFrequency];
+//        [armStretch setValue:[NSNumber numberWithBool:NO] forKey:KIsOn];
+//        [armStretch setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
+//        
+//        [array addObject:shoulderRoll];
+//        [array addObject:armCircles];
+//        [array addObject:armStretch];
+//        
+//        [defaults setValue:array forKey:KRapidReturnArray];
+//        [defaults synchronize];
+//        
+//    }
+//    
+//    if(![defaults objectForKey:KBreastMassageArray]){
+//        
+//        // Now for Breast Massage Defaults
+//        NSMutableArray *array = [[NSMutableArray alloc] init];
+//        
+//        for (int i = 0; i < 6; i++) {
+//            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+//            [dict setValue:@"8 Hours" forKey:KFrequency];
+//            [dict setValue:[NSNumber numberWithBool: NO] forKey:KIsOn];
+//            [dict setValue:[NSNumber numberWithBool:NO] forKey:KIsLeft];
+//            [dict setValue:[NSNumber numberWithInt:3] forKey:KStartDays];
+//            [dict setValue:[NSNumber numberWithInt:90] forKey:KDays];
+//            
+//            [array addObject:dict];
+//            [dict release];
+//            
+//        }
+//        [defaults setValue:array forKey:KBreastMassageArray];
+//        [defaults synchronize];
+//        [array release];
+//    }
     
     
     

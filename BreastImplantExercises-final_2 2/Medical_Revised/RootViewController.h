@@ -17,10 +17,7 @@
     BOOL isShowDisclaim;
     
 }
-@property (retain, nonatomic) IBOutlet UIView *eulaVIew;
-@property (retain, nonatomic) IBOutlet UIWebView *webView;
 @property (nonatomic, retain)UIView *DisclaimerView;
-- (IBAction)accept_Clicked:(id)sender;
 
 -(IBAction)pushButton:(id)sender;
 

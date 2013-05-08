@@ -11,20 +11,12 @@
 #import "BreastMassageController.h"
 #import "MTPopupWindow.h"
 #import "MKLocalNotificationsScheduler.h"
-
+#import "EulaViewController.h"
 @implementation RootViewController
 @synthesize DisclaimerView = _DisclaimerView;
 
 #pragma mark -
 #pragma mark View lifecycle
-
-- (IBAction)accept_Clicked:(id)sender
-{
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:YES forKey:@"FirstTime"];
-    [userDefaults synchronize];
-    self.eulaVIew.hidden = YES;
-}
 
 -(IBAction)pushButton:(id)sender{
     
@@ -43,41 +35,41 @@
 
 
 - (void)viewDidLoad {
-    int hour = 04;
-    int minutes = 30;
-    int day = 24;
-    int month = 1;
-    int year = 2013;
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    
-    [components setDay:day];
-    [components setMonth:month];
-    [components setYear:year];
-    [components setMinute:minutes];
-    [components setHour:hour];
-    
-    NSDate *myNewDate = [calendar dateFromComponents:components];
-    [components release];
-    [calendar release];
-    NSDate *fireDate = [NSDate dateWithTimeIntervalSinceNow:60*3];
-    //NSCalendar *repeatInterval = NSHourCalendarUnit;
-
-    [[MKLocalNotificationsScheduler sharedInstance] scheduleNotificationOn:myNewDate
-                                                                      text:@"Default scheduler for phase 1"
-                                                                    action:@"View"
-                                                                     sound:nil
-                                                               launchImage:nil
-                                                                   andInfo:nil];
-   
+//    int hour = 04;
+//    int minutes = 30;
+//    int day = 24;
+//    int month = 1;
+//    int year = 2013;
+//    
+//    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//    NSDateComponents *components = [[NSDateComponents alloc] init];
+//    
+//    [components setDay:day];
+//    [components setMonth:month];
+//    [components setYear:year];
+//    [components setMinute:minutes];
+//    [components setHour:hour];
+//    
+//    NSDate *myNewDate = [calendar dateFromComponents:components];
+//    [components release];
+//    [calendar release];
+//    NSDate *fireDate = [NSDate dateWithTimeIntervalSinceNow:60*3];
+//    //NSCalendar *repeatInterval = NSHourCalendarUnit;
 //
-    [[MKLocalNotificationsScheduler sharedInstance] schedulePhaseTwoNotificationOn:fireDate
-                                                                      text:@"Default scheduler for phase 2"
-                                                                    action:@"View"
-                                                                     sound:nil
-                                                               launchImage:nil
-                                                                   andInfo:nil];
+//    [[MKLocalNotificationsScheduler sharedInstance] scheduleNotificationOn:myNewDate
+//                                                                      text:@"Default scheduler for phase 1"
+//                                                                    action:@"View"
+//                                                                     sound:nil
+//                                                               launchImage:nil
+//                                                                   andInfo:nil];
+//   
+////
+//    [[MKLocalNotificationsScheduler sharedInstance] schedulePhaseTwoNotificationOn:fireDate
+//                                                                      text:@"Default scheduler for phase 2"
+//                                                                    action:@"View"
+//                                                                     sound:nil
+//                                                               launchImage:nil
+//                                                                   andInfo:nil];
     
 
 	self.navigationItem.backBarButtonItem =
@@ -109,17 +101,18 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL firstTime = [userDefaults boolForKey:@"FirstTime"];
-//    [userDefaults setBool:YES forKey:@"FirstTime"];
-//    [userDefaults synchronize];
+    //    [userDefaults setBool:YES forKey:@"FirstTime"];
+    //    [userDefaults synchronize];
     if (!firstTime) {
-        NSString *localFile = @"Terms of User";
-        NSString *aboutPath =[[NSBundle mainBundle] pathForResource:localFile ofType:@"pdf"];
-        NSURL *	url = [[NSURL alloc] initFileURLWithPath: aboutPath];
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL: url];
-        [self.webView loadRequest: request];
-        self.webView.scalesPageToFit = YES;
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         UILocalNotification *localNotif = [[UILocalNotification alloc] init];
         if (localNotif == nil) return;
         NSArray *array = [[UIApplication sharedApplication] scheduledLocalNotifications];
@@ -127,10 +120,8 @@
         {
             [[UIApplication sharedApplication] cancelLocalNotification:local];
         }
-    }
-    else
-    {
-        self.eulaVIew.hidden = YES;
+        EulaViewController *eulaViewController = [[EulaViewController alloc] initWithNibName:@"EulaViewController" bundle:nil];
+        [self presentModalViewController:eulaViewController animated:NO];
     }
 }
 -(void)ViewDisclaimer:(id)sender {
@@ -306,16 +297,12 @@
 }
 
 - (void)viewDidUnload {
-    [self setWebView:nil];
-    [self setEulaVIew:nil];
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
-    [_eulaVIew release];
-    [_webView release];
     [super dealloc];
 }
 
