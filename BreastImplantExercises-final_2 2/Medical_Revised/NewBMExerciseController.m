@@ -61,6 +61,23 @@
     userDefault = [NSUserDefaults standardUserDefaults];
     dictionaryKey = [[NSString alloc] initWithFormat:@"BMExercise %@ - %i",exercise.name,exercise.exerciseId];
     
+    NSLog(@"%@",self.exercise.name);
+    //self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.141 green:0.357 blue:0.380 alpha:1];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.102 green:0.225 blue:0.404 alpha:1];
+    
+	UILabel *label = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+	label.backgroundColor = [UIColor clearColor];
+	label.font = [UIFont fontWithName:@"Marker Felt" size:20];
+	label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+	label.textAlignment = UITextAlignmentCenter;
+	label.textColor = [UIColor whiteColor];
+	self.navigationItem.titleView = label;
+	label.text = exercise.name;
+	[label sizeToFit];
+    
+    [self loadSettings];
+    
 }
 
 -(void)cancel:(id)sender{
@@ -107,22 +124,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSLog(@"%@",self.exercise.name);
-    //self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.141 green:0.357 blue:0.380 alpha:1];
-    
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.102 green:0.225 blue:0.404 alpha:1];
-    
-	UILabel *label = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
-	label.backgroundColor = [UIColor clearColor];
-	label.font = [UIFont fontWithName:@"Marker Felt" size:20];
-	label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-	label.textAlignment = UITextAlignmentCenter;
-	label.textColor = [UIColor whiteColor];
-	self.navigationItem.titleView = label;
-	label.text = exercise.name;
-	[label sizeToFit];
-    
-    [self loadSettings];
+   
     
 }
 
@@ -534,7 +536,7 @@
     }
     
     NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-    [userInfo setObject:@"Rapid Return" forKey:KAlertType];
+    [userInfo setObject:@"Breast Massage" forKey:KAlertType];
     [userInfo setObject:exercise.name forKey:KAlertName];
     notification.userInfo = userInfo;
     

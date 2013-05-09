@@ -83,7 +83,23 @@
     NSMutableDictionary *settingDic = [[userDefaults objectForKey:dictionaryKey] mutableCopy];
     
     if (!settingDic) {
-        return;
+        NSDate *date = [NSDate date];
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+        NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
+        [components setHour: 10];
+        [components setMinute: 0];
+        [components setSecond: 0];
+        
+        NSDate *startDate = [gregorian dateFromComponents: components];
+        [components setHour: 22];
+        [components setMinute: 0];
+        [components setSecond: 0];
+        NSDate *endDate = [gregorian dateFromComponents: components];
+        [gregorian release];
+        settingDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"3 Beeps",KLeftSound,@"3 Beeps",KRightSound,@"5",KLeftFrequency,@"5",KRightFrequency,startDate,KLeftStartDays,endDate,KLeftEndDays,startDate,KRightStartDays,endDate,KRightEndDays,[NSNumber numberWithBool:YES],KIsLeft, nil];
+        [userDefaults setObject:settingDic forKey:dictionaryKey];
+        [userDefaults synchronize];
+
     }
     UILocalNotification *notification = [[[UILocalNotification alloc] init] autorelease];
     
@@ -252,7 +268,7 @@
     else{
         for (Exercise *exercise in exerciseArray) {
            NSString * dictionaryKey = [[NSString alloc] initWithFormat:@"Rapid %@ - %i",exercise.name,exercise.exerciseId];
-            NSMutableDictionary *settingDic = [userDefaults objectForKey:dictionaryKey];
+            NSMutableDictionary *settingDic = [[userDefaults objectForKey:dictionaryKey] mutableCopy];
             if([settingDic objectForKey:KLeftLocalNotification]){
                 UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:KLeftLocalNotification]];
                 [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
