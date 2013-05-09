@@ -232,7 +232,8 @@
     
     if([frequencyString isEqualToString:[intervalArray objectAtIndex:0]]){
         // 30 mins
-        return;
+        fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
+        repeatInterval = NSHourCalendarUnit;;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:1]]){
         // 30 mins
