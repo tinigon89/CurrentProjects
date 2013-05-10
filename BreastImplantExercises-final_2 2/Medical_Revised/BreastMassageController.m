@@ -131,6 +131,9 @@
             NSString * dictionaryKey = [[NSString alloc] initWithFormat:@"BMExercise %@ - %i",exercise.name,exercise.exerciseId];
             NSMutableDictionary *settingDic = [userDefaults objectForKey:dictionaryKey];
             if([settingDic objectForKey:KLeftLocalNotification]){
+                if ([UIApplication sharedApplication].applicationIconBadgeNumber > 0) {
+                    [UIApplication sharedApplication].applicationIconBadgeNumber --;
+                }
                 UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:KLeftLocalNotification]];
                 [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
                 [settingDic removeObjectForKey:KLeftLocalNotification];

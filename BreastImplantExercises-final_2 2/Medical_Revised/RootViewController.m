@@ -123,6 +123,19 @@
         EulaViewController *eulaViewController = [[EulaViewController alloc] initWithNibName:@"EulaViewController" bundle:nil];
         [self presentModalViewController:eulaViewController animated:NO];
     }
+    else
+    {
+        int i = 0;
+        NSArray *array = [[UIApplication sharedApplication] scheduledLocalNotifications];
+        for (UILocalNotification *local in array)
+        {
+            NSString *alertType = [local.userInfo objectForKey:KAlertType];
+            if (alertType) {
+                i++;
+            }
+        }
+        [UIApplication sharedApplication].applicationIconBadgeNumber = i;
+    }
 }
 -(void)ViewDisclaimer:(id)sender {
     /*
