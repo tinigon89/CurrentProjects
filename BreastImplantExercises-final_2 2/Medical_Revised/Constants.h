@@ -28,6 +28,10 @@
 #define KRightFrequency @"RightFrequency"
 #define KLeftStartDays @"LeftStartDays" // specially for BMExercise
 #define KLeftEndDays @"LeftEndDays" // specially for BMExercise
+#define KLeftStartTime @"LeftStartTime" // specially for BMExercise
+#define KLeftEndTime @"LeftEndTime" // specially for BMExercise
+#define KRightStartTime @"RightStartTime" // specially for BMExercise
+#define KRightEndTime @"RightEndTime" // specially for
 #define KRightStartDays @"RightStartDays" // specially for BMExercise
 #define KRightEndDays @"RightEndDays" // specially for BMExercise
 #define KLeftLocalNotification @"LeftNotification"

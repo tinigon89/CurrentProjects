@@ -86,40 +86,62 @@
         NSDate *date = [NSDate date];
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
         NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
-        [components setHour: 10];
+        [components setHour: 0];
         [components setMinute: 0];
         [components setSecond: 0];
         
         NSDate *startDate = [gregorian dateFromComponents: components];
+        [components setHour: 23];
+        [components setMinute: 59];
+        [components setSecond: 59];
+        NSDate *endDate = [gregorian dateFromComponents: components];
+        
+        [components setHour: 10];
+        [components setMinute: 0];
+        [components setSecond: 0];
+        NSDate *startTime = [gregorian dateFromComponents: components];
         [components setHour: 22];
         [components setMinute: 0];
         [components setSecond: 0];
-        NSDate *endDate = [gregorian dateFromComponents: components];
+        NSDate *endTime = [gregorian dateFromComponents: components];
         [gregorian release];
-        settingDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"3 Beeps",KLeftSound,@"3 Beeps",KRightSound,@"5",KLeftFrequency,@"5",KRightFrequency,startDate,KLeftStartDays,endDate,KLeftEndDays,startDate,KRightStartDays,endDate,KRightEndDays,[NSNumber numberWithBool:YES],KIsLeft, nil];
+        settingDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"3 Beeps",KLeftSound,@"3 Beeps",KRightSound,@"5",KLeftFrequency,@"5",KRightFrequency,startDate,KLeftStartDays,endDate,KLeftEndDays,startDate,KRightStartDays,endDate,KRightEndDays,startTime,KLeftStartTime,endTime,KLeftEndTime,startTime,KRightStartTime,endTime,KRightEndTime,[NSNumber numberWithBool:YES],KIsLeft, nil];
+
         [userDefaults setObject:settingDic forKey:dictionaryKey];
         [userDefaults synchronize];
-
     }
-    UILocalNotification *notification = [[[UILocalNotification alloc] init] autorelease];
     
-    //NSLog(@"Notification will be shown on: %@",[notification.fireDate description]);
-    NSDate *fireDate;
-    NSCalendarUnit repeatInterval;
-    
-    
-    //notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:20];
-    notification.repeatInterval = NSMinuteCalendarUnit;
     //
     NSString *alarmString = [settingDic objectForKey:KLeftSound];
+    NSDate *startDay = [settingDic objectForKey:KLeftStartDays];
+    NSDate *startTime = [settingDic objectForKey:KLeftStartTime];
+    NSDate *endDay = [settingDic objectForKey:KLeftEndDays];
+    NSDate *endTime = [settingDic objectForKey:KLeftEndTime];
     if (rightSide) {
         alarmString = [settingDic objectForKey:KRightSound];
+        startDay = [settingDic objectForKey:KRightStartDays];;
+        startTime = [settingDic objectForKey:KRightStartTime];;
+        endDay = [settingDic objectForKey:KRightEndDays];;
+        endTime = [settingDic objectForKey:KRightEndTime];;
     }
-    if (![alarmString isEqualToString:@"Vibrate"]) {
-        notification.soundName = [NSString stringWithFormat:@"%@.wav",alarmString];
+    NSString *key = KLeftLocalNotification;
+    if (rightSide) {
+        key = KRightLocalNotification;
     }
-    notification.timeZone = [NSTimeZone systemTimeZone];
-    NSLog(@"Exercise: %@",exercise.name);
+    if([settingDic objectForKey:key])
+    {
+        NSArray *array = [settingDic objectForKey:key];
+        for (NSData *data in array) {
+            UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
+        }
+        [settingDic removeObjectForKey:key];
+        if ([UIApplication sharedApplication].applicationIconBadgeNumber > 0) {
+            [UIApplication sharedApplication].applicationIconBadgeNumber --;
+        }
+    }
+    
+    
     
     //notification.alertBody = [NSString stringWithFormat:@"Exercise"];
     NSString *direction = @"Right";
@@ -127,132 +149,178 @@
         direction = @"Left";
     }
     
-    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-    [userInfo setObject:@"Rapid Return" forKey:KAlertType];
-    [userInfo setObject:exercise.name forKey:KAlertName];
-    notification.userInfo = userInfo;
-    
-    [userInfo release];
-    
-    
-    notification.alertAction = [NSString stringWithFormat:@"View"];
-    notification.alertBody = [NSString stringWithFormat:@"Perform %@ (%@)",exercise.name,direction];
-    notification.hasAction = YES;
-    notification.repeatCalendar = [NSCalendar currentCalendar];
     //30 Minutes", @"1 Hour", @"2 Hours", @"3 Hours",
     //@"4 Hours", @"5 Hours", @"6 Hours", @"7 Hours", @"8 Hours", @"9 Hours", @"10 Hours",
     //@"11 Hours", @"12 Hours"
     NSArray *intervalArray = [[AppManager sharedInstance] intervalsArray];
     //NSArray *intervalsNumArray = [[AppManager sharedInstance] intervalsNumArray];
     NSString *frequencyString = [intervalArray objectAtIndex:[[settingDic objectForKey:KLeftFrequency] intValue]];
+
     if (rightSide) {
         frequencyString = [intervalArray objectAtIndex:[[settingDic objectForKey:KRightFrequency] intValue]];
     }
     NSLog(@"frequency String: %@",frequencyString);
     //NSLog(@"frequency String: %@",[intervalArray objectAtIndex:1]);
-    
+    NSTimeInterval timeInterval = 0;
     if([frequencyString isEqualToString:[intervalArray objectAtIndex:0]]){
-        // 30 mins
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
-        repeatInterval = NSHourCalendarUnit;;
+        [userDefaults setObject:settingDic forKey:dictionaryKey];
+        [userDefaults synchronize];
+        return;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:1]]){
         // 30 mins
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*30];
-        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*30;
+        //fireDate = [NSDate dateWithTimeIntervalSinceNow:60*30];
+        //repeatInterval = NSHourCalendarUnit;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:2]]){
         // 1 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*1];
+        //fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*1];
         //fireDate = [NSDate date];
-        repeatInterval = NSHourCalendarUnit;
+        //repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*1;
         
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:3]]){
         // 2 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*2];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*2];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*2;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:4]]){
         // 3 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*3];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*3];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*3;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:5]]){
         // 4 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*4];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*4];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*4;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:6]]){
         // 5 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*5];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*5];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*5;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:7]]){
         // 6 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*6];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*6];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*6;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:8]]){
         // 7 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*7];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*7];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*7;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:9]]){
         // 8 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*8;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:10]]){
         // 9 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*9];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*9];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*9;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:11]]){
         // 10 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*10];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*10];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*10;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:12]]){
         // 11 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*11];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*11];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*1;
     }
     else if([frequencyString isEqualToString:[intervalArray objectAtIndex:13]]){
         // 12 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*12];
-        repeatInterval = NSHourCalendarUnit;
-    }else if([frequencyString isEqualToString:[intervalArray objectAtIndex:14]]){
-        // 12 hour
-        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24];
-        repeatInterval = NSHourCalendarUnit;
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*12];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*12;
     }
+    else if([frequencyString isEqualToString:[intervalArray objectAtIndex:14]]){
+        // 12 hour
+        //        fireDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24];
+        //        repeatInterval = NSHourCalendarUnit;
+        timeInterval = 60*60*24;
+    }
+    
+    
     
     //fireDate = [NSDate dateWithTimeIntervalSinceNow:50];
     //repeatInterval = NSMinuteCalendarUnit;
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: startDay];
+    NSDateComponents *components2 = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:startTime];
+    NSInteger hour = [components2 hour];
+    NSInteger minute = [components2 minute];
+    [components setHour: hour ];
+    [components setMinute: minute];
+    [components setSecond: 0];
+    NSDate *tempStartDate = [gregorian dateFromComponents: components];
     
-    notification.fireDate = fireDate;
-    notification.repeatInterval = repeatInterval;
-    NSString *key = KLeftLocalNotification;
-    if (rightSide) {
-        key = KRightLocalNotification;
-    }
-    if([settingDic objectForKey:key]){
-        UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:key]];
-        [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
-        [settingDic removeObjectForKey:key];
-        if ([UIApplication sharedApplication].applicationIconBadgeNumber > 0) {
-            [UIApplication sharedApplication].applicationIconBadgeNumber --;
+    components = [gregorian components: NSUIntegerMax fromDate: endDay];
+    components2 = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:endTime];
+    hour = [components2 hour];
+    minute = [components2 minute];
+    [components setHour: hour ];
+    [components setMinute: minute];
+    [components setSecond: 0];
+    NSDate *tempEndDate = [gregorian dateFromComponents: components];
+    NSDate *tempCurrentDate = [NSDate date];
+    BOOL isBreak = NO;
+    NSMutableArray *notifyList = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    while (!isBreak) {
+        if (([tempStartDate compare:tempEndDate] ==  NSOrderedAscending || [tempStartDate compare:tempEndDate] ==  NSOrderedSame) && ([tempStartDate compare:tempCurrentDate] ==  NSOrderedDescending || [tempStartDate compare:tempCurrentDate] ==  NSOrderedSame))
+        {
+            
+            UILocalNotification *notification = [[[UILocalNotification alloc] init] autorelease];
+            
+            //NSLog(@"Notification will be shown on: %@",[notification.fireDate description]);
+            notification.timeZone = [NSTimeZone systemTimeZone];
+            NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+            [userInfo setObject:@"Rapid Return" forKey:KAlertType];
+            [userInfo setObject:exercise.name forKey:KAlertName];
+            notification.userInfo = userInfo;
+            
+            [userInfo release];
+            
+            
+            notification.alertAction = [NSString stringWithFormat:@"View"];
+            notification.alertBody = [NSString stringWithFormat:@"Perform %@ (%@)",exercise.name,direction];
+            notification.hasAction = YES;
+            notification.fireDate = tempStartDate;
+            
+            if (![alarmString isEqualToString:@"Vibrate"]) {
+                notification.soundName = [NSString stringWithFormat:@"%@.wav",alarmString];
+            }
+            
+            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+            NSData *notifData = [NSKeyedArchiver archivedDataWithRootObject:notification];
+            [notifyList addObject:notifData];
+        }
+        tempStartDate = [tempStartDate dateByAddingTimeInterval:timeInterval];
+        if ([tempStartDate compare:tempEndDate] == NSOrderedDescending || [tempEndDate compare:tempCurrentDate] == NSOrderedAscending) {
+            isBreak = YES;
         }
     }
-    [UIApplication sharedApplication].applicationIconBadgeNumber++;
     
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    NSData *notifData = [NSKeyedArchiver archivedDataWithRootObject:notification];
-    [settingDic setObject:notifData forKey:key];
-    [userDefaults setObject:settingDic forKey:dictionaryKey];
-    [userDefaults synchronize];
+    if ([notifyList count] > 0) {
+        [UIApplication sharedApplication].applicationIconBadgeNumber++;
+        [settingDic setObject:notifyList forKey:key];
+        [userDefaults setObject:settingDic forKey:dictionaryKey];
+        [userDefaults synchronize];
+    }
 }
 
 -(IBAction)mainSwitchValueChanged:(id)sender{
@@ -274,16 +342,22 @@
                 if ([UIApplication sharedApplication].applicationIconBadgeNumber > 0) {
                     [UIApplication sharedApplication].applicationIconBadgeNumber --;
                 }
-                UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:KLeftLocalNotification]];
-                [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
+                NSArray *array = [settingDic objectForKey:KLeftLocalNotification];
+                for (NSData *data in array) {
+                    UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                    [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
+                }
                 [settingDic removeObjectForKey:KLeftLocalNotification];
             }
             if([settingDic objectForKey:KRightLocalNotification]){
                 if ([UIApplication sharedApplication].applicationIconBadgeNumber > 0) {
                     [UIApplication sharedApplication].applicationIconBadgeNumber --;
                 }
-                UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)[settingDic objectForKey:KRightLocalNotification]];
-                [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
+                NSArray *array = [settingDic objectForKey:KRightLocalNotification];
+                for (NSData *data in array) {
+                    UILocalNotification *prevNotification = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                    [[UIApplication sharedApplication] cancelLocalNotification:prevNotification];
+                }
                 [settingDic removeObjectForKey:KRightLocalNotification];
             }
             [userDefaults setObject:settingDic forKey:dictionaryKey];
@@ -390,7 +464,7 @@
 		
         DefaultExerciseController *sController = [[[DefaultExerciseController alloc] initWithNibName:@"DefaultExerciseController" bundle:nil] autorelease];
         sController.index = indexPath.row;
-        
+        sController.mainSwitch = mainSwitch;
         Exercise *exercise = (Exercise *)[exerciseArray objectAtIndex:indexPath.row];
         sController.exercise = [exercise retain];
         

@@ -51,7 +51,10 @@
     BOOL isEndDay;
     NSUserDefaults *userDefault;
     
-    
+    NSDate *leftStartTime;
+    NSDate *leftEndTime;
+    NSDate *rightStartTime;
+    NSDate *rightEndTime;
 	
 	
 }
@@ -76,7 +79,8 @@
 
 @property(nonatomic , retain) Exercise *exercise;
 
-
+@property (retain, nonatomic) IBOutlet UIButton *startTimeButton;
+@property (retain, nonatomic) IBOutlet UIButton *endTimeButton;
 -(IBAction)buttonPressed:(id)sender;
 -(IBAction)doneEditing:(id)sender;
 -(IBAction)mainSwitchValueChanged:(id)sender;

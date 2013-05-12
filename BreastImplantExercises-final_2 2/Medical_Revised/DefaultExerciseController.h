@@ -48,6 +48,11 @@ UITableViewDataSource , AlarmControllerDelegate,UIActionSheetDelegate>{
     NSDate *rightStartDay;
     NSDate *rightEndDay;
     
+    NSDate *leftStartTime;
+    NSDate *leftEndTime;
+    NSDate *rightStartTime;
+    NSDate *rightEndTime;
+    
     UIDatePicker *picker;
     UIActionSheet *actionsheet;
     BOOL isEndDay;
@@ -69,6 +74,8 @@ UITableViewDataSource , AlarmControllerDelegate,UIActionSheetDelegate>{
 
 @property (nonatomic, retain)UIView *settingsView;
 
+@property (retain, nonatomic) IBOutlet UIButton *startTimeButton;
+@property (retain, nonatomic) IBOutlet UIButton *endTimeButton;
 @property (nonatomic, retain)UIButton *startBtn;
 @property (nonatomic, retain)UIButton *endBtn;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
