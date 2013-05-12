@@ -14,7 +14,7 @@
 @interface MTPopupWindow(Private)
 - (id)initWithSuperview:(UIView*)sview andFile:(NSString*)fName;
 @end
-
+static MTPopupWindow *sharedInstance;
 @implementation MTPopupWindow
 
 /**
@@ -39,11 +39,17 @@
         bgView = [[[UIView alloc] initWithFrame: sview.bounds] autorelease];
         [sview addSubview: bgView];
         delegate = del;
+        sharedInstance = self;
         // proceed with animation after the bgView was added
         [self performSelector:@selector(doTransitionWithContentFile:) withObject:fName afterDelay:0.1];
     }
     
     return self;
+}
+
++ (MTPopupWindow *)sharedInstance
+{
+    return sharedInstance;
 }
 
 /**
@@ -127,7 +133,6 @@
     }
     [[bigPanelView viewWithTag: kShadeViewTag] removeFromSuperview];    
     [self performSelector:@selector(closePopupWindowAnimate) withObject:nil afterDelay:0.1];
-    
 }
 
 /**

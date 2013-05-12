@@ -18,6 +18,7 @@
     
 }
 @property (nonatomic, retain)UIView *DisclaimerView;
+@property (retain, nonatomic) IBOutlet UIView *helpView;
 
 -(IBAction)pushButton:(id)sender;
 

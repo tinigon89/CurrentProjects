@@ -14,6 +14,7 @@
 #import "NewBMExerciseController.h"
 #import "MTPopupWindow.h"
 #import "AppManager.h"
+#import "PhaseHelpViewController.h"
 @implementation BreastMassageController
 
 @synthesize phaseView;
@@ -98,8 +99,20 @@
         [mainSwitch setOn:[[userDefaults objectForKey:KIsBreastMassageOn] boolValue]];
     }
     
-    
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    if (![userDefault boolForKey:KPhaseHelp]) {
+        PhaseHelpViewController *phaseHelpViewController = [[PhaseHelpViewController alloc] initWithNibName:@"PhaseHelpViewController" bundle:nil];
+        
+        [self presentViewController:phaseHelpViewController animated:NO completion:nil];
+    }
+}
+
+
 -(void)addNewExe:(id)sender{
     
     NewActivityController *aController = [[NewActivityController alloc] initWithNibName:@"NewActivityController" bundle:nil];

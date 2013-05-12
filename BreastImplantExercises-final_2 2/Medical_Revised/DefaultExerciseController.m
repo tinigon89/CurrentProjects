@@ -10,7 +10,7 @@
 #import "AlarmSoundViewController.h"
 #import "AppManager.h"
 #import "Constants.h"
-
+#import "ExerciseHelpViewController.h"
 
 @implementation DefaultExerciseController
 @synthesize segmentedControl;
@@ -123,10 +123,15 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.102 green:0.225 blue:0.404 alpha:1];
-    
-    
-	
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (![userDefault boolForKey:KExerciseHelp]) {
+        ExerciseHelpViewController *exerciseHelpViewController = [[ExerciseHelpViewController alloc] initWithNibName:@"ExerciseHelpViewController" bundle:nil];
+        
+        [self presentViewController:exerciseHelpViewController animated:NO completion:nil];
+    }
 }
 
 -(void)loadSettings{

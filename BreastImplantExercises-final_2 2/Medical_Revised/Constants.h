@@ -20,6 +20,8 @@
 #define KIsOn @"isOn"
 #define KStartDays @"EndDays" // specially for BMExercise
 #define KLocalNotification @"Notification"  //Saves UILocalNotifation archived in NSData
+#define KPhaseHelp @"PhaseHelp" 
+#define KExerciseHelp @"ExerciseHelp" 
 
 #define KIsLeft @"isLeft"
 #define KLeftSound @"LeftSound"

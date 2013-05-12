@@ -17,5 +17,6 @@
 }
 
 +(void)showWindowWithHTMLFile:(NSString*)fileName insideView:(UIView*)view viewController:(UIViewController *)del;
-
++ (MTPopupWindow *)sharedInstance;
+-(void)closePopupWindow;
 @end

@@ -122,6 +122,9 @@
         }
         EulaViewController *eulaViewController = [[EulaViewController alloc] initWithNibName:@"EulaViewController" bundle:nil];
         [self presentModalViewController:eulaViewController animated:NO];
+        self.helpView.hidden = NO;
+        UIBarButtonItem *disc = [[UIBarButtonItem alloc] initWithTitle:@"Hide" style:UIBarButtonItemStylePlain target:self action:@selector(hideHelpView)];
+        self.navigationItem.rightBarButtonItem= disc;
     }
     else
     {
@@ -137,39 +140,22 @@
         [UIApplication sharedApplication].applicationIconBadgeNumber = i;
     }
 }
+
+- (void)hideHelpView
+{
+    self.helpView.hidden = YES;
+    UIBarButtonItem *disc = [[UIBarButtonItem alloc] initWithTitle:@"Disclaimer" style:UIBarButtonItemStylePlain target:self action:@selector(ViewDisclaimer:)];
+    self.navigationItem.rightBarButtonItem= disc;
+}
 -(void)ViewDisclaimer:(id)sender {
-    /*
-    [UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDuration:0.5];
-	[UIView setAnimationBeginsFromCurrentState:YES];
-   [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.DisclaimerView cache:YES];
-    self.DisclaimerView = [[[UIView alloc] initWithFrame: CGRectMake(10, 10, 300, 400)] autorelease];
-    [self.DisclaimerView setBackgroundColor:[UIColor lightGrayColor]];
-    [self.DisclaimerView.layer setCornerRadius:10];
-    [self.DisclaimerView.layer setBorderWidth:3];
-    [self.DisclaimerView.layer setBorderColor:[UIColor blackColor].CGColor];
-    [UIView commitAnimations];
 
-    UIImage *image = [UIImage imageNamed:@"Disclaimer.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    [imageView setFrame:CGRectMake(0, 0, 300, 400)];
-    [self.DisclaimerView addSubview:imageView];
-    
-    int closeBtnOffset = 20;
-    UIImage* closeBtnImg = [UIImage imageNamed:@"popupCloseBtn.png"];
-    UIButton* closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [closeBtn setImage:closeBtnImg forState:UIControlStateNormal];
-    [closeBtn setFrame:CGRectMake( self.DisclaimerView.frame.origin.x + self.DisclaimerView.frame.size.width - closeBtnImg.size.width - closeBtnOffset,self.DisclaimerView.frame.origin.y-15 ,closeBtnImg.size.width + closeBtnOffset, closeBtnImg.size.height + closeBtnOffset)];
-    [closeBtn addTarget:self action:@selector(closePopupWindow) forControlEvents:UIControlEventTouchUpInside];
-    [self.DisclaimerView addSubview: closeBtn];
-    
-
-    [self.view addSubview:self.DisclaimerView];
-    */
     if (!isShowDisclaim) {
         isShowDisclaim = YES;
         [MTPopupWindow showWindowWithHTMLFile:@"Terms of User" insideView:self.view viewController:self];
+    }
+    else
+    {
+        [[MTPopupWindow sharedInstance] closePopupWindow];
     }
     
 }
@@ -310,12 +296,14 @@
 }
 
 - (void)viewDidUnload {
+    [self setHelpView:nil];
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
+    [_helpView release];
     [super dealloc];
 }
 

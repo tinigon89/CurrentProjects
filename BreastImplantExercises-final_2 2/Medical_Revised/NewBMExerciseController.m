@@ -10,7 +10,7 @@
 #import "AlarmSoundViewController.h"
 #import "AppManager.h"
 #import "Constants.h"
-
+#import "ExerciseHelpViewController.h"
 
 
 @implementation NewBMExerciseController
@@ -125,7 +125,15 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
    
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (![userDefault boolForKey:KExerciseHelp]) {
+        ExerciseHelpViewController *exerciseHelpViewController = [[ExerciseHelpViewController alloc] initWithNibName:@"ExerciseHelpViewController" bundle:nil];
+        
+        [self presentViewController:exerciseHelpViewController animated:NO completion:nil];
+    }
 }
 
 -(void)loadSettings{

@@ -14,7 +14,7 @@
 #import "DefaultExerciseController.h"
 #import "CustomExerciseController.h"
 #import "AppManager.h"
-
+#import "PhaseHelpViewController.h"
 
 @implementation RapidReturnController
 @synthesize videoView, execeriseDetails, settingsView;
@@ -74,6 +74,18 @@
     
     NSLog(@"exercise array retain count %d",[exerciseArray retainCount]);
     [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    if (![userDefault boolForKey:KPhaseHelp]) {
+        PhaseHelpViewController *phaseHelpViewController = [[PhaseHelpViewController alloc] initWithNibName:@"PhaseHelpViewController" bundle:nil];
+        
+        [self presentViewController:phaseHelpViewController animated:NO completion:nil];
+    }
+    
+    
 }
 - (void)scheduleNotificationForExercise:(Exercise *)exercise rightSide:(BOOL)rightSide
 {
