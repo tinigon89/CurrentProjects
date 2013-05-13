@@ -465,14 +465,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-	if (indexPath.row >= 3) {
-		CustomExerciseController *customController = [[CustomExerciseController alloc] initWithNibName:@"CustomExerciseController" bundle:nil];
-        customController.exercise = (Exercise *)[exerciseArray objectAtIndex:indexPath.row];
-        [self.navigationController pushViewController:customController animated:YES];
-        
-        
-	}
-    else {
+//	if (indexPath.row >= 3) {
+//		CustomExerciseController *customController = [[CustomExerciseController alloc] initWithNibName:@"CustomExerciseController" bundle:nil];
+//        customController.exercise = (Exercise *)[exerciseArray objectAtIndex:indexPath.row];
+//        [self.navigationController pushViewController:customController animated:YES];
+//        
+//        
+//	}
+//    else {
 		
         DefaultExerciseController *sController = [[[DefaultExerciseController alloc] initWithNibName:@"DefaultExerciseController" bundle:nil] autorelease];
         sController.index = indexPath.row;
@@ -482,7 +482,7 @@
         
         [self.navigationController pushViewController:sController animated:YES];
         
-	}
+//	}
 	
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -131,10 +131,10 @@
 			
 			ExerciseName = [[UITextField alloc] initWithFrame:CGRectMake(130, 8, 170, 25)];
 			ExerciseName.borderStyle = UITextBorderStyleRoundedRect;
-			ExerciseName.textColor = [UIColor blackColor];
+			ExerciseName.textColor = [UIColor whiteColor];
 			ExerciseName.font = [UIFont systemFontOfSize:14.0];
 			ExerciseName.placeholder = @"Exercise Name";
-			ExerciseName.backgroundColor = [UIColor clearColor];
+			ExerciseName.backgroundColor = [UIColor grayColor];
 			ExerciseName.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
 			ExerciseName.keyboardType = UIKeyboardTypeAlphabet;	// use the default type input method (entire keyboard)
 			ExerciseName.delegate = self;
@@ -147,10 +147,10 @@
 			
 			tubeURL = [[UITextField alloc] initWithFrame:CGRectMake(100, 8, 200, 25)];
 			tubeURL.borderStyle = UITextBorderStyleRoundedRect;
-			tubeURL.textColor = [UIColor blackColor];
+			tubeURL.textColor = [UIColor whiteColor];
 			tubeURL.font = [UIFont systemFontOfSize:14.0];
 			tubeURL.placeholder = @"Video Url";
-			tubeURL.backgroundColor = [UIColor clearColor];
+			tubeURL.backgroundColor = [UIColor grayColor];
 			tubeURL.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
 			tubeURL.keyboardType = UIKeyboardTypeAlphabet;	// use the default type input method (entire keyboard)
 			tubeURL.delegate = self;

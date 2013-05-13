@@ -520,7 +520,7 @@
     // NewBMExercise *newController = [[[NewBMExercise alloc] initWithNibName:@"NewBMExercise" bundle:nil] autorelease];
     NewBMExerciseController *newController = [[[NewBMExerciseController alloc] initWithNibName:@"NewBMExerciseController" bundle:nil] autorelease];
     
-    if(indexPath.row < 6){
+    if(indexPath.row < [exerciseArray count]){
         // Set Edit Mode
         //[newController setIsEditMode:YES];
         Exercise *exercise = (Exercise *)[exerciseArray objectAtIndex:indexPath.row];
@@ -535,11 +535,11 @@
         // Add New
         [self addNewExe:self];
     }
-    else{
-        CustomExerciseController *customController = [[CustomExerciseController alloc] initWithNibName:@"CustomExerciseController" bundle:nil];
-        customController.exercise = (Exercise *)[exerciseArray objectAtIndex:indexPath.row];
-        [self.navigationController pushViewController:customController animated:YES];
-    }
+//    else{
+//        CustomExerciseController *customController = [[CustomExerciseController alloc] initWithNibName:@"CustomExerciseController" bundle:nil];
+//        customController.exercise = (Exercise *)[exerciseArray objectAtIndex:indexPath.row];
+//        [self.navigationController pushViewController:customController animated:YES];
+//    }
 }
 
 
