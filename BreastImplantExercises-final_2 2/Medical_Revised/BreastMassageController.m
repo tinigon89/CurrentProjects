@@ -430,8 +430,17 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
 }
 
 - (void)embedYouTube:(NSString *)urlString frame:(CGRect)frame {
@@ -541,6 +550,7 @@
 //        [self.navigationController pushViewController:customController animated:YES];
 //    }
 }
+
 
 
 
