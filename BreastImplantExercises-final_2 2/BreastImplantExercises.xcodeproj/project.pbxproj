@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		85617AAF1737E15500DF3A95 /* 3 Beeps.wav in Resources */ = {isa = PBXBuildFile; fileRef = 85617AAE1737E15500DF3A95 /* 3 Beeps.wav */; };
+		8564648A17426748008A9A68 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8564648917426748008A9A68 /* Default@2x.png */; };
+		8564648C1742674E008A9A68 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8564648B1742674D008A9A68 /* Default-568h@2x.png */; };
 		85CE0B5417411325002D92F3 /* UINavigationController+autorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CE0B5317411325002D92F3 /* UINavigationController+autorotate.m */; };
 		85D3C816173FCFBA00C915AE /* arrowBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C80F173FCFBA00C915AE /* arrowBottomLeft.png */; };
 		85D3C817173FCFBA00C915AE /* arrowBottomRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C810173FCFBA00C915AE /* arrowBottomRight.png */; };
@@ -86,6 +88,8 @@
 
 /* Begin PBXFileReference section */
 		85617AAE1737E15500DF3A95 /* 3 Beeps.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "3 Beeps.wav"; sourceTree = "<group>"; };
+		8564648917426748008A9A68 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8564648B1742674D008A9A68 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		85CE0B5217411325002D92F3 /* UINavigationController+autorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+autorotate.h"; sourceTree = "<group>"; };
 		85CE0B5317411325002D92F3 /* UINavigationController+autorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+autorotate.m"; sourceTree = "<group>"; };
 		85D3C80F173FCFBA00C915AE /* arrowBottomLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowBottomLeft.png; sourceTree = "<group>"; };
@@ -105,7 +109,7 @@
 		AA53B0D5173A3F1300F2FCFC /* EulaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EulaViewController.h; sourceTree = "<group>"; };
 		AA53B0D6173A3F1300F2FCFC /* EulaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EulaViewController.m; sourceTree = "<group>"; };
 		AA53B0D7173A3F1300F2FCFC /* EulaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EulaViewController.xib; sourceTree = "<group>"; };
-		C28BED9E1534990000543895 /* BreastImplantExercises.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreastImplantExercises.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C28BED9E1534990000543895 /* Breast Implant Exercises.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breast Implant Exercises.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28BEDA21534990000543895 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28BEDA41534990000543895 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C28BEDA61534990000543895 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -206,6 +210,8 @@
 		C28BED931534990000543895 = {
 			isa = PBXGroup;
 			children = (
+				8564648B1742674D008A9A68 /* Default-568h@2x.png */,
+				8564648917426748008A9A68 /* Default@2x.png */,
 				DD680CBA1565C1520027DE87 /* BreastImplantExercises.entitlements */,
 				DDBBB5D015435F8D00328ABB /* Default.png */,
 				C28BEDA81534990000543895 /* Medical_Revised */,
@@ -217,7 +223,7 @@
 		C28BED9F1534990000543895 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C28BED9E1534990000543895 /* BreastImplantExercises.app */,
+				C28BED9E1534990000543895 /* Breast Implant Exercises.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -493,7 +499,7 @@
 			);
 			name = BreastImplantExercises;
 			productName = Medical_Revised;
-			productReference = C28BED9E1534990000543895 /* BreastImplantExercises.app */;
+			productReference = C28BED9E1534990000543895 /* Breast Implant Exercises.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -576,6 +582,8 @@
 				85D3C81E173FD06300C915AE /* arrowUp.png in Resources */,
 				85D3C823173FD57F00C915AE /* PhaseHelpViewController.xib in Resources */,
 				85D3C835173FE30300C915AE /* ExerciseHelpViewController.xib in Resources */,
+				8564648A17426748008A9A68 /* Default@2x.png in Resources */,
+				8564648C1742674E008A9A68 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,15 +686,15 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nguyen Trung Hieu (87LW9G7H2Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nguyen Trung Hieu (87LW9G7H2Q)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
 				INFOPLIST_FILE = "Medical_Revised/BreastImplantExercises-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = BreastImplantExercises;
-				PROVISIONING_PROFILE = "FE31CCF6-D71F-4095-B4FA-4612F12B114C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE31CCF6-D71F-4095-B4FA-4612F12B114C";
+				PRODUCT_NAME = "Breast Implant Exercises";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -699,15 +707,15 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nguyen Trung Hieu (87LW9G7H2Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nguyen Trung Hieu (87LW9G7H2Q)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
 				INFOPLIST_FILE = "Medical_Revised/BreastImplantExercises-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = BreastImplantExercises;
-				PROVISIONING_PROFILE = "FE31CCF6-D71F-4095-B4FA-4612F12B114C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE31CCF6-D71F-4095-B4FA-4612F12B114C";
+				PRODUCT_NAME = "Breast Implant Exercises";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

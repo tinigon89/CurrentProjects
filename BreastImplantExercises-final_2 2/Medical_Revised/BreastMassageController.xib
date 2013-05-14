@@ -41,7 +41,7 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="117486450">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIImageView" id="42227573">
 								<reference key="NSNextResponder" ref="117486450"/>
@@ -256,11 +256,11 @@
 					</object>
 					<object class="IBUIView" id="959925912">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUILabel" id="510412242">
 								<reference key="NSNextResponder" ref="959925912"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrameSize">{295, 21}</string>
 								<reference key="NSSuperview" ref="959925912"/>
 								<reference key="NSWindow"/>
@@ -286,7 +286,7 @@
 							<object class="IBUITableView" id="167727232">
 								<reference key="NSNextResponder" ref="959925912"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrame">{{0, 21}, {296, 167}}</string>
+								<string key="NSFrame">{{0, 21}, {296, 175}}</string>
 								<reference key="NSSuperview" ref="959925912"/>
 								<reference key="NSWindow"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
@@ -305,7 +305,7 @@
 								<float key="IBUISectionFooterHeight">5</float>
 							</object>
 						</array>
-						<string key="NSFrame">{{12, 207}, {295, 189}}</string>
+						<string key="NSFrame">{{12, 207}, {295, 202}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="510412242"/>

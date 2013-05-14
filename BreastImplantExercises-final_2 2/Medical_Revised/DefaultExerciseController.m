@@ -20,7 +20,6 @@
 @synthesize mainSwitch;
 @synthesize tableView = _tableView;
 @synthesize btnSelectAlarm;
-@synthesize textNavBar;
 @synthesize intervalArray,intervalNumArray;
 @synthesize textfield;
 @synthesize exercise;
@@ -44,7 +43,6 @@
 	[self.settingsView addSubview:self.tableView];
 	[self.tableView setHidden:YES];
     //self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.102 green:0.225 blue:0.404 alpha:1];
-	self.textNavBar.tintColor = [UIColor colorWithRed:0.102 green:0.225 blue:0.404 alpha:1];
     
 	//NSArray *myArray = [AppManager sharedInstance].intervalsArray;
     
@@ -567,19 +565,7 @@
     //[textfield setText:@""];
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-	CGRect frame = self.textNavBar.frame;
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDuration:0.5];
-	[UIView setAnimationBeginsFromCurrentState:YES];
-	frame.origin.y = 375;
-	self.textNavBar.frame = frame;
-	self.customView.frame = CGRectMake(self.customView.frame.origin.x, (self.customView.frame.origin.y - 195.0), self.customView.frame.size.width, self.customView.frame.size.height);
-	[UIView commitAnimations];
-	return YES;
-}
+
 /*
  // Override to allow orientations other than the default portrait orientation.
  - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

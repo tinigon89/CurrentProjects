@@ -143,6 +143,9 @@
 
 - (void)hideHelpView
 {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:YES forKey:@"FirstTime"];
+    [userDefaults synchronize];
     self.helpView.hidden = YES;
     UIBarButtonItem *disc = [[UIBarButtonItem alloc] initWithTitle:@"Disclaimer" style:UIBarButtonItemStylePlain target:self action:@selector(ViewDisclaimer:)];
     self.navigationItem.rightBarButtonItem= disc;

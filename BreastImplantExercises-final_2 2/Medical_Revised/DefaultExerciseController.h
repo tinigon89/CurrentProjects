@@ -21,7 +21,6 @@ UITableViewDataSource , AlarmControllerDelegate,UIActionSheetDelegate>{
 	IBOutlet UIButton *endBtn;
 	IBOutlet UIButton *frequncyBtn;
 	IBOutlet UISwitch *mainSwitch;
-	IBOutlet UINavigationBar *textNavBar;
 	IBOutlet UIView *customView;
     
 	UITableView *_tableView;
@@ -65,7 +64,6 @@ UITableViewDataSource , AlarmControllerDelegate,UIActionSheetDelegate>{
 @property (nonatomic, retain)NSMutableArray *intervalArray;
 @property (nonatomic, retain)NSMutableArray *intervalNumArray;
 @property (nonatomic, retain)UITextField *textfield;
-@property (nonatomic, retain)UINavigationBar *textNavBar;
 @property (nonatomic, retain)UIView *customView;
 @property (nonatomic, retain)UITableView *tableView;
 
