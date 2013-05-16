@@ -25,6 +25,83 @@
 		85D3C835173FE30300C915AE /* ExerciseHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C833173FE30300C915AE /* ExerciseHelpViewController.xib */; };
 		AA53B0D8173A3F1300F2FCFC /* EulaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA53B0D6173A3F1300F2FCFC /* EulaViewController.m */; };
 		AA53B0D9173A3F1300F2FCFC /* EulaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA53B0D7173A3F1300F2FCFC /* EulaViewController.xib */; };
+		AAFA3B481744E7E800A33631 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDAE1534990000543895 /* main.m */; };
+		AAFA3B491744E7E800A33631 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDB21534990100543895 /* AppDelegate.m */; };
+		AAFA3B4A1744E7E800A33631 /* DefaultExerciseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDBE15349A2D00543895 /* DefaultExerciseController.m */; };
+		AAFA3B4B1744E7E800A33631 /* CustomExerciseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDC115349A2D00543895 /* CustomExerciseController.m */; };
+		AAFA3B4C1744E7E800A33631 /* MTPopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDC415349A2D00543895 /* MTPopupWindow.m */; };
+		AAFA3B4D1744E7E800A33631 /* NewActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDC615349A2D00543895 /* NewActivityController.m */; };
+		AAFA3B4E1744E7E800A33631 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDC915349A2D00543895 /* RootViewController.m */; };
+		AAFA3B4F1744E7E800A33631 /* RapidReturnController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDCB15349A2D00543895 /* RapidReturnController.m */; };
+		AAFA3B501744E7E800A33631 /* NewBMExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDD115349A2D00543895 /* NewBMExercise.m */; };
+		AAFA3B511744E7E800A33631 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEE0615349B7A00543895 /* Exercise.m */; };
+		AAFA3B521744E7E800A33631 /* NewBMExerciseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17F4CA0153F39940008594F /* NewBMExerciseController.m */; };
+		AAFA3B531744E7E800A33631 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F182B08F1556402800C73F6D /* AppManager.m */; };
+		AAFA3B541744E7E800A33631 /* AlarmSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18B9A431562C95C00466FB8 /* AlarmSoundViewController.m */; };
+		AAFA3B551744E7E800A33631 /* MKLocalNotificationsScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = CE85C21E16AFFB570023C094 /* MKLocalNotificationsScheduler.m */; };
+		AAFA3B561744E7E800A33631 /* BreastMassageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDCE15349A2D00543895 /* BreastMassageController.m */; };
+		AAFA3B571744E7E800A33631 /* EulaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA53B0D6173A3F1300F2FCFC /* EulaViewController.m */; };
+		AAFA3B581744E7E800A33631 /* PhaseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D3C820173FD57E00C915AE /* PhaseHelpViewController.m */; };
+		AAFA3B591744E7E800A33631 /* ExerciseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D3C832173FE30200C915AE /* ExerciseHelpViewController.m */; };
+		AAFA3B5A1744E7E800A33631 /* UINavigationController+autorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CE0B5317411325002D92F3 /* UINavigationController+autorotate.m */; };
+		AAFA3B5C1744E7E800A33631 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18B9A5C1562D20F00466FB8 /* AudioToolbox.framework */; };
+		AAFA3B5D1744E7E800A33631 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEE0B15349D5000543895 /* QuartzCore.framework */; };
+		AAFA3B5E1744E7E800A33631 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEE0915349D4500543895 /* libsqlite3.0.dylib */; };
+		AAFA3B5F1744E7E800A33631 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA21534990000543895 /* UIKit.framework */; };
+		AAFA3B601744E7E800A33631 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA41534990000543895 /* Foundation.framework */; };
+		AAFA3B611744E7E800A33631 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA61534990000543895 /* CoreGraphics.framework */; };
+		AAFA3B631744E7E800A33631 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDAB1534990000543895 /* InfoPlist.strings */; };
+		AAFA3B6B1744E7E800A33631 /* text_x_generic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDEB15349AB900543895 /* text_x_generic@2x.png */; };
+		AAFA3B6C1744E7E800A33631 /* text_x_generic.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDEC15349AB900543895 /* text_x_generic.png */; };
+		AAFA3B6D1744E7E800A33631 /* RapidReturnExercises.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDED15349AB900543895 /* RapidReturnExercises.pdf */; };
+		AAFA3B6E1744E7E800A33631 /* Holder_2.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDEE15349AB900543895 /* Holder_2.png */; };
+		AAFA3B6F1744E7E800A33631 /* Holder.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDEF15349AB900543895 /* Holder.png */; };
+		AAFA3B701744E7E800A33631 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDF015349AB900543895 /* bg.png */; };
+		AAFA3B711744E7E800A33631 /* popupCloseBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDF815349ADA00543895 /* popupCloseBtn.png */; };
+		AAFA3B721744E7E800A33631 /* popupCloseBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDF915349ADA00543895 /* popupCloseBtn@2x.png */; };
+		AAFA3B731744E7E800A33631 /* popupWindowBack.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDFA15349ADA00543895 /* popupWindowBack.png */; };
+		AAFA3B741744E7E800A33631 /* popupWindowBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28BEDFB15349ADA00543895 /* popupWindowBack@2x.png */; };
+		AAFA3B751744E7E800A33631 /* SampleDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = F10CDF65153DFA080026279C /* SampleDatabase.sqlite */; };
+		AAFA3B771744E7E800A33631 /* BreastMassageInstructions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DD98F53A1540A036008126B3 /* BreastMassageInstructions.pdf */; };
+		AAFA3B781744E7E800A33631 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7761AB15421EB6009740B4 /* button.png */; };
+		AAFA3B791744E7E800A33631 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBBB5C8154352F100328ABB /* icon@2x.png */; };
+		AAFA3B7A1744E7E800A33631 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBBB5C9154352F100328ABB /* icon.png */; };
+		AAFA3B7B1744E7E800A33631 /* Disclaimer.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBBB5CE15435A1500328ABB /* Disclaimer.png */; };
+		AAFA3B7C1744E7E800A33631 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBBB5D015435F8D00328ABB /* Default.png */; };
+		AAFA3B7D1744E7E800A33631 /* Terms of User.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DD7DFDBD154368EF0001FBEB /* Terms of User.pdf */; };
+		AAFA3B7F1744E7E800A33631 /* Alarm Chicken.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657A7157AC270004E3F3E /* Alarm Chicken.wav */; };
+		AAFA3B801744E7E800A33631 /* Because of You.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657A8157AC270004E3F3E /* Because of You.wav */; };
+		AAFA3B811744E7E800A33631 /* Gamma brainwaves.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657A9157AC270004E3F3E /* Gamma brainwaves.wav */; };
+		AAFA3B821744E7E800A33631 /* Love.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AA157AC270004E3F3E /* Love.wav */; };
+		AAFA3B831744E7E800A33631 /* Morning Glow.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AB157AC270004E3F3E /* Morning Glow.wav */; };
+		AAFA3B841744E7E800A33631 /* Morning Piano Nature.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AC157AC270004E3F3E /* Morning Piano Nature.wav */; };
+		AAFA3B851744E7E800A33631 /* Study Mix.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AD157AC270004E3F3E /* Study Mix.wav */; };
+		AAFA3B861744E7E800A33631 /* The Beauty of Nature.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AE157AC270004E3F3E /* The Beauty of Nature.wav */; };
+		AAFA3B871744E7E800A33631 /* Twilight Piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657AF157AC270004E3F3E /* Twilight Piano.wav */; };
+		AAFA3B881744E7E800A33631 /* Wake Up Techno.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA657B0157AC270004E3F3E /* Wake Up Techno.wav */; };
+		AAFA3B891744E7E800A33631 /* 3 Beeps.wav in Resources */ = {isa = PBXBuildFile; fileRef = 85617AAE1737E15500DF3A95 /* 3 Beeps.wav */; };
+		AAFA3B8B1744E7E800A33631 /* arrowBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C80F173FCFBA00C915AE /* arrowBottomLeft.png */; };
+		AAFA3B8C1744E7E800A33631 /* arrowBottomRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C810173FCFBA00C915AE /* arrowBottomRight.png */; };
+		AAFA3B8D1744E7E800A33631 /* arrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C811173FCFBA00C915AE /* arrowDown.png */; };
+		AAFA3B8E1744E7E800A33631 /* arrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C812173FCFBA00C915AE /* arrowLeft.png */; };
+		AAFA3B8F1744E7E800A33631 /* arrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C813173FCFBA00C915AE /* arrowRight.png */; };
+		AAFA3B901744E7E800A33631 /* arrowTopLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C814173FCFBA00C915AE /* arrowTopLeft.png */; };
+		AAFA3B911744E7E800A33631 /* arrowTopRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C815173FCFBA00C915AE /* arrowTopRight.png */; };
+		AAFA3B921744E7E800A33631 /* arrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C81D173FD06300C915AE /* arrowUp.png */; };
+		AAFA3B951744E7E800A33631 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8564648917426748008A9A68 /* Default@2x.png */; };
+		AAFA3B961744E7E800A33631 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8564648B1742674D008A9A68 /* Default-568h@2x.png */; };
+		AAFA3BA91744E7EE00A33631 /* DefaultExerciseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3B9D1744E7EE00A33631 /* DefaultExerciseController.xib */; };
+		AAFA3BAA1744E7EE00A33631 /* CustomExerciseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3B9E1744E7EE00A33631 /* CustomExerciseController.xib */; };
+		AAFA3BAB1744E7EE00A33631 /* NewActivityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3B9F1744E7EE00A33631 /* NewActivityController.xib */; };
+		AAFA3BAC1744E7EE00A33631 /* RapidReturnController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3BA01744E7EE00A33631 /* RapidReturnController.xib */; };
+		AAFA3BAD1744E7EE00A33631 /* BreastMassageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3BA11744E7EE00A33631 /* BreastMassageController.xib */; };
+		AAFA3BAE1744E7EE00A33631 /* NewBMExercise.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3BA21744E7EE00A33631 /* NewBMExercise.xib */; };
+		AAFA3BAF1744E7EE00A33631 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3BA31744E7EE00A33631 /* RootViewController.xib */; };
+		AAFA3BB01744E7EE00A33631 /* NewBMExerciseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3BA41744E7EE00A33631 /* NewBMExerciseController.xib */; };
+		AAFA3BB11744E7EE00A33631 /* AlarmSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3BA51744E7EE00A33631 /* AlarmSoundViewController.xib */; };
+		AAFA3BB21744E7EE00A33631 /* EulaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3BA61744E7EE00A33631 /* EulaViewController.xib */; };
+		AAFA3BB31744E7EE00A33631 /* PhaseHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3BA71744E7EE00A33631 /* PhaseHelpViewController.xib */; };
+		AAFA3BB41744E7EE00A33631 /* ExerciseHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA3BA81744E7EE00A33631 /* ExerciseHelpViewController.xib */; };
 		C28BEDA31534990000543895 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA21534990000543895 /* UIKit.framework */; };
 		C28BEDA51534990000543895 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA41534990000543895 /* Foundation.framework */; };
 		C28BEDA71534990000543895 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BEDA61534990000543895 /* CoreGraphics.framework */; };
@@ -109,6 +186,20 @@
 		AA53B0D5173A3F1300F2FCFC /* EulaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EulaViewController.h; sourceTree = "<group>"; };
 		AA53B0D6173A3F1300F2FCFC /* EulaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EulaViewController.m; sourceTree = "<group>"; };
 		AA53B0D7173A3F1300F2FCFC /* EulaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EulaViewController.xib; sourceTree = "<group>"; };
+		AAFA3B9A1744E7E800A33631 /* BreastImplantExercises-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BreastImplantExercises-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAFA3B9C1744E7E900A33631 /* BreastImplantExercises copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BreastImplantExercises copy-Info.plist"; path = "/Users/daihuynh/Pictures/CurrentProjects/BreastImplantExercises-final_2 2/BreastImplantExercises copy-Info.plist"; sourceTree = "<absolute>"; };
+		AAFA3B9D1744E7EE00A33631 /* DefaultExerciseController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DefaultExerciseController.xib; path = "Resources-iPad/Medical_Revised/DefaultExerciseController.xib"; sourceTree = "<group>"; };
+		AAFA3B9E1744E7EE00A33631 /* CustomExerciseController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomExerciseController.xib; path = "Resources-iPad/Medical_Revised/CustomExerciseController.xib"; sourceTree = "<group>"; };
+		AAFA3B9F1744E7EE00A33631 /* NewActivityController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewActivityController.xib; path = "Resources-iPad/Medical_Revised/NewActivityController.xib"; sourceTree = "<group>"; };
+		AAFA3BA01744E7EE00A33631 /* RapidReturnController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RapidReturnController.xib; path = "Resources-iPad/Medical_Revised/RapidReturnController.xib"; sourceTree = "<group>"; };
+		AAFA3BA11744E7EE00A33631 /* BreastMassageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BreastMassageController.xib; path = "Resources-iPad/Medical_Revised/BreastMassageController.xib"; sourceTree = "<group>"; };
+		AAFA3BA21744E7EE00A33631 /* NewBMExercise.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewBMExercise.xib; path = "Resources-iPad/Medical_Revised/NewBMExercise.xib"; sourceTree = "<group>"; };
+		AAFA3BA31744E7EE00A33631 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootViewController.xib; path = "Resources-iPad/Medical_Revised/RootViewController.xib"; sourceTree = "<group>"; };
+		AAFA3BA41744E7EE00A33631 /* NewBMExerciseController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewBMExerciseController.xib; path = "Resources-iPad/Medical_Revised/NewBMExerciseController.xib"; sourceTree = "<group>"; };
+		AAFA3BA51744E7EE00A33631 /* AlarmSoundViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AlarmSoundViewController.xib; path = "Resources-iPad/Medical_Revised/AlarmSoundViewController.xib"; sourceTree = "<group>"; };
+		AAFA3BA61744E7EE00A33631 /* EulaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EulaViewController.xib; path = "Resources-iPad/Medical_Revised/EulaViewController.xib"; sourceTree = "<group>"; };
+		AAFA3BA71744E7EE00A33631 /* PhaseHelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhaseHelpViewController.xib; path = "Resources-iPad/Medical_Revised/PhaseHelpViewController.xib"; sourceTree = "<group>"; };
+		AAFA3BA81744E7EE00A33631 /* ExerciseHelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExerciseHelpViewController.xib; path = "Resources-iPad/Medical_Revised/ExerciseHelpViewController.xib"; sourceTree = "<group>"; };
 		C28BED9E1534990000543895 /* Breast Implant Exercises.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breast Implant Exercises.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28BEDA21534990000543895 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28BEDA41534990000543895 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -191,6 +282,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AAFA3B5B1744E7E800A33631 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFA3B5C1744E7E800A33631 /* AudioToolbox.framework in Frameworks */,
+				AAFA3B5D1744E7E800A33631 /* QuartzCore.framework in Frameworks */,
+				AAFA3B5E1744E7E800A33631 /* libsqlite3.0.dylib in Frameworks */,
+				AAFA3B5F1744E7E800A33631 /* UIKit.framework in Frameworks */,
+				AAFA3B601744E7E800A33631 /* Foundation.framework in Frameworks */,
+				AAFA3B611744E7E800A33631 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C28BED9B1534990000543895 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,9 +311,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AAFA3B9B1744E7E800A33631 /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				AAFA3B9D1744E7EE00A33631 /* DefaultExerciseController.xib */,
+				AAFA3B9E1744E7EE00A33631 /* CustomExerciseController.xib */,
+				AAFA3B9F1744E7EE00A33631 /* NewActivityController.xib */,
+				AAFA3BA01744E7EE00A33631 /* RapidReturnController.xib */,
+				AAFA3BA11744E7EE00A33631 /* BreastMassageController.xib */,
+				AAFA3BA21744E7EE00A33631 /* NewBMExercise.xib */,
+				AAFA3BA31744E7EE00A33631 /* RootViewController.xib */,
+				AAFA3BA41744E7EE00A33631 /* NewBMExerciseController.xib */,
+				AAFA3BA51744E7EE00A33631 /* AlarmSoundViewController.xib */,
+				AAFA3BA61744E7EE00A33631 /* EulaViewController.xib */,
+				AAFA3BA71744E7EE00A33631 /* PhaseHelpViewController.xib */,
+				AAFA3BA81744E7EE00A33631 /* ExerciseHelpViewController.xib */,
+			);
+			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
 		C28BED931534990000543895 = {
 			isa = PBXGroup;
 			children = (
+				AAFA3B9B1744E7E800A33631 /* Resources-iPad */,
 				8564648B1742674D008A9A68 /* Default-568h@2x.png */,
 				8564648917426748008A9A68 /* Default@2x.png */,
 				DD680CBA1565C1520027DE87 /* BreastImplantExercises.entitlements */,
@@ -217,6 +341,7 @@
 				C28BEDA81534990000543895 /* Medical_Revised */,
 				C28BEDA11534990000543895 /* Frameworks */,
 				C28BED9F1534990000543895 /* Products */,
+				AAFA3B9C1744E7E900A33631 /* BreastImplantExercises copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				C28BED9E1534990000543895 /* Breast Implant Exercises.app */,
+				AAFA3B9A1744E7E800A33631 /* BreastImplantExercises-iPad.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -485,6 +611,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AAFA3B461744E7E800A33631 /* BreastImplantExercises-iPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAFA3B971744E7E800A33631 /* Build configuration list for PBXNativeTarget "BreastImplantExercises-iPad" */;
+			buildPhases = (
+				AAFA3B471744E7E800A33631 /* Sources */,
+				AAFA3B5B1744E7E800A33631 /* Frameworks */,
+				AAFA3B621744E7E800A33631 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BreastImplantExercises-iPad";
+			productName = Medical_Revised;
+			productReference = AAFA3B9A1744E7E800A33631 /* BreastImplantExercises-iPad.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C28BED9D1534990000543895 /* BreastImplantExercises */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C28BEDB61534990100543895 /* Build configuration list for PBXNativeTarget "BreastImplantExercises" */;
@@ -523,11 +666,71 @@
 			projectRoot = "";
 			targets = (
 				C28BED9D1534990000543895 /* BreastImplantExercises */,
+				AAFA3B461744E7E800A33631 /* BreastImplantExercises-iPad */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AAFA3B621744E7E800A33631 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFA3B631744E7E800A33631 /* InfoPlist.strings in Resources */,
+				AAFA3B6B1744E7E800A33631 /* text_x_generic@2x.png in Resources */,
+				AAFA3B6C1744E7E800A33631 /* text_x_generic.png in Resources */,
+				AAFA3B6D1744E7E800A33631 /* RapidReturnExercises.pdf in Resources */,
+				AAFA3B6E1744E7E800A33631 /* Holder_2.png in Resources */,
+				AAFA3B6F1744E7E800A33631 /* Holder.png in Resources */,
+				AAFA3B701744E7E800A33631 /* bg.png in Resources */,
+				AAFA3B711744E7E800A33631 /* popupCloseBtn.png in Resources */,
+				AAFA3B721744E7E800A33631 /* popupCloseBtn@2x.png in Resources */,
+				AAFA3B731744E7E800A33631 /* popupWindowBack.png in Resources */,
+				AAFA3B741744E7E800A33631 /* popupWindowBack@2x.png in Resources */,
+				AAFA3B751744E7E800A33631 /* SampleDatabase.sqlite in Resources */,
+				AAFA3B771744E7E800A33631 /* BreastMassageInstructions.pdf in Resources */,
+				AAFA3B781744E7E800A33631 /* button.png in Resources */,
+				AAFA3B791744E7E800A33631 /* icon@2x.png in Resources */,
+				AAFA3B7A1744E7E800A33631 /* icon.png in Resources */,
+				AAFA3B7B1744E7E800A33631 /* Disclaimer.png in Resources */,
+				AAFA3B7C1744E7E800A33631 /* Default.png in Resources */,
+				AAFA3B7D1744E7E800A33631 /* Terms of User.pdf in Resources */,
+				AAFA3B7F1744E7E800A33631 /* Alarm Chicken.wav in Resources */,
+				AAFA3B801744E7E800A33631 /* Because of You.wav in Resources */,
+				AAFA3B811744E7E800A33631 /* Gamma brainwaves.wav in Resources */,
+				AAFA3B821744E7E800A33631 /* Love.wav in Resources */,
+				AAFA3B831744E7E800A33631 /* Morning Glow.wav in Resources */,
+				AAFA3B841744E7E800A33631 /* Morning Piano Nature.wav in Resources */,
+				AAFA3B851744E7E800A33631 /* Study Mix.wav in Resources */,
+				AAFA3B861744E7E800A33631 /* The Beauty of Nature.wav in Resources */,
+				AAFA3B871744E7E800A33631 /* Twilight Piano.wav in Resources */,
+				AAFA3B881744E7E800A33631 /* Wake Up Techno.wav in Resources */,
+				AAFA3B891744E7E800A33631 /* 3 Beeps.wav in Resources */,
+				AAFA3B8B1744E7E800A33631 /* arrowBottomLeft.png in Resources */,
+				AAFA3B8C1744E7E800A33631 /* arrowBottomRight.png in Resources */,
+				AAFA3B8D1744E7E800A33631 /* arrowDown.png in Resources */,
+				AAFA3B8E1744E7E800A33631 /* arrowLeft.png in Resources */,
+				AAFA3B8F1744E7E800A33631 /* arrowRight.png in Resources */,
+				AAFA3B901744E7E800A33631 /* arrowTopLeft.png in Resources */,
+				AAFA3B911744E7E800A33631 /* arrowTopRight.png in Resources */,
+				AAFA3B921744E7E800A33631 /* arrowUp.png in Resources */,
+				AAFA3B951744E7E800A33631 /* Default@2x.png in Resources */,
+				AAFA3B961744E7E800A33631 /* Default-568h@2x.png in Resources */,
+				AAFA3BA91744E7EE00A33631 /* DefaultExerciseController.xib in Resources */,
+				AAFA3BAA1744E7EE00A33631 /* CustomExerciseController.xib in Resources */,
+				AAFA3BAB1744E7EE00A33631 /* NewActivityController.xib in Resources */,
+				AAFA3BAC1744E7EE00A33631 /* RapidReturnController.xib in Resources */,
+				AAFA3BAD1744E7EE00A33631 /* BreastMassageController.xib in Resources */,
+				AAFA3BAE1744E7EE00A33631 /* NewBMExercise.xib in Resources */,
+				AAFA3BAF1744E7EE00A33631 /* RootViewController.xib in Resources */,
+				AAFA3BB01744E7EE00A33631 /* NewBMExerciseController.xib in Resources */,
+				AAFA3BB11744E7EE00A33631 /* AlarmSoundViewController.xib in Resources */,
+				AAFA3BB21744E7EE00A33631 /* EulaViewController.xib in Resources */,
+				AAFA3BB31744E7EE00A33631 /* PhaseHelpViewController.xib in Resources */,
+				AAFA3BB41744E7EE00A33631 /* ExerciseHelpViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C28BED9C1534990000543895 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -590,6 +793,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AAFA3B471744E7E800A33631 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFA3B481744E7E800A33631 /* main.m in Sources */,
+				AAFA3B491744E7E800A33631 /* AppDelegate.m in Sources */,
+				AAFA3B4A1744E7E800A33631 /* DefaultExerciseController.m in Sources */,
+				AAFA3B4B1744E7E800A33631 /* CustomExerciseController.m in Sources */,
+				AAFA3B4C1744E7E800A33631 /* MTPopupWindow.m in Sources */,
+				AAFA3B4D1744E7E800A33631 /* NewActivityController.m in Sources */,
+				AAFA3B4E1744E7E800A33631 /* RootViewController.m in Sources */,
+				AAFA3B4F1744E7E800A33631 /* RapidReturnController.m in Sources */,
+				AAFA3B501744E7E800A33631 /* NewBMExercise.m in Sources */,
+				AAFA3B511744E7E800A33631 /* Exercise.m in Sources */,
+				AAFA3B521744E7E800A33631 /* NewBMExerciseController.m in Sources */,
+				AAFA3B531744E7E800A33631 /* AppManager.m in Sources */,
+				AAFA3B541744E7E800A33631 /* AlarmSoundViewController.m in Sources */,
+				AAFA3B551744E7E800A33631 /* MKLocalNotificationsScheduler.m in Sources */,
+				AAFA3B561744E7E800A33631 /* BreastMassageController.m in Sources */,
+				AAFA3B571744E7E800A33631 /* EulaViewController.m in Sources */,
+				AAFA3B581744E7E800A33631 /* PhaseHelpViewController.m in Sources */,
+				AAFA3B591744E7E800A33631 /* ExerciseHelpViewController.m in Sources */,
+				AAFA3B5A1744E7E800A33631 /* UINavigationController+autorotate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C28BED9A1534990000543895 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -630,6 +859,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AAFA3B981744E7E800A33631 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
+				INFOPLIST_FILE = "BreastImplantExercises copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "BreastImplantExercises-iPad";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AAFA3B991744E7E800A33631 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
+				INFOPLIST_FILE = "BreastImplantExercises copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "BreastImplantExercises-iPad";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		C28BEDB41534990100543895 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -724,6 +995,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AAFA3B971744E7E800A33631 /* Build configuration list for PBXNativeTarget "BreastImplantExercises-iPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFA3B981744E7E800A33631 /* Debug */,
+				AAFA3B991744E7E800A33631 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C28BED981534990000543895 /* Build configuration list for PBXProject "BreastImplantExercises" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

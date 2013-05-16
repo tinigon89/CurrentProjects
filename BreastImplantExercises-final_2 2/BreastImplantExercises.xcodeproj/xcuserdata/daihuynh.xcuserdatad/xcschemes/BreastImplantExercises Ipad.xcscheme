@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C28BED9D1534990000543895"
-               BuildableName = "Breast Implant Exercises.app"
-               BlueprintName = "BreastImplantExercises"
+               BlueprintIdentifier = "AAFA3B461744E7E800A33631"
+               BuildableName = "BreastImplantExercises-iPad.app"
+               BlueprintName = "BreastImplantExercises-iPad"
                ReferencedContainer = "container:BreastImplantExercises.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C28BED9D1534990000543895"
-            BuildableName = "Breast Implant Exercises.app"
-            BlueprintName = "BreastImplantExercises"
+            BlueprintIdentifier = "AAFA3B461744E7E800A33631"
+            BuildableName = "BreastImplantExercises-iPad.app"
+            BlueprintName = "BreastImplantExercises-iPad"
             ReferencedContainer = "container:BreastImplantExercises.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,9 +51,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C28BED9D1534990000543895"
-            BuildableName = "Breast Implant Exercises.app"
-            BlueprintName = "BreastImplantExercises"
+            BlueprintIdentifier = "AAFA3B461744E7E800A33631"
+            BuildableName = "BreastImplantExercises-iPad.app"
+            BlueprintName = "BreastImplantExercises-iPad"
             ReferencedContainer = "container:BreastImplantExercises.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -69,9 +69,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C28BED9D1534990000543895"
-            BuildableName = "Breast Implant Exercises.app"
-            BlueprintName = "BreastImplantExercises"
+            BlueprintIdentifier = "AAFA3B461744E7E800A33631"
+            BuildableName = "BreastImplantExercises-iPad.app"
+            BlueprintName = "BreastImplantExercises-iPad"
             ReferencedContainer = "container:BreastImplantExercises.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -341,7 +341,20 @@
 		buttonActive = 2;
         [self showPickerView];
 		
-	}if ([sender isEqual:frequncyBtn]) {
+	}
+    if ([sender isEqual:startTimeButton]) {
+		isEndDay = NO;
+		buttonActive = 1;
+        [self showPickerView2];
+		
+	}if ([sender isEqual:endTimeButton]) {
+        isEndDay = YES;
+		buttonActive = 1;
+        [self showPickerView2];
+		
+	}
+
+    if ([sender isEqual:frequncyBtn]) {
 		
 		[self.tableView setFrame:CGRectMake(132, 30, 120, 160)];
 		[UIView beginAnimations:nil context:NULL];
@@ -382,26 +395,99 @@
     [actionsheet setBounds:CGRectMake(0,0,320, 464)];
 }
 
-- (void)buttonDoneClick
+- (void)showPickerView2
 {
-    if (isLeft)
-    {
+    picker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 44.0, 0.0, 0.0)];
+    picker.datePickerMode = UIDatePickerModeTime;
+    
+    NSDate *currentDate = [NSDate date];
+    if (isLeft) {
         if (isEndDay) {
-            leftEndDay = [picker.date copy];
+            currentDate = leftEndTime;
         }
         else
         {
-            leftStartDay = [picker.date copy];
+            currentDate = leftStartTime;
         }
     }
     else
     {
         if (isEndDay) {
-            rightEndDay = [picker.date copy];
+            currentDate = rightEndTime;
         }
         else
         {
-            rightStartDay = [picker.date copy];
+            currentDate = rightStartTime;
+        }
+    }
+    [picker setDate:currentDate];
+    
+    UIToolbar *pickerDateToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    pickerDateToolbar.barStyle = UIBarStyleBlackOpaque;
+    [pickerDateToolbar sizeToFit];
+    
+    NSMutableArray *barItems = [[NSMutableArray alloc] init];
+    
+    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    [barItems addObject:flexSpace];
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(buttonDoneClick)];
+    [barItems addObject:doneBtn];
+    
+    [pickerDateToolbar setItems:barItems animated:YES];
+    actionsheet = [[UIActionSheet alloc] init];
+    [actionsheet addSubview:pickerDateToolbar];
+    [actionsheet addSubview:picker];
+    [actionsheet showInView:self.view];
+    [actionsheet setBounds:CGRectMake(0,0,320, 464)];
+}
+
+- (void)buttonDoneClick
+{
+    if (isLeft)
+    {
+        if (buttonActive == 0) {
+            if (isEndDay) {
+                leftEndDay = [picker.date copy];
+            }
+            else
+            {
+                leftStartDay = [picker.date copy];
+            }
+        }
+        else
+        {
+            if (isEndDay) {
+                leftEndTime = [picker.date copy];
+            }
+            else
+            {
+                leftStartTime = [picker.date copy];
+            }
+        }
+        
+    }
+    else
+    {
+        if (buttonActive == 0)
+        {
+            if (isEndDay) {
+                rightEndDay = [picker.date copy];
+            }
+            else
+            {
+                rightStartDay = [picker.date copy];
+            }
+        }
+        else
+        {
+            if (isEndDay) {
+                rightEndTime = [picker.date copy];
+            }
+            else
+            {
+                rightStartTime = [picker.date copy];
+            }
         }
     }
     [actionsheet dismissWithClickedButtonIndex:100 animated:YES];
