@@ -10,6 +10,8 @@
 		85617AAF1737E15500DF3A95 /* 3 Beeps.wav in Resources */ = {isa = PBXBuildFile; fileRef = 85617AAE1737E15500DF3A95 /* 3 Beeps.wav */; };
 		8564648A17426748008A9A68 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8564648917426748008A9A68 /* Default@2x.png */; };
 		8564648C1742674E008A9A68 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8564648B1742674D008A9A68 /* Default-568h@2x.png */; };
+		85A8984C174511BF00F321F1 /* AlarmSoundViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A8984B174511BF00F321F1 /* AlarmSoundViewController-ipad.xib */; };
+		85A8984E1745130400F321F1 /* DefaultExerciseController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A8984D1745130400F321F1 /* DefaultExerciseController-ipad.xib */; };
 		85CE0B5417411325002D92F3 /* UINavigationController+autorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CE0B5317411325002D92F3 /* UINavigationController+autorotate.m */; };
 		85D3C816173FCFBA00C915AE /* arrowBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C80F173FCFBA00C915AE /* arrowBottomLeft.png */; };
 		85D3C817173FCFBA00C915AE /* arrowBottomRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C810173FCFBA00C915AE /* arrowBottomRight.png */; };
@@ -167,6 +169,9 @@
 		85617AAE1737E15500DF3A95 /* 3 Beeps.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "3 Beeps.wav"; sourceTree = "<group>"; };
 		8564648917426748008A9A68 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8564648B1742674D008A9A68 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		85A898491745101B00F321F1 /* define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
+		85A8984B174511BF00F321F1 /* AlarmSoundViewController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "AlarmSoundViewController-ipad.xib"; sourceTree = "<group>"; };
+		85A8984D1745130400F321F1 /* DefaultExerciseController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "DefaultExerciseController-ipad.xib"; sourceTree = "<group>"; };
 		85CE0B5217411325002D92F3 /* UINavigationController+autorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+autorotate.h"; sourceTree = "<group>"; };
 		85CE0B5317411325002D92F3 /* UINavigationController+autorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+autorotate.m"; sourceTree = "<group>"; };
 		85D3C80F173FCFBA00C915AE /* arrowBottomLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowBottomLeft.png; sourceTree = "<group>"; };
@@ -338,6 +343,7 @@
 				8564648917426748008A9A68 /* Default@2x.png */,
 				DD680CBA1565C1520027DE87 /* BreastImplantExercises.entitlements */,
 				DDBBB5D015435F8D00328ABB /* Default.png */,
+				85A898491745101B00F321F1 /* define.h */,
 				C28BEDA81534990000543895 /* Medical_Revised */,
 				C28BEDA11534990000543895 /* Frameworks */,
 				C28BED9F1534990000543895 /* Products */,
@@ -446,6 +452,7 @@
 		C28BEDE315349A3D00543895 /* DefaultExerciseController */ = {
 			isa = PBXGroup;
 			children = (
+				85A8984D1745130400F321F1 /* DefaultExerciseController-ipad.xib */,
 				C28BEDBD15349A2D00543895 /* DefaultExerciseController.h */,
 				C28BEDBE15349A2D00543895 /* DefaultExerciseController.m */,
 				C28BEDBF15349A2D00543895 /* DefaultExerciseController.xib */,
@@ -592,6 +599,7 @@
 		F18B9A401562C91D00466FB8 /* Choose Alarm Sound */ = {
 			isa = PBXGroup;
 			children = (
+				85A8984B174511BF00F321F1 /* AlarmSoundViewController-ipad.xib */,
 				F18B9A5B1562D07100466FB8 /* AlarmControllerDelegate */,
 				F18B9A421562C95C00466FB8 /* AlarmSoundViewController.h */,
 				F18B9A431562C95C00466FB8 /* AlarmSoundViewController.m */,
@@ -787,6 +795,8 @@
 				85D3C835173FE30300C915AE /* ExerciseHelpViewController.xib in Resources */,
 				8564648A17426748008A9A68 /* Default@2x.png in Resources */,
 				8564648C1742674E008A9A68 /* Default-568h@2x.png in Resources */,
+				85A8984C174511BF00F321F1 /* AlarmSoundViewController-ipad.xib in Resources */,
+				85A8984E1745130400F321F1 /* DefaultExerciseController-ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
