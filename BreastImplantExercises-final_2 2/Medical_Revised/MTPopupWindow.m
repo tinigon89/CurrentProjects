@@ -59,7 +59,8 @@ static MTPopupWindow *sharedInstance;
 -(void)doTransitionWithContentFile:(NSString*)fName
 {
     //faux view
-    UIView* fauxView = [[[UIView alloc] initWithFrame: CGRectMake(10, 10, 200, 200)] autorelease];
+    //UIView* fauxView = [[[UIView alloc] initWithFrame: CGRectMake(10, 10, 200, 200)] autorelease];
+    UIView* fauxView = [[[UIView alloc] initWithFrame:bgView.frame] autorelease];
     [bgView addSubview: fauxView];
 
     //the new panel

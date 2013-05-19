@@ -19,6 +19,7 @@
     IBOutlet UISwitch *mainSwitch;
     
 }
+@property (retain, nonatomic) IBOutlet UIWebView *videoWebView;
 @property (nonatomic, retain) NSMutableArray *exerciseArray;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIView *phaseView;

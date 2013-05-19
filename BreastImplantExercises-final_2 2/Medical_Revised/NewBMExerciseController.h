@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Exercise.h"
 #import "AlarmControllerDelegate.h"
-@interface NewBMExerciseController : UIViewController <UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource , AlarmControllerDelegate>{
+@interface NewBMExerciseController : UIViewController <UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource , AlarmControllerDelegate,UIPopoverControllerDelegate>{
 
 
 	IBOutlet UIView *settingsView;
@@ -48,6 +48,7 @@
     
     UIDatePicker *picker;
     UIActionSheet *actionsheet;
+    UIPopoverController *popoverController3;
     BOOL isEndDay;
     NSUserDefaults *userDefault;
     

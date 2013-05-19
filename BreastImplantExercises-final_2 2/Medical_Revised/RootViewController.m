@@ -21,14 +21,21 @@
 -(IBAction)pushButton:(id)sender{
     
 	if ([sender isEqual:button1]) {
-		
-		RapidReturnController * rController = [[RapidReturnController alloc] initWithNibName:@"RapidReturnController" bundle:nil];
+		NSString *nibName = @"RapidReturnController";
+        if (IS_IPAD()) {
+            nibName = @"RapidReturnController-ipad";
+        }
+		RapidReturnController * rController = [[RapidReturnController alloc] initWithNibName:nibName bundle:nil];
 		[self.navigationController pushViewController:rController animated:YES];
 		[rController release];
         
 	}
     else if ([sender isEqual:button2]) {
-		BreastMassageController *bController = [[[BreastMassageController alloc] initWithNibName:@"BreastMassageController" bundle:nil] autorelease];
+        NSString *nibName = @"BreastMassageController";
+        if (IS_IPAD()) {
+            nibName = @"BreastMassageController-ipad";
+        }
+		BreastMassageController *bController = [[[BreastMassageController alloc] initWithNibName:nibName bundle:nil] autorelease];
         [self.navigationController pushViewController:bController animated:YES];
 	}
 }
@@ -120,7 +127,12 @@
         {
             [[UIApplication sharedApplication] cancelLocalNotification:local];
         }
-        EulaViewController *eulaViewController = [[EulaViewController alloc] initWithNibName:@"EulaViewController" bundle:nil];
+        NSString *nibName = @"EulaViewController";
+        if (IS_IPAD()) {
+            nibName = @"EulaViewController-ipad";
+        }
+
+        EulaViewController *eulaViewController = [[EulaViewController alloc] initWithNibName:nibName bundle:nil];
         [self presentModalViewController:eulaViewController animated:NO];
         self.helpView.hidden = NO;
         UIBarButtonItem *disc = [[UIBarButtonItem alloc] initWithTitle:@"Hide" style:UIBarButtonItemStylePlain target:self action:@selector(hideHelpView)];
@@ -152,14 +164,20 @@
 }
 -(void)ViewDisclaimer:(id)sender {
 
-    if (!isShowDisclaim) {
-        isShowDisclaim = YES;
-        [MTPopupWindow showWindowWithHTMLFile:@"Terms of User" insideView:self.view viewController:self];
-    }
-    else
-    {
-        [[MTPopupWindow sharedInstance] closePopupWindow];
-    }
+//    if (!isShowDisclaim) {
+//        isShowDisclaim = YES;
+        NSString *nibName = @"EulaViewController";
+        if (IS_IPAD()) {
+            nibName = @"EulaViewController-ipad";
+        }
+        
+        EulaViewController *eulaViewController = [[EulaViewController alloc] initWithNibName:nibName bundle:nil];
+        [self presentModalViewController:eulaViewController animated:YES];
+//    }
+//    else
+//    {
+//        [[MTPopupWindow sharedInstance] closePopupWindow];
+//    }
     
 }
 

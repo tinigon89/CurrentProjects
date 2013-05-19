@@ -126,7 +126,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     if (![userDefault boolForKey:KExerciseHelp]) {
-        ExerciseHelpViewController *exerciseHelpViewController = [[ExerciseHelpViewController alloc] initWithNibName:@"ExerciseHelpViewController" bundle:nil];
+        NSString *nibName = @"ExerciseHelpViewController";
+        if (IS_IPAD()) {
+            nibName = @"ExerciseHelpViewController-ipad";
+        }
+        ExerciseHelpViewController *exerciseHelpViewController = [[ExerciseHelpViewController alloc] initWithNibName:nibName bundle:nil];
         
         [self presentViewController:exerciseHelpViewController animated:NO completion:nil];
     }
@@ -307,6 +311,101 @@
     [actionsheet setBounds:CGRectMake(0,0,320, 464)];
 }
 
+- (void)showPickerView3
+{
+    UIViewController *controller = [[UIViewController alloc] init];
+    [controller setContentSizeForViewInPopover:CGSizeMake(320, 300)];
+    
+    picker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 44.0, 0.0, 0.0)];
+    picker.datePickerMode = UIDatePickerModeDate;
+    NSDate *currentDate = [NSDate date];
+    if (isLeft) {
+        if (isEndDay) {
+            currentDate = leftEndDay;
+        }
+        else
+        {
+            currentDate = leftStartDay;
+        }
+    }
+    else
+    {
+        if (isEndDay) {
+            currentDate = rightEndDay;
+        }
+        else
+        {
+            currentDate = rightStartDay;
+        }
+    }
+    [picker setDate:currentDate];
+    UIToolbar *pickerDateToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    pickerDateToolbar.barStyle = UIBarStyleBlackOpaque;
+    
+    NSMutableArray *barItems = [[NSMutableArray alloc] init];
+    
+    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    [barItems addObject:flexSpace];
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(buttonDoneClick)];
+    [barItems addObject:doneBtn];
+    
+    [pickerDateToolbar setItems:barItems animated:YES];
+    [controller.view addSubview:pickerDateToolbar];
+    [controller.view addSubview:picker];
+    popoverController3 = [[UIPopoverController alloc] initWithContentViewController:controller];
+    [popoverController3 setDelegate:self];
+    [popoverController3 presentPopoverFromRect:CGRectMake(self.view.center.x, self.view.center.y, 1, 1) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+- (void)showPickerView4
+{
+    UIViewController *controller = [[UIViewController alloc] init];
+    [controller setContentSizeForViewInPopover:CGSizeMake(320, 300)];
+    
+    picker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 44.0, 0.0, 0.0)];
+    picker.datePickerMode = UIDatePickerModeTime;
+    
+    NSDate *currentDate = [NSDate date];
+    if (isLeft) {
+        if (isEndDay) {
+            currentDate = leftEndTime;
+        }
+        else
+        {
+            currentDate = leftStartTime;
+        }
+    }
+    else
+    {
+        if (isEndDay) {
+            currentDate = rightEndTime;
+        }
+        else
+        {
+            currentDate = rightStartTime;
+        }
+    }
+    [picker setDate:currentDate];
+    UIToolbar *pickerDateToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    pickerDateToolbar.barStyle = UIBarStyleBlackOpaque;
+    
+    NSMutableArray *barItems = [[NSMutableArray alloc] init];
+    
+    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    [barItems addObject:flexSpace];
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(buttonDoneClick)];
+    [barItems addObject:doneBtn];
+    
+    [pickerDateToolbar setItems:barItems animated:YES];
+    [controller.view addSubview:pickerDateToolbar];
+    [controller.view addSubview:picker];
+    popoverController3 = [[UIPopoverController alloc] initWithContentViewController:controller];
+    [popoverController3 setDelegate:self];
+    [popoverController3 presentPopoverFromRect:CGRectMake(self.view.center.x, self.view.center.y, 1, 1) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
 - (void)buttonDoneClick
 {
     if (isLeft)
@@ -357,6 +456,9 @@
     }
     [actionsheet dismissWithClickedButtonIndex:100 animated:YES];
     [self reloadSettings];
+    if (popoverController3) {
+        [popoverController3 dismissPopoverAnimated:YES];
+    }
 }
 
 //-(void)activateExercise{
@@ -477,29 +579,58 @@
 	if ([sender isEqual:startBtn]) {
 		isEndDay = NO;
 		buttonActive = 0;
-        [self showPickerView];
+        if (IS_IPAD()) {
+            [self showPickerView3];
+        }
+        else
+        {
+            [self showPickerView];
+        }
+        
 		
 	}if ([sender isEqual:endBtn]) {
         isEndDay = YES;
 		buttonActive = 0;
-        [self showPickerView];
+        if (IS_IPAD()) {
+            [self showPickerView3];
+        }
+        else
+        {
+            [self showPickerView];
+        }
 		
 	}
     
     if ([sender isEqual:startTimeButton]) {
 		isEndDay = NO;
 		buttonActive = 1;
-        [self showPickerView2];
+        if (IS_IPAD()) {
+            [self showPickerView4];
+        }
+        else
+        {
+            [self showPickerView2];
+        }
 		
 	}if ([sender isEqual:endTimeButton]) {
         isEndDay = YES;
 		buttonActive = 1;
-        [self showPickerView2];
+        if (IS_IPAD()) {
+            [self showPickerView4];
+        }
+        else
+        {
+            [self showPickerView2];
+        }
 		
 	}
     if ([sender isEqual:frequncyBtn]) {
 		
 		[self.tableView setFrame:CGRectMake(132, 30, 120, 160)];
+        if (IS_IPAD()) {
+            
+            [self.tableView setFrame:CGRectMake(frequncyBtn.frame.origin.x, frequncyBtn.frame.origin.y+frequncyBtn.frame.size.height, frequncyBtn.frame.size.width, 300)];
+        }
 		[UIView beginAnimations:nil context:NULL];
 		[UIView setAnimationDelegate:self];
 		[UIView setAnimationDuration:0.5];

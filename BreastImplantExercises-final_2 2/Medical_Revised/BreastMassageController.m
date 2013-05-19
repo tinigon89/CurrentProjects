@@ -15,6 +15,7 @@
 #import "MTPopupWindow.h"
 #import "AppManager.h"
 #import "PhaseHelpViewController.h"
+#import "DocumentViewController.h"
 @implementation BreastMassageController
 
 @synthesize phaseView;
@@ -47,6 +48,7 @@
     [instructionView release];
     [self.tableView release];
     [exerciseArray release];
+    [_videoWebView release];
     [super dealloc];
 }
 #pragma mark - View lifecycle
@@ -60,7 +62,7 @@
     frame.origin.y = frame.origin.y + 21;
     self.tableView.backgroundColor = [UIColor clearColor];
 
-    [self embedYouTube:@"http://www.youtube.com/embed/GwNdV66ZGxY?rel=0" frame:frame];
+    [self embedYouTube:@"http://www.youtube.com/embed/GwNdV66ZGxY?rel=0" frame:self.videoWebView.frame];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -106,7 +108,11 @@
     
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     if (![userDefault boolForKey:KPhaseHelp]) {
-        PhaseHelpViewController *phaseHelpViewController = [[PhaseHelpViewController alloc] initWithNibName:@"PhaseHelpViewController" bundle:nil];
+        NSString *nibName = @"PhaseHelpViewController";
+        if (IS_IPAD()) {
+            nibName = @"PhaseHelpViewController-ipad";
+        }
+        PhaseHelpViewController *phaseHelpViewController = [[PhaseHelpViewController alloc] initWithNibName:nibName bundle:nil];
         
         [self presentViewController:phaseHelpViewController animated:NO completion:nil];
     }
@@ -125,8 +131,16 @@
 
 -(IBAction)showInstruction:(id)sender {
 	
-	[MTPopupWindow showWindowWithHTMLFile:@"BreastMassageInstructions" insideView:self.view viewController:self];
-	
+    if (IS_IPAD()) {
+        DocumentViewController *documentViewController = [[DocumentViewController alloc] initWithNibName:@"DocumentViewController" bundle:nil];
+        documentViewController.document = @"BreastMassageInstructions";
+        
+        [self presentModalViewController:documentViewController animated:YES];
+    }
+    else
+    {
+        [MTPopupWindow showWindowWithHTMLFile:@"BreastMassageInstructions" insideView:self.view viewController:self];
+	}
 }
 -(IBAction)mainSwitchValueChanged:(id)sender{
     UISwitch *switchObj = (UISwitch *)sender;
@@ -419,6 +433,7 @@
 
 - (void)viewDidUnload
 {
+    [self setVideoWebView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -444,13 +459,10 @@
 }
 
 - (void)embedYouTube:(NSString *)urlString frame:(CGRect)frame {
-	NSString *embedHTML = @"<iframe width=\"%0.f\" height=\"%0.f\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe>";
+	NSString *embedHTML = @"<html><body style=\"margin:0px;padding:0px;overflow:hidden\"><iframe width=\"%0.f\" height=\"%0.f\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
 	NSString *html = [NSString stringWithFormat:embedHTML, frame.size.width, frame.size.height,urlString];
-	UIWebView *videoView1 = [[UIWebView alloc] initWithFrame:frame];
-	[videoView1 loadHTMLString:html baseURL:nil];
-	[self.view addSubview:videoView1];
-    [videoView1.scrollView setScrollEnabled:NO];
-	[videoView1 release];
+	[self.videoWebView loadHTMLString:html baseURL:nil];
+    [self.videoWebView.scrollView setScrollEnabled:NO];
 }
 #pragma mark -
 #pragma mark Table view data source
@@ -527,7 +539,11 @@
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // NewBMExercise *newController = [[[NewBMExercise alloc] initWithNibName:@"NewBMExercise" bundle:nil] autorelease];
-    NewBMExerciseController *newController = [[[NewBMExerciseController alloc] initWithNibName:@"NewBMExerciseController" bundle:nil] autorelease];
+    NSString *nibName = @"NewBMExerciseController";
+    if (IS_IPAD()) {
+        nibName = @"NewBMExerciseController-ipad";
+    }
+    NewBMExerciseController *newController = [[[NewBMExerciseController alloc] initWithNibName:nibName bundle:nil] autorelease];
     
     if(indexPath.row < [exerciseArray count]){
         // Set Edit Mode

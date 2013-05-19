@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8504E77C1749206900826B8B /* RootViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E77B1749206900826B8B /* RootViewController-ipad.xib */; };
+		8504E77F1749206900826B8B /* EulaViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E77E1749206900826B8B /* EulaViewController-ipad.xib */; };
+		8504E7811749206900826B8B /* RapidReturnController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7801749206900826B8B /* RapidReturnController-ipad.xib */; };
+		8504E7831749206900826B8B /* BreastMassageController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7821749206900826B8B /* BreastMassageController-ipad.xib */; };
+		8504E7871749206900826B8B /* NewBMExerciseController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7861749206900826B8B /* NewBMExerciseController-ipad.xib */; };
+		8504E78A1749206900826B8B /* ExerciseHelpViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7881749206900826B8B /* ExerciseHelpViewController-ipad.xib */; };
+		8504E78B1749206900826B8B /* PhaseHelpViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7891749206900826B8B /* PhaseHelpViewController-ipad.xib */; };
+		8504E78C1749206900826B8B /* AlarmSoundViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A8984B174511BF00F321F1 /* AlarmSoundViewController-ipad.xib */; };
+		8504E78D1749206900826B8B /* DefaultExerciseController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A8984D1745130400F321F1 /* DefaultExerciseController-ipad.xib */; };
+		8504E78E1749206900826B8B /* EulaViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E77E1749206900826B8B /* EulaViewController-ipad.xib */; };
+		8504E78F1749206900826B8B /* RootViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E77B1749206900826B8B /* RootViewController-ipad.xib */; };
+		8504E7901749206900826B8B /* RapidReturnController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7801749206900826B8B /* RapidReturnController-ipad.xib */; };
+		8504E7911749206900826B8B /* BreastMassageController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7821749206900826B8B /* BreastMassageController-ipad.xib */; };
+		8504E7921749206900826B8B /* NewBMExerciseController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7861749206900826B8B /* NewBMExerciseController-ipad.xib */; };
+		8504E7931749206900826B8B /* PhaseHelpViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7891749206900826B8B /* PhaseHelpViewController-ipad.xib */; };
+		8504E7941749206900826B8B /* ExerciseHelpViewController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7881749206900826B8B /* ExerciseHelpViewController-ipad.xib */; };
+		8504E7981749206900826B8B /* DocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8504E7961749206900826B8B /* DocumentViewController.m */; };
+		8504E7991749206900826B8B /* DocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7971749206900826B8B /* DocumentViewController.xib */; };
+		8504E79C1749206900826B8B /* DocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8504E7971749206900826B8B /* DocumentViewController.xib */; };
+		8504E79D1749206900826B8B /* DocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8504E7961749206900826B8B /* DocumentViewController.m */; };
 		85617AAF1737E15500DF3A95 /* 3 Beeps.wav in Resources */ = {isa = PBXBuildFile; fileRef = 85617AAE1737E15500DF3A95 /* 3 Beeps.wav */; };
 		8564648A17426748008A9A68 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8564648917426748008A9A68 /* Default@2x.png */; };
 		8564648C1742674E008A9A68 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8564648B1742674D008A9A68 /* Default-568h@2x.png */; };
@@ -166,6 +186,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8504E77B1749206900826B8B /* RootViewController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "RootViewController-ipad.xib"; sourceTree = "<group>"; };
+		8504E77E1749206900826B8B /* EulaViewController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EulaViewController-ipad.xib"; sourceTree = "<group>"; };
+		8504E7801749206900826B8B /* RapidReturnController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "RapidReturnController-ipad.xib"; sourceTree = "<group>"; };
+		8504E7821749206900826B8B /* BreastMassageController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "BreastMassageController-ipad.xib"; sourceTree = "<group>"; };
+		8504E7861749206900826B8B /* NewBMExerciseController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "NewBMExerciseController-ipad.xib"; sourceTree = "<group>"; };
+		8504E7881749206900826B8B /* ExerciseHelpViewController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ExerciseHelpViewController-ipad.xib"; sourceTree = "<group>"; };
+		8504E7891749206900826B8B /* PhaseHelpViewController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "PhaseHelpViewController-ipad.xib"; sourceTree = "<group>"; };
+		8504E7951749206900826B8B /* DocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentViewController.h; sourceTree = "<group>"; };
+		8504E7961749206900826B8B /* DocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentViewController.m; sourceTree = "<group>"; };
+		8504E7971749206900826B8B /* DocumentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentViewController.xib; sourceTree = "<group>"; };
 		85617AAE1737E15500DF3A95 /* 3 Beeps.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "3 Beeps.wav"; sourceTree = "<group>"; };
 		8564648917426748008A9A68 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8564648B1742674D008A9A68 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -439,12 +469,17 @@
 				C28BEDEA15349A9400543895 /* NewBMController */,
 				85D3C81F173FD57E00C915AE /* PhaseHelpViewController.h */,
 				85D3C820173FD57E00C915AE /* PhaseHelpViewController.m */,
+				8504E7891749206900826B8B /* PhaseHelpViewController-ipad.xib */,
 				85D3C821173FD57E00C915AE /* PhaseHelpViewController.xib */,
 				85D3C831173FE30200C915AE /* ExerciseHelpViewController.h */,
 				85D3C832173FE30200C915AE /* ExerciseHelpViewController.m */,
+				8504E7881749206900826B8B /* ExerciseHelpViewController-ipad.xib */,
 				85D3C833173FE30300C915AE /* ExerciseHelpViewController.xib */,
 				85CE0B5217411325002D92F3 /* UINavigationController+autorotate.h */,
 				85CE0B5317411325002D92F3 /* UINavigationController+autorotate.m */,
+				8504E7951749206900826B8B /* DocumentViewController.h */,
+				8504E7961749206900826B8B /* DocumentViewController.m */,
+				8504E7971749206900826B8B /* DocumentViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -493,6 +528,8 @@
 		C28BEDE715349A6E00543895 /* RootViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8504E77E1749206900826B8B /* EulaViewController-ipad.xib */,
+				8504E77B1749206900826B8B /* RootViewController-ipad.xib */,
 				C28BEDC815349A2D00543895 /* RootViewController.h */,
 				C28BEDC915349A2D00543895 /* RootViewController.m */,
 				C28BEDD315349A2D00543895 /* RootViewController.xib */,
@@ -506,6 +543,7 @@
 		C28BEDE815349A7A00543895 /* Rapid Return */ = {
 			isa = PBXGroup;
 			children = (
+				8504E7801749206900826B8B /* RapidReturnController-ipad.xib */,
 				C28BEDCA15349A2D00543895 /* RapidReturnController.h */,
 				C28BEDCB15349A2D00543895 /* RapidReturnController.m */,
 				C28BEDCC15349A2D00543895 /* RapidReturnController.xib */,
@@ -516,6 +554,7 @@
 		C28BEDE915349A8600543895 /* BreastMassageController */ = {
 			isa = PBXGroup;
 			children = (
+				8504E7821749206900826B8B /* BreastMassageController-ipad.xib */,
 				C28BEDCD15349A2D00543895 /* BreastMassageController.h */,
 				C28BEDCE15349A2D00543895 /* BreastMassageController.m */,
 				C28BEDCF15349A2D00543895 /* BreastMassageController.xib */,
@@ -526,6 +565,7 @@
 		C28BEDEA15349A9400543895 /* NewBMController */ = {
 			isa = PBXGroup;
 			children = (
+				8504E7861749206900826B8B /* NewBMExerciseController-ipad.xib */,
 				F17F4C9F153F39940008594F /* NewBMExerciseController.h */,
 				F17F4CA0153F39940008594F /* NewBMExerciseController.m */,
 				F17F4CA1153F39940008594F /* NewBMExerciseController.xib */,
@@ -684,6 +724,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8504E79C1749206900826B8B /* DocumentViewController.xib in Resources */,
+				8504E78C1749206900826B8B /* AlarmSoundViewController-ipad.xib in Resources */,
+				8504E78D1749206900826B8B /* DefaultExerciseController-ipad.xib in Resources */,
+				8504E78E1749206900826B8B /* EulaViewController-ipad.xib in Resources */,
+				8504E78F1749206900826B8B /* RootViewController-ipad.xib in Resources */,
+				8504E7901749206900826B8B /* RapidReturnController-ipad.xib in Resources */,
+				8504E7911749206900826B8B /* BreastMassageController-ipad.xib in Resources */,
+				8504E7921749206900826B8B /* NewBMExerciseController-ipad.xib in Resources */,
+				8504E7931749206900826B8B /* PhaseHelpViewController-ipad.xib in Resources */,
+				8504E7941749206900826B8B /* ExerciseHelpViewController-ipad.xib in Resources */,
 				AAFA3B631744E7E800A33631 /* InfoPlist.strings in Resources */,
 				AAFA3B6B1744E7E800A33631 /* text_x_generic@2x.png in Resources */,
 				AAFA3B6C1744E7E800A33631 /* text_x_generic.png in Resources */,
@@ -797,6 +847,14 @@
 				8564648C1742674E008A9A68 /* Default-568h@2x.png in Resources */,
 				85A8984C174511BF00F321F1 /* AlarmSoundViewController-ipad.xib in Resources */,
 				85A8984E1745130400F321F1 /* DefaultExerciseController-ipad.xib in Resources */,
+				8504E77C1749206900826B8B /* RootViewController-ipad.xib in Resources */,
+				8504E77F1749206900826B8B /* EulaViewController-ipad.xib in Resources */,
+				8504E7811749206900826B8B /* RapidReturnController-ipad.xib in Resources */,
+				8504E7831749206900826B8B /* BreastMassageController-ipad.xib in Resources */,
+				8504E7871749206900826B8B /* NewBMExerciseController-ipad.xib in Resources */,
+				8504E78A1749206900826B8B /* ExerciseHelpViewController-ipad.xib in Resources */,
+				8504E78B1749206900826B8B /* PhaseHelpViewController-ipad.xib in Resources */,
+				8504E7991749206900826B8B /* DocumentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +865,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8504E79D1749206900826B8B /* DocumentViewController.m in Sources */,
 				AAFA3B481744E7E800A33631 /* main.m in Sources */,
 				AAFA3B491744E7E800A33631 /* AppDelegate.m in Sources */,
 				AAFA3B4A1744E7E800A33631 /* DefaultExerciseController.m in Sources */,
@@ -852,6 +911,7 @@
 				85D3C822173FD57F00C915AE /* PhaseHelpViewController.m in Sources */,
 				85D3C834173FE30300C915AE /* ExerciseHelpViewController.m in Sources */,
 				85CE0B5417411325002D92F3 /* UINavigationController+autorotate.m in Sources */,
+				8504E7981749206900826B8B /* DocumentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

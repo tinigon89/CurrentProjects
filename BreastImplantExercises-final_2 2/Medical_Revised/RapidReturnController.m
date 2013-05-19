@@ -15,7 +15,7 @@
 #import "CustomExerciseController.h"
 #import "AppManager.h"
 #import "PhaseHelpViewController.h"
-
+#import "DocumentViewController.h"
 @implementation RapidReturnController
 @synthesize videoView, execeriseDetails, settingsView;
 @synthesize tableView = _tableView;
@@ -80,7 +80,12 @@
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     if (![userDefault boolForKey:KPhaseHelp]) {
-        PhaseHelpViewController *phaseHelpViewController = [[PhaseHelpViewController alloc] initWithNibName:@"PhaseHelpViewController" bundle:nil];
+        NSString *nibName = @"PhaseHelpViewController";
+        if (IS_IPAD()) {
+            nibName = @"PhaseHelpViewController-ipad";
+        }
+
+        PhaseHelpViewController *phaseHelpViewController = [[PhaseHelpViewController alloc] initWithNibName:nibName bundle:nil];
         
         [self presentViewController:phaseHelpViewController animated:NO completion:nil];
     }
@@ -393,14 +398,22 @@
 
 
 -(IBAction)showInstruction:(id)sender {
-	
-	[MTPopupWindow showWindowWithHTMLFile:@"RapidReturnExercises" insideView:self.view viewController:self];
-	
+	  
+    if (IS_IPAD()) {
+        DocumentViewController *documentViewController = [[DocumentViewController alloc] initWithNibName:@"DocumentViewController" bundle:nil];
+        documentViewController.document = @"RapidReturnExercises";
+        
+        [self presentModalViewController:documentViewController animated:YES];
+    }
+    else
+    {
+        [MTPopupWindow showWindowWithHTMLFile:@"RapidReturnExercises" insideView:self.view viewController:self];
+    }
 }
 
 - (void)embedYouTube:(NSString *)urlString frame:(CGRect)frame {
 	//NSString *embedHTML = @"<iframe class=\"youtube-player\" type=\"text/html\" width=\"%f\" height=\"%f\" src=\"%@\" allowfullscreen frameborder=\"10\"></iframe>";
-    NSString *embedHTML = @"<iframe width=\"%0.f\" height=\"%0.f\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe>";
+    NSString *embedHTML = @"<html><body style=\"margin:0px;padding:0px;overflow:hidden\"><iframe width=\"%0.f\" height=\"%0.f\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
 	NSString *html = [NSString stringWithFormat:embedHTML,frame.size.width, frame.size.height,urlString];
 //	UIWebView *videoView1 = [[UIWebView alloc] initWithFrame:frame];
 //	[videoView1 loadHTMLString:html baseURL:nil];
@@ -473,8 +486,11 @@
 //        
 //	}
 //    else {
-		
-        DefaultExerciseController *sController = [[[DefaultExerciseController alloc] initWithNibName:@"DefaultExerciseController" bundle:nil] autorelease];
+    NSString *nibName = @"DefaultExerciseController";
+    if (IS_IPAD()) {
+        nibName = @"DefaultExerciseController-ipad";
+    }
+        DefaultExerciseController *sController = [[[DefaultExerciseController alloc] initWithNibName:nibName bundle:nil] autorelease];
         sController.index = indexPath.row;
         sController.mainSwitch = mainSwitch;
         Exercise *exercise = (Exercise *)[exerciseArray objectAtIndex:indexPath.row];

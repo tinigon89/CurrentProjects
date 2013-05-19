@@ -12,7 +12,7 @@
 #import "AlarmControllerDelegate.h"
 @interface DefaultExerciseController : UIViewController 
 <UITextFieldDelegate,UITableViewDelegate, 
-UITableViewDataSource , AlarmControllerDelegate,UIActionSheetDelegate>{
+UITableViewDataSource , AlarmControllerDelegate,UIActionSheetDelegate,UIPopoverControllerDelegate>{
 
 
 	IBOutlet UIView *settingsView;
@@ -54,6 +54,7 @@ UITableViewDataSource , AlarmControllerDelegate,UIActionSheetDelegate>{
     
     UIDatePicker *picker;
     UIActionSheet *actionsheet;
+    UIPopoverController *popoverController3;
     BOOL isEndDay;
 }
 - (IBAction)switchValueChanged:(id)sender;

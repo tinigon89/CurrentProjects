@@ -47,3 +47,13 @@
 // For UILocalNotification , In app Alert
 #define KAlertName @"AlertName"
 #define KAlertType @"AlertType"
+
+#ifdef UI_USER_INTERFACE_IDIOM
+#define IS_IPAD() (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define PORTRAIT_KEYBOARD_HEIGHT 216
+#define LANDSCAPE_KEYBOARD_HEIGHT  162
+#else
+#define IS_IPAD() (false)
+#define PORTRAIT_KEYBOARD_HEIGHT 216
+#define LANDSCAPE_KEYBOARD_HEIGHT  162
+#endif

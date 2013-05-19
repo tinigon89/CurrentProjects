@@ -49,8 +49,11 @@ static NSString *DatabaseFileName = @"SampleDatabase.sqlite";
 //    }
 //    //[self showSnoozeScreen];
 //    
-    
-    RootViewController *rootController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+    NSString *nibName = @"RootViewController";
+    if (IS_IPAD()) {
+        nibName = @"RootViewController-ipad";
+    }
+    RootViewController *rootController = [[RootViewController alloc] initWithNibName:nibName bundle:nil];
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:rootController];
     
