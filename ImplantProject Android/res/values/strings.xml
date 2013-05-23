@@ -1,0 +1,61 @@
+<resources>
+
+    <string name="app_name">ImplantProject</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="sounds">Sounds</string>
+
+    <string-array name="sounds_array">
+        <item>BecauseOfYou</item>
+        <item>tictac</item>
+        <item>AlarmChicken</item>
+    </string-array>
+
+    <string name="sound_prompt">Choose a Sound</string>
+    <string name="startday">Start Day</string>
+    <string name="strtday">0</string>
+    <string name="frequency">Frequency</string>
+    <string name="frequencytextview">0</string>
+    <string name="endday">End day</string>
+    <string name="setting">Settings</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="phase2">Phase 2</string>
+    <string name="phase1">Phase 1</string>
+    <string name="instructions">Instructions</string>
+    <string name="armcircle">Arm Circle</string>
+    <string name="armstretch">Arm Stretch</string>
+    <string name="exercise1">Exercise 1</string>
+    <string name="exercise2">Exercise 2</string>
+    <string name="exercise3">Exercise 3</string>
+    <string name="exercise4">Exercise 4</string>
+    <string name="exercise">Exercises</string>
+    <string name="rapidreturn">Rapid Return</string>
+    <string name="close">Snooze</string>
+    <string name="hours">Hours</string>
+    <string name="alarmsound">Alarm Sound</string>
+    <string name="activate">Activate</string>
+    <string name="title_activity_term_condition">TermConditionActivity</string>
+    <string name="disclaimtext">The App is intended for persons eighteen (18) years or older. Persons under the age of eighteen</string>
+    <string name="terms">Agreed with above terms and conditions</string>
+    <string name="condition">Terms and Conditions</string>
+    <string name="rapid">Phase 1: Rapid Return</string>
+    <string name="phases">Phase 2: Breast Massage</string>
+    <string name="palack">Placik Protocol</string>
+    <string name="phase">Phase 1 :</string>
+    <string name="rapidreturnexercise">Rapid Return Exercise</string>
+    <string name="video">Video</string>
+    <string name="shoulderroll">Shoulder Roll</string>
+    <string name="active">Activate alarm</string>
+    <string name="cancel">Cancel     </string>
+    <string name="phasetwo">Phase 2</string>
+    <string name="massage">"Breast Massage "</string>
+    <string name="canxel">cancel</string>
+    <string name="reminder">Alarm Reminder!!!</string>
+    <string name="vibrator">Vibrate</string>
+    <string name="title_activity_video">VideoActivity</string>
+    <string name="back">Back</string>
+    <string name="play">Play Video</string>
+
+</resources>

@@ -47,6 +47,8 @@
 		85D3C835173FE30300C915AE /* ExerciseHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85D3C833173FE30300C915AE /* ExerciseHelpViewController.xib */; };
 		AA53B0D8173A3F1300F2FCFC /* EulaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA53B0D6173A3F1300F2FCFC /* EulaViewController.m */; };
 		AA53B0D9173A3F1300F2FCFC /* EulaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA53B0D7173A3F1300F2FCFC /* EulaViewController.xib */; };
+		AA5804A5174C7DA900184D3E /* icon72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5804A4174C7DA900184D3E /* icon72x72.png */; };
+		AA5804A7174C7DB000184D3E /* icon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5804A6174C7DB000184D3E /* icon114x114.png */; };
 		AAFA3B481744E7E800A33631 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDAE1534990000543895 /* main.m */; };
 		AAFA3B491744E7E800A33631 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDB21534990100543895 /* AppDelegate.m */; };
 		AAFA3B4A1744E7E800A33631 /* DefaultExerciseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28BEDBE15349A2D00543895 /* DefaultExerciseController.m */; };
@@ -221,6 +223,8 @@
 		AA53B0D5173A3F1300F2FCFC /* EulaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EulaViewController.h; sourceTree = "<group>"; };
 		AA53B0D6173A3F1300F2FCFC /* EulaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EulaViewController.m; sourceTree = "<group>"; };
 		AA53B0D7173A3F1300F2FCFC /* EulaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EulaViewController.xib; sourceTree = "<group>"; };
+		AA5804A4174C7DA900184D3E /* icon72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72x72.png; sourceTree = "<group>"; };
+		AA5804A6174C7DB000184D3E /* icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114x114.png; sourceTree = "<group>"; };
 		AAFA3B9A1744E7E800A33631 /* BreastImplantExercises-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BreastImplantExercises-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFA3B9C1744E7E900A33631 /* BreastImplantExercises copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BreastImplantExercises copy-Info.plist"; path = "/Users/daihuynh/Pictures/CurrentProjects/BreastImplantExercises-final_2 2/BreastImplantExercises copy-Info.plist"; sourceTree = "<absolute>"; };
 		AAFA3B9D1744E7EE00A33631 /* DefaultExerciseController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DefaultExerciseController.xib; path = "Resources-iPad/Medical_Revised/DefaultExerciseController.xib"; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 		C28BED931534990000543895 = {
 			isa = PBXGroup;
 			children = (
+				AA5804A6174C7DB000184D3E /* icon114x114.png */,
+				AA5804A4174C7DA900184D3E /* icon72x72.png */,
 				AAFA3B9B1744E7E800A33631 /* Resources-iPad */,
 				8564648B1742674D008A9A68 /* Default-568h@2x.png */,
 				8564648917426748008A9A68 /* Default@2x.png */,
@@ -786,6 +792,8 @@
 				AAFA3BB21744E7EE00A33631 /* EulaViewController.xib in Resources */,
 				AAFA3BB31744E7EE00A33631 /* PhaseHelpViewController.xib in Resources */,
 				AAFA3BB41744E7EE00A33631 /* ExerciseHelpViewController.xib in Resources */,
+				AA5804A5174C7DA900184D3E /* icon72x72.png in Resources */,
+				AA5804A7174C7DB000184D3E /* icon114x114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,7 +950,7 @@
 				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
 				INFOPLIST_FILE = "BreastImplantExercises copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "BreastImplantExercises-iPad";
+				PRODUCT_NAME = "Breast Implant Exercises HD";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -963,7 +971,7 @@
 				GCC_PREFIX_HEADER = "Medical_Revised/BreastImplantExercises-Prefix.pch";
 				INFOPLIST_FILE = "BreastImplantExercises copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "BreastImplantExercises-iPad";
+				PRODUCT_NAME = "Breast Implant Exercises HD";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
