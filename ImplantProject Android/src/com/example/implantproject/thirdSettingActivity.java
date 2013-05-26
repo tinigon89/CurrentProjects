@@ -24,13 +24,10 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 public class thirdSettingActivity extends Activity implements OnClickListener,
 		OnItemSelectedListener {
 	private Spinner spinner1;
-    private ToggleButton vibrate;
-	private ToggleButton togglebutton;
 	private EditText StrtDayEditView;
 	static Vibrator vibe;
 	private EditText endtime;
@@ -96,8 +93,6 @@ public class thirdSettingActivity extends Activity implements OnClickListener,
 		right = (ImageButton) findViewById(R.id.imageButton5);
 		right.setOnClickListener(this);
 		vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-		vibrate = (ToggleButton)findViewById(R.id.toggleButton2);
-		vibrate.setOnClickListener(this);
 		dfrequency = (TextView) findViewById(R.id.frequencyView);
 		dfrequency.setOnClickListener(this);
 		
@@ -144,12 +139,38 @@ public class thirdSettingActivity extends Activity implements OnClickListener,
 			dfrequency.setText("1");
 			StrtDayEditView.setText("1");
 			endtime.setText("3");
-			togglebutton.setChecked(true);
-			toggle = 1;
-			vibrate.setChecked(true);
-			vibrator=1;
-spinner1.setSelected(true);
+			spinner1.setSelected(true);
 			Flag = 3;
+		}
+		
+		//left button
+		left.setImageResource(R.drawable.left1);
+		right.setImageResource(R.drawable.rightbutton);
+		Flag = 1;
+		// ------------------Clearing the Screen-----------------------
+		StrtDayEditView.setText("");
+		endtime.setText("");
+		dfrequency.setText("");
+
+		// ----------------------------------When Left was
+		// clicked----------------
+		sharedPreferences = getSharedPreferences("MY_SHARED_PREF",
+				MODE_PRIVATE);
+		String strSavedMem1 = sharedPreferences.getString("LstrtDay", null);
+		if(strSavedMem1==null)
+		{
+		StrtDayEditView.setText("1");
+		endtime.setText("3");
+		dfrequency.setText("1");
+		}
+		
+		// ---------------------Resett Values--------------------
+		if (strSavedMem1 != null) {
+			String strLendday = sharedPreferences.getString("LendDay", "");
+			String Lfrequency = sharedPreferences.getString("Lfrequency", "");
+			StrtDayEditView.setText(strSavedMem1);
+			endtime.setText(strLendday);
+			dfrequency.setText(Lfrequency);
 		}
 	}
 
@@ -157,10 +178,6 @@ spinner1.setSelected(true);
 		// TODO Auto-generated method stub
 		spinner1 = (Spinner) findViewById(R.id.spinner1);
 		spinner1.setOnItemSelectedListener(this);
-
-		togglebutton = (ToggleButton) findViewById(R.id.toggleButton1);
-		togglebutton.setOnClickListener(this);
-
 	}
 
 	@Override
@@ -176,9 +193,8 @@ spinner1.setSelected(true);
 			strtDay = (Integer.parseInt(StrtDayEditView.getText().toString()));
 			enddayLeft = (Integer.parseInt(endtime.getText().toString()));
 			freLeft = (Integer.parseInt(dfrequency.getText().toString()));
-			if ((strtDay != 0) && (enddayLeft != 0) && (freLeft != 0)
-					&& (toggle%2!=0)&&(toggle!=1)) {
-				final Dialog dialog = new Dialog(context);
+			if ((strtDay != 0) && (enddayLeft != 0) && (freLeft != 0)) {
+				/*final Dialog dialog = new Dialog(context);
 				dialog.setContentView(R.layout.activatealarm);
 				dialog.setTitle("Activate alarm...");
 
@@ -188,13 +204,11 @@ spinner1.setSelected(true);
 
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-                   togglebutton.setChecked(true);
-
 						dialog.dismiss();
 					}
 				});
 				dialog.show();
-				dialog.getWindow().setLayout(280, 280);
+				dialog.getWindow().setLayout(280, 280);*/
 			}
 			if (Flag == 1) {
 				sharedPreferences = getSharedPreferences("MY_SHARED_PREF",
@@ -222,10 +236,11 @@ spinner1.setSelected(true);
 
 					freLeft = freLeft  * 60 *60* 1000;
 					myCounter(freLeft);
-					Intent intent = new Intent(this, MainActivity.class);
+					/*Intent intent = new Intent(this, MainActivity.class);
 					//intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					// intent.putExtra(name, ("finishApplication", true);
-					startActivity(intent);
+					startActivity(intent);*/
+					finish();
 				}
 
 				else {
@@ -261,10 +276,11 @@ spinner1.setSelected(true);
 
 					freLeft = freLeft * 60 *60 * 1000;
 					myCounter(freLeft);
-					Intent intent = new Intent(this, MainActivity.class);
+					/*Intent intent = new Intent(this, MainActivity.class);
 					//intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					// intent.putExtra(name, ("finishApplication", true);
-					startActivity(intent);
+					startActivity(intent);*/
+					finish();
 				}
 
 				else {
@@ -289,10 +305,11 @@ spinner1.setSelected(true);
 
 					freLeft = freLeft * 60* 60 * 1000;
 					myCounter(freLeft);
-					Intent intent = new Intent(this, MainActivity.class);
+					/*Intent intent = new Intent(this, MainActivity.class);
 					//intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					// intent.putExtra(name, ("finishApplication", true);
-					startActivity(intent);
+					startActivity(intent);*/
+					finish();
 				}
 
 				else {
@@ -301,13 +318,6 @@ spinner1.setSelected(true);
 							Toast.LENGTH_SHORT).show();
 				}
 			}
-			break;
-		case R.id.toggleButton1:
-			toggle += 1;
-
-			break;
-		case R.id.toggleButton2:
-			vibrator += 1;
 			break;
 		case R.id.imageButton1:
 
@@ -349,7 +359,6 @@ spinner1.setSelected(true);
 			StrtDayEditView.setText("");
 			endtime.setText("");
 			dfrequency.setText("");
-			togglebutton.setChecked(false);
 
 			// ----------------------------------When Left was
 			// clicked----------------
@@ -416,7 +425,6 @@ spinner1.setSelected(true);
 			StrtDayEditView.setText("");
 			endtime.setText("");
 			dfrequency.setText("");
-			togglebutton.setChecked(false);
 
 			sharedPreferences = getSharedPreferences("MY_SHARED_PREF",
 					MODE_PRIVATE);
@@ -435,10 +443,11 @@ spinner1.setSelected(true);
 			dfrequency.setText("1");
 			break;
 		case R.id.textView7:
-			Intent intent = new Intent(this, MainActivity.class);
+			/*Intent intent = new Intent(this, MainActivity.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			// intent.putExtra(name, ("finishApplication", true);
-			startActivity(intent);
+			startActivity(intent);*/
+			finish();
 			break;
 		case R.id.tv1:
 			dfrequency.setText("1");
@@ -545,14 +554,10 @@ spinner1.setSelected(true);
 	
 	NotificationManager nm = (NotificationManager)
 			getSystemService(NOTIFICATION_SERVICE);
-			Notification notif = new Notification(R.drawable.ic_launcher,"Reminder: Meeting starts in 5 minutes",System.currentTimeMillis());
-			if(vibrator%2!=0)
-			{
+			Notification notif = new Notification(R.drawable.icon512,"Reminder: Meeting starts in 5 minutes",System.currentTimeMillis());
 				long pattern[] = {100, 250, 100, 500};
 			
 				vibe.vibrate(pattern,-1);
-				
-			}
 			CharSequence from = "System Alarm";
 			CharSequence message = "Meeting with customer at 3pm...";
 			notif.setLatestEventInfo(this, from, message, pendingIntent);

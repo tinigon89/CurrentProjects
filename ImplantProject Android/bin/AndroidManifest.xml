@@ -1,0 +1,52 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.implantproject"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:icon="@drawable/icon512"
+        android:label="Implant Exercise"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainActivity" >
+        </activity>
+        <activity android:name=".MassageActivity" >
+        </activity>
+        <activity android:name=".SettingActivity" >
+        </activity>
+        <activity android:name=".SecondPhase" >
+        </activity>
+        <activity android:name=".VideoActivity" 
+             >
+        </activity>
+        
+        <activity
+            android:name=".NotificationView"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity android:name=".ViewFlipperSampleActivity" >
+        </activity>
+        <activity android:name=".armCircleSettingActivity" >
+        </activity>
+        <activity android:name=".thirdSettingActivity" >
+        </activity>
+        
+        <activity
+            android:name=".TermConditionActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+     
+    </application>
+
+</manifest>

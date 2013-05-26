@@ -225,7 +225,7 @@
 		AA53B0D7173A3F1300F2FCFC /* EulaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EulaViewController.xib; sourceTree = "<group>"; };
 		AA5804A4174C7DA900184D3E /* icon72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72x72.png; sourceTree = "<group>"; };
 		AA5804A6174C7DB000184D3E /* icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114x114.png; sourceTree = "<group>"; };
-		AAFA3B9A1744E7E800A33631 /* BreastImplantExercises-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BreastImplantExercises-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAFA3B9A1744E7E800A33631 /* Breast Implant Exercises HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breast Implant Exercises HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFA3B9C1744E7E900A33631 /* BreastImplantExercises copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BreastImplantExercises copy-Info.plist"; path = "/Users/daihuynh/Pictures/CurrentProjects/BreastImplantExercises-final_2 2/BreastImplantExercises copy-Info.plist"; sourceTree = "<absolute>"; };
 		AAFA3B9D1744E7EE00A33631 /* DefaultExerciseController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DefaultExerciseController.xib; path = "Resources-iPad/Medical_Revised/DefaultExerciseController.xib"; sourceTree = "<group>"; };
 		AAFA3B9E1744E7EE00A33631 /* CustomExerciseController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomExerciseController.xib; path = "Resources-iPad/Medical_Revised/CustomExerciseController.xib"; sourceTree = "<group>"; };
@@ -391,7 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				C28BED9E1534990000543895 /* Breast Implant Exercises.app */,
-				AAFA3B9A1744E7E800A33631 /* BreastImplantExercises-iPad.app */,
+				AAFA3B9A1744E7E800A33631 /* Breast Implant Exercises HD.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -679,7 +679,7 @@
 			);
 			name = "BreastImplantExercises-iPad";
 			productName = Medical_Revised;
-			productReference = AAFA3B9A1744E7E800A33631 /* BreastImplantExercises-iPad.app */;
+			productReference = AAFA3B9A1744E7E800A33631 /* Breast Implant Exercises HD.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C28BED9D1534990000543895 /* BreastImplantExercises */ = {
