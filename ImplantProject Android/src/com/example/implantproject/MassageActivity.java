@@ -57,9 +57,11 @@ public class MassageActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.toggleButton1:
-
-			counter++;
-
+			if(counter == 0){
+				counter = 1;
+			} else {
+				counter = 0;
+			}
 			break;
 		case R.id.tvvideoview:
 			i = new Intent(MassageActivity.this, VideoActivity.class);
@@ -73,20 +75,24 @@ public class MassageActivity extends Activity implements OnClickListener {
 		case R.id.shoulderroll:
 			SavePreferences("Title", "Shoulder Roll");
 			i = new Intent(MassageActivity.this, SettingActivity.class);
-			i.putExtra("TogglebuttonValue", counter);
+			i.putExtra("alarmbutton_phase1", counter);
+			i.putExtra("screen_name", "shoulderroll");
 			startActivity(i);
 			break;
 		case R.id.armcircle:
 			SavePreferences("Title", "Arm Circle");
-			i = new Intent(MassageActivity.this, armCircleSettingActivity.class);
-			i.putExtra("TogglebuttonValue", counter);
+			//i = new Intent(MassageActivity.this, armCircleSettingActivity.class);
+			i = new Intent(MassageActivity.this, SettingActivity.class);
+			i.putExtra("alarmbutton_phase1", counter);
+			i.putExtra("screen_name", "armcircle");
 			startActivity(i);
 
 			break;
 		case R.id.armstretch:
 			SavePreferences("Title", "Arm Stretch");
 			i = new Intent(MassageActivity.this, SettingActivity.class);
-			i.putExtra("TogglebuttonValue", counter);
+			i.putExtra("alarmbutton_phase1", counter);
+			i.putExtra("screen_name", "armstretch");
 			startActivity(i);
 
 			break;

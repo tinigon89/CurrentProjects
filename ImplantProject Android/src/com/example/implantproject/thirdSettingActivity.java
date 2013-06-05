@@ -76,13 +76,13 @@ public class thirdSettingActivity extends Activity implements OnClickListener,
 		setContentView(R.layout.activity_main);
 		TextView b = (TextView) findViewById(R.id.imageButton1);
 		b.setOnClickListener(this);
-		minus = (TextView) findViewById(R.id.imageButton2);
-		minus.setOnClickListener(this);
+		//minus = (TextView) findViewById(R.id.imageButton2);
+		//minus.setOnClickListener(this);
 		StrtDayEditView = (EditText) findViewById(R.id.editText3);
-		endplus = (TextView) findViewById(R.id.enddayplus);
-		endplus.setOnClickListener(this);
-		endminus = (TextView)findViewById(R.id.enddayminus);
-        endminus.setOnClickListener(this);
+		//endplus = (TextView) findViewById(R.id.enddayplus);
+		//endplus.setOnClickListener(this);
+		//endminus = (TextView)findViewById(R.id.enddayminus);
+        //endminus.setOnClickListener(this);
 		// freminus=(ImageButton)findViewById(R.id.imageButton4);
 		cancel = (TextView) findViewById(R.id.textView7);
 		cancel.setOnClickListener(this);
@@ -335,7 +335,7 @@ public class thirdSettingActivity extends Activity implements OnClickListener,
 				Toast.makeText(thirdSettingActivity.this, "You can go beypnd 12",
 						Toast.LENGTH_SHORT).show();
 			break;
-		case R.id.imageButton2:
+		/*case R.id.imageButton2:
 			if (strtDay >= 1) {
 
 				try {
@@ -349,7 +349,7 @@ public class thirdSettingActivity extends Activity implements OnClickListener,
 			} else
 				Toast.makeText(thirdSettingActivity.this, "You can go beypnd 0",
 						Toast.LENGTH_SHORT).show();
-			break;
+			break;*/
 	
 		case R.id.imageButton3:
 			left.setImageResource(R.drawable.left1);
@@ -382,41 +382,6 @@ public class thirdSettingActivity extends Activity implements OnClickListener,
 			}
 
 			break;
-		case R.id.enddayplus:
-			
-			if (endDay < 12) {
-
-				try {
-					String hello = endtime.getText().toString();
-					endDay = Integer.parseInt(hello);
-				} catch (NumberFormatException nfe) {
-					System.out.println("Could not parse " + nfe);
-				}
-				endDay++;
-				endtime.setText("" + endDay);
-			} else
-				Toast.makeText(thirdSettingActivity.this, "You can go beypnd 12",
-						Toast.LENGTH_SHORT).show();
-
-			break;
-		case R.id.enddayminus:
-			
-			if (endDay > 0) {
-
-				try {
-					String hello = endtime.getText().toString();
-					endDay = Integer.parseInt(hello);
-				} catch (NumberFormatException nfe) {
-					System.out.println("Could not parse " + nfe);
-				}
-				endDay--;
-				endtime.setText("" + endDay);
-			} else
-				Toast.makeText(thirdSettingActivity.this, "You can go beypnd 12",
-						Toast.LENGTH_SHORT).show();
-
-			break;
-						
 		case R.id.imageButton5:
 			left.setImageResource(R.drawable.left);
 			right.setImageResource(R.drawable.right1);

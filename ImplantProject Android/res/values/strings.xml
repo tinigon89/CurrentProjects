@@ -15,7 +15,7 @@
     <string name="sound_prompt">Choose a Sound</string>
     <string name="startday">Start Day</string>
     <string name="strtday">0</string>
-    <string name="frequency">Frequency</string>
+    <string name="frequency">Frequency:</string>
     <string name="frequencytextview">0</string>
     <string name="endday">End day</string>
     <string name="setting">Settings</string>
@@ -34,7 +34,7 @@
     <string name="rapidreturn">Rapid Return</string>
     <string name="close">Snooze</string>
     <string name="hours">Hours</string>
-    <string name="alarmsound">Alarm Sound</string>
+    <string name="alarmsound">Alarm Sound:</string>
     <string name="activate">Activate</string>
     <string name="title_activity_term_condition">TermConditionActivity</string>
     <string name="disclaimtext">The App is intended for persons eighteen (18) years or older. Persons under the age of eighteen</string>

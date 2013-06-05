@@ -77,13 +77,7 @@ public class armCircleSettingActivity extends Activity implements OnClickListene
 		setContentView(R.layout.activity_main);
 		TextView b = (TextView) findViewById(R.id.imageButton1);
 		b.setOnClickListener(this);
-		minus = (TextView) findViewById(R.id.imageButton2);
-		minus.setOnClickListener(this);
 		StrtDayEditView = (EditText) findViewById(R.id.editText3);
-		endplus = (TextView) findViewById(R.id.enddayplus);
-		endplus.setOnClickListener(this);
-		endminus = (TextView)findViewById(R.id.enddayminus);
-        endminus.setOnClickListener(this);
 		// freminus=(ImageButton)findViewById(R.id.imageButton4);
 		cancel = (TextView) findViewById(R.id.textView7);
 		cancel.setOnClickListener(this);
@@ -337,22 +331,6 @@ public class armCircleSettingActivity extends Activity implements OnClickListene
 				Toast.makeText(armCircleSettingActivity.this, "You can go beypnd 12",
 						Toast.LENGTH_SHORT).show();
 			break;
-		case R.id.imageButton2:
-			if (strtDay >= 1) {
-
-				try {
-					String hello = StrtDayEditView.getText().toString();
-					strtDay = Integer.parseInt(hello);
-				} catch (NumberFormatException nfe) {
-					System.out.println("Could not parse " + nfe);
-				}
-				strtDay--;
-				StrtDayEditView.setText("" + strtDay);
-			} else
-				Toast.makeText(armCircleSettingActivity.this, "You can go beypnd 0",
-						Toast.LENGTH_SHORT).show();
-			break;
-	
 		case R.id.imageButton3:
 			left.setImageResource(R.drawable.left1);
 			right.setImageResource(R.drawable.rightbutton);
@@ -382,40 +360,6 @@ public class armCircleSettingActivity extends Activity implements OnClickListene
 				endtime.setText(strLendday);
 				dfrequency.setText(Lfrequency);
 			}
-
-			break;
-		case R.id.enddayplus:
-			
-			if (endDay < 12) {
-
-				try {
-					String hello = endtime.getText().toString();
-					endDay = Integer.parseInt(hello);
-				} catch (NumberFormatException nfe) {
-					System.out.println("Could not parse " + nfe);
-				}
-				endDay++;
-				endtime.setText("" + endDay);
-			} else
-				Toast.makeText(armCircleSettingActivity.this, "You can go beypnd 12",
-						Toast.LENGTH_SHORT).show();
-
-			break;
-		case R.id.enddayminus:
-			
-			if (endDay > 0) {
-
-				try {
-					String hello = endtime.getText().toString();
-					endDay = Integer.parseInt(hello);
-				} catch (NumberFormatException nfe) {
-					System.out.println("Could not parse " + nfe);
-				}
-				endDay--;
-				endtime.setText("" + endDay);
-			} else
-				Toast.makeText(armCircleSettingActivity.this, "You can go beypnd 12",
-						Toast.LENGTH_SHORT).show();
 
 			break;
 						
