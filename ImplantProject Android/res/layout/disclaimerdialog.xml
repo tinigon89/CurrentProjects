@@ -3,29 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
-    
 
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1" >
-
+
         <LinearLayout
             android:id="@+id/image1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/rapidreturn" >
-
         </LinearLayout>
     </ScrollView>
 
-<Button
-    android:id="@+id/button1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="0"
-    android:text="@string/cancel" />
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="0"
+        android:background="@color/Blue"
+        android:text="@string/cancel"
+        android:textColor="@color/white" />
 
 </LinearLayout>

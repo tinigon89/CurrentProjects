@@ -27,6 +27,15 @@
             android:textSize="15dp"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/add_item"
+            android:layout_width="67dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="Add"
+            android:textSize="15dp" />
+        
         <TextView
             android:id="@+id/home"
             android:layout_width="67dp"
@@ -57,64 +66,37 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/instructions"
             android:textColor="@color/white"
-            
             android:typeface="monospace" />
 
         <ImageButton
             android:id="@+id/imageButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
             android:layout_gravity="center"
+            android:background="@null"
             android:src="@drawable/textxgeneric" />
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="286dp"
-        android:layout_height="165dp"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/linearLayout1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="85dp"
         android:background="@color/lightblue"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" 
+        android:layout_marginBottom="20dp">
 
-        <TextView
-            android:id="@+id/shoulderroll"
-            android:layout_width="256dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/holder"
-            android:clickable="true"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@string/shoulderroll"
-            android:textColor="@color/white"
-            android:textSize="15dp" />
-
-        <TextView
-            android:id="@+id/armcircle"
-            android:layout_width="256dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:background="@drawable/holder"
-            android:clickable="true"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@string/armcircle"
-            android:textColor="@color/white"
-            android:textSize="15dp" />
-
-        <TextView
-            android:id="@+id/armstretch"
-            android:layout_width="256dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:background="@drawable/holder"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/armstretch"
-            android:textColor="@color/white"
-            android:textSize="15dp" />
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:dividerHeight="1dp"
+            android:divider="@color/lightblue"/>
     </LinearLayout>
 
     <LinearLayout
@@ -142,7 +124,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/Black" />
-      
     </LinearLayout>
 
     <LinearLayout
@@ -152,31 +133,30 @@
         android:layout_alignRight="@+id/linearLayout3"
         android:layout_below="@+id/relativeLayout1"
         android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
         android:background="@color/lightblue"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp" >
+        android:orientation="horizontal" >
 
-         <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-       
-        android:text="@string/phase"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        android:textStyle="bold" 
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="2dp"></TextView>
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/phase"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" >
+        </TextView>
+
         <ToggleButton
             android:id="@+id/toggleButton1"
             android:layout_width="85dp"
             android:layout_height="35dp"
-            
-            android:background="@drawable/btn_toggle"
             android:layout_marginTop="5dp"
+            android:background="@drawable/btn_toggle"
+            android:checked="true"
             android:gravity="center_vertical|center_horizontal" />
-        
-
     </LinearLayout>
 
     <TextView

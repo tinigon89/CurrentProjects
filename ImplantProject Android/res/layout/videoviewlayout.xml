@@ -3,32 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-<LinearLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
-        android:orientation="horizontal"
-        >
-
         <Button
             android:id="@+id/button2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_weight="0"
-            android:text="@string/back" 
+            android:background="@drawable/holder"
+            android:text="@string/back"
             android:textColor="@color/white"
             android:textSize="18dp"
-            android:textStyle="bold"
-            android:background="@drawable/holder"/>
-
+            android:textStyle="bold" />
     </LinearLayout>
 
     <VideoView
         android:id="@+id/videoView1"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        
         android:layout_gravity="center_horizontal|center_vertical" />
 
 </LinearLayout>

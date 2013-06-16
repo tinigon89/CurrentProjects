@@ -22,11 +22,11 @@ private int flag = 0;
         setContentView(R.layout.videoviewlayout);
        
         int streamID = getIntent().getExtras().getInt("Videoname", 0);
-        if(streamID == R.raw.breastmassage){flag = 1;}
         mVideoView = (VideoView) findViewById(R.id.videoView1);
         mVideoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() +"/"+streamID)); 
        
         mVideoView.setMediaController(new MediaController(this));
+        mVideoView.start();
         mVideoView.requestFocus();
         
          Button b = (Button)findViewById(R.id.button2);
@@ -45,11 +45,8 @@ private int flag = 0;
 		switch(arg0.getId()){
 		
 		case R.id.button2:
-			if(flag==1){
-			startActivity(new Intent (VideoActivity.this,SecondPhase.class));
-			}else
-				startActivity(new Intent (VideoActivity.this,MassageActivity.class));
-			break;
+			mVideoView.pause();
+			finish();
 		}
 	}
 }

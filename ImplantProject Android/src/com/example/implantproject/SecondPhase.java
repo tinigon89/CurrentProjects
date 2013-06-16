@@ -65,11 +65,12 @@ private TextView tvVide;
 			break;
 		case R.id.tvVideo:
 			i = new Intent(SecondPhase.this,VideoActivity.class);
-			i.putExtra("Videoname", R.raw.breastmassage);
+			i.putExtra("Videoname", R.raw.phase222);
 			startActivity(i);
 			break;
 		case R.id.home:
-			startActivity(new Intent (SecondPhase.this,MainActivity.class));
+			//startActivity(new Intent (SecondPhase.this,MainActivity.class));
+			finish();
 			break;
 		case R.id.exercise1:
 			SavePreferences("Title", "Exercise 1");

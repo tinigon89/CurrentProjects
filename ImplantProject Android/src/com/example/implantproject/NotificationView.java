@@ -2,6 +2,7 @@ package com.example.implantproject;
 
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
@@ -40,5 +41,14 @@ public class NotificationView extends Activity implements OnClickListener {
 			this.finish();
 			break;
 		}
+	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		
+		NotificationManager nMgr = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		nMgr.cancelAll();
 	}
 }

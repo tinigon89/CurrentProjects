@@ -7,9 +7,16 @@
     <string name="sounds">Sounds</string>
 
     <string-array name="sounds_array">
-        <item>BecauseOfYou</item>
-        <item>tictac</item>
-        <item>AlarmChicken</item>
+        <item>Twilight Piano</item>
+        <item>Study Mix</item>
+        <item>Morning Piano Nature</item>
+        <item>Gamma brainwaves</item>
+        <item>Morning Glow</item>
+        <item>Vibrate</item>
+        <item>Love</item>
+        <item>Because of You</item>
+        <item>Alarm Chicken</item>
+        <item>3 Beeps</item>
     </string-array>
 
     <string name="sound_prompt">Choose a Sound</string>
@@ -37,7 +44,7 @@
     <string name="alarmsound">Alarm Sound:</string>
     <string name="activate">Activate</string>
     <string name="title_activity_term_condition">TermConditionActivity</string>
-    <string name="disclaimtext">The App is intended for persons eighteen (18) years or older. Persons under the age of eighteen</string>
+    <string name="disclaimtext">The App is intended for persons eighteen (18) years or older. Persons under the age of 18 should not use this without the knowledge, consent and the supervision of an adult.</string>
     <string name="terms">Agreed with above terms and conditions</string>
     <string name="condition">Terms and Conditions</string>
     <string name="rapid">Phase 1: Rapid Return</string>
@@ -57,5 +64,4 @@
     <string name="title_activity_video">VideoActivity</string>
     <string name="back">Back</string>
     <string name="play">Play Video</string>
-
 </resources>

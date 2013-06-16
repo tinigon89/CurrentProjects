@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Term Of User" />
-
     <ViewFlipper
         android:id="@+id/vfShow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent" 
+        android:layout_above="@+id/acceptButton">
     </ViewFlipper>
+    
+    <Button
+        android:id="@+id/acceptButton"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="I have read and accept this agreement" 
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@color/Blue" 
+        android:textColor="@color/white"/>
 
-</LinearLayout>
+</RelativeLayout>
