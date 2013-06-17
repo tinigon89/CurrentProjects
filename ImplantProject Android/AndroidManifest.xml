@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.implantproject"
+    package="com.bim.implantproject"
     android:versionCode="1"
     android:versionName="1.3" >
 
@@ -15,38 +15,38 @@
         android:icon="@drawable/icon512"
         android:label="Implant Exercise"
         android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity" >
+        <activity android:name="com.bim.implantproject.MainActivity" >
         </activity>
-        <activity android:name=".MassageActivity" >
+        <activity android:name="com.bim.implantproject.MassageActivity" >
         </activity>
-        <activity android:name=".SettingActivity" >
+        <activity android:name="com.bim.implantproject.SettingActivity" >
         </activity>
-        <activity android:name=".SecondPhase" >
+        <activity android:name="com.bim.implantproject.SecondPhase" >
         </activity>
-        <activity android:name=".VideoActivity" 
+        <activity android:name="com.bim.implantproject.VideoActivity" 
              >
         </activity>
         
         <activity
-            android:name=".NotificationView"
+            android:name="com.bim.implantproject.NotificationView"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
-        <activity android:name=".ViewFlipperSampleActivity" >
+        <activity android:name="com.bim.implantproject.ViewFlipperSampleActivity" >
         </activity>
-        <activity android:name=".armCircleSettingActivity" >
+        <activity android:name="com.bim.implantproject.armCircleSettingActivity" >
         </activity>
-        <activity android:name=".thirdSettingActivity" >
-        </activity>
-        
-        <activity android:name=".AddItemActivity" >
+        <activity android:name="com.bim.implantproject.thirdSettingActivity" >
         </activity>
         
-        <activity android:name=".TermConditionActivity"
+        <activity android:name="com.bim.implantproject.AddItemActivity" >
+        </activity>
+        
+        <activity android:name="com.bim.implantproject.TermConditionActivity"
             android:theme="@android:style/Theme.Dialog"  >
         </activity>
         
         <activity
-            android:name=".ImplantProject"
+            android:name="com.bim.implantproject.ImplantProject"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,7 +55,7 @@
             </intent-filter>
         </activity>
         
-        <receiver android:name=".NotificationBarAlarm" />
+        <receiver android:name="com.bim.implantproject.NotificationBarAlarm" />
     </application>
 
 </manifest>
